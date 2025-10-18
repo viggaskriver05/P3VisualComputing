@@ -1,13 +1,14 @@
-
 using UnityEngine;
 using UnityEngine.Events;
 
 public class FootstepSystem : MonoBehaviour
+
 {
     [Range(0, 20f)]
     public float frequency = 10.0f;
 
     public UnityEvent onFootStep;
+    private float footstepSpeed = 1.2f;
 
     float Sin;
     bool isTriggered = false;
@@ -28,7 +29,7 @@ public class FootstepSystem : MonoBehaviour
 
     private void StartFootsteps()
     {
-        Sin = Mathf.Sin(Time.time* 1.2f * frequency);
+        Sin = Mathf.Sin(Time.time* footstepSpeed * frequency);
 
         if (Sin > 0 && isTriggered == false)
         {
@@ -42,3 +43,10 @@ public class FootstepSystem : MonoBehaviour
         }
     }
 }
+// --- NOTES TO JOEBOB ---
+// Make different terrain footstep sounds and multiple sounds per terrain eg. grass1, grass2, grass3 etc.
+// Make rain inside + figure out how to make it work in a window
+// ambiance sound that changes based on environment (indoor/outdoor)
+
+
+

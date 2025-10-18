@@ -19,3 +19,6 @@ MonoBehaviour:
   - name: GRASS
     soundEffects:
     - {fileID: 8300000, guid: 0b286c924476f44e79281f6ee6f4e84d, type: 3}
+  - name: 'WATER '
+    soundEffects:
+    - {fileID: 8300000, guid: 39f555c68ddb543aa8703de554c3d5d4, type: 3}
