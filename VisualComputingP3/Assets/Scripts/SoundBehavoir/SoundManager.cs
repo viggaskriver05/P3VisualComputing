@@ -36,9 +36,13 @@ public class SoundManager : MonoBehaviour
 
         AmbienceSource.loop = true;
     }
+    void Start()
+    {
+        PlayMusicSFX("samba_mus");
+        Debug.Log("SÅ DER SGU SAMBA");
+    }
 
-
-     public void PlayAmbienceSFX(string name)
+    public void PlayAmbienceSFX(string name)
     {
         Audio s = Array.Find(AmbienceSFX, x => x.name == name);
         if (s == null)
