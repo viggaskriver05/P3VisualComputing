@@ -36,11 +36,11 @@ public class SoundManager : MonoBehaviour
 
         AmbienceSource.loop = true;
     }
-    void Start()
+   /* void Start()
     {
         PlayMusicSFX("samba_mus");
         Debug.Log("SÅ DER SGU SAMBA");
-    }
+    }*/
 
     public void PlayAmbienceSFX(string name)
     {
