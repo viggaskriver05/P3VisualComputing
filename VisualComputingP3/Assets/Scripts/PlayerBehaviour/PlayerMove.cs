@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
-    public Transform camera;
+    public Transform playerCamera;
     public float mouseSensitivity = 150f;
     public float moveSpeed = 12f;
     public float gravity = -9.81f;
@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        if (camera == null && Camera.main)
-            camera = Camera.main.transform;
+        if (playerCamera == null && Camera.main)
+            playerCamera = Camera.main.transform;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -31,8 +31,8 @@ public class PlayerMovement : MonoBehaviour
         pitch = Mathf.Clamp(pitch, -90f, 90f);
 
         transform.rotation = Quaternion.Euler(0f, yaw, 0f);
-        if (camera)
-            camera.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+        if (playerCamera)
+            playerCamera.localRotation = Quaternion.Euler(pitch, 0f, 0f);
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
