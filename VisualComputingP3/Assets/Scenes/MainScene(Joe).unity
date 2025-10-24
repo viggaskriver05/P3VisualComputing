@@ -853,6 +853,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1735705154}
   m_LocalEulerAnglesHint: {x: 169.87, y: -128, z: -4}
+--- !u!1 &217746986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 217746988}
+  - component: {fileID: 217746987}
+  m_Layer: 0
+  m_Name: Airespons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &217746987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217746986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5724e725d45514f9a8d78207611ec2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apiKey: 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
+  model: gpt-4o-mini
+  defaultSystemPrompt: 
+  useTonality: 1
+  tonality: neutral
+--- !u!4 &217746988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217746986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.39885312, y: 11.31264, z: 4.8685093}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &222378868
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +976,152 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &292014385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292014388}
+  - component: {fileID: 292014387}
+  - component: {fileID: 292014386}
+  m_Layer: 0
+  m_Name: aiTTS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &292014386
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292014385}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -8006450948434481298, guid: fd15080b2567545c9b2947aa48829f7a, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &292014387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292014385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0f449ad634d44e0bc17f44443d0786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apiKey: 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
+  model: gpt-4o-mini-tts
+  voice: ballad
+  audioSource: {fileID: 292014386}
+--- !u!4 &292014388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292014385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.39885312, y: 11.31264, z: 4.8685093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1989,7 +2184,7 @@ GameObject:
   - component: {fileID: 832397529}
   - component: {fileID: 832397528}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: introvid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2003,7 +2198,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832397527}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 042c1f12a4e1346ad9a1456513159567, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: c33d047db3d9342da9357096cac2c8ea, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -2136,7 +2331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!328 &936870873
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -2903,11 +3098,61 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215554664}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!82 &1310327083 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7960662366915613651, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-  m_PrefabInstance: {fileID: 702760913}
+--- !u!1 &1253811529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253811531}
+  - component: {fileID: 1253811530}
+  m_Layer: 0
+  m_Name: aiIntro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1253811530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253811529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25bf7b3879a546b58bdfe2c2482afb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  line: "It began as fatigue: sleepless nights, quiet breakdowns, the slow dissaperance
+    of joy.\nWithin a decade, emotional instability had reached epidemic levels.\nAnxiety,
+    depression, and dissociation spread faster than any virus.\nOne in every three
+    citizens reported suicidal thoughts. Entire cities simply stopped functioning.\nGovernments
+    declared a global psychological emergency. The economy collapsed under the weight
+    of collective despair.\nIn response, the EMPATH Rehabilitation Center was founded
+    - a sanctuary for emotional recovery through adaptive AI therapy.\nPatients were
+    promised balance, clarity, and peace. \nSome people among society have been selected
+    for the try out."
+  voice: ballad
+  model: gpt-4o-mini-tts
+--- !u!4 &1253811531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253811529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5418703, y: 5.573003, z: -2.6601353}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432574261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3085,8 +3330,6 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 5195202129869348742, guid: 7a2c1a6b249974df18c8e0bc046a1804, type: 2}
     value: {fileID: 456149488}
-  - key: {fileID: 4646554124814751645, guid: 7a2c1a6b249974df18c8e0bc046a1804, type: 2}
-    value: {fileID: 1310327083}
   - key: {fileID: 8996016326844810570, guid: 7a2c1a6b249974df18c8e0bc046a1804, type: 2}
     value: {fileID: 740751988}
   m_ExposedReferences:
@@ -3153,7 +3396,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8006450948434481298, guid: fd15080b2567545c9b2947aa48829f7a, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4c78330d823e5456bbe293e54423229f, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4c78330d823e5456bbe293e54423229f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3579,6 +3822,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7587711570456867947, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587711570456867947, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587711570456867947, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3739,3 +3994,6 @@ SceneRoots:
   - {fileID: 936870874}
   - {fileID: 222378871}
   - {fileID: 832397532}
+  - {fileID: 217746988}
+  - {fileID: 292014388}
+  - {fileID: 1253811531}
