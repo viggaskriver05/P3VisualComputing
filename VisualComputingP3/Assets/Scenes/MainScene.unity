@@ -1171,6 +1171,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!95 &456149488 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: b2e3269051dcf46c18152546422bbb11, type: 3}
+  m_PrefabInstance: {fileID: 724767343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &571517808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,6 +2741,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580817340}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1656299418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656299420}
+  - component: {fileID: 1656299419}
+  m_Layer: 0
+  m_Name: Timeline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1656299419
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656299418}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 7a2c1a6b249974df18c8e0bc046a1804, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 4610547041775896543, guid: 7a2c1a6b249974df18c8e0bc046a1804, type: 2}
+    value: {fileID: 456149488}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1656299420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656299418}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.8004613, y: 3.0450902, z: 5.3442802}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1735705154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1139897254975720658, guid: 49fd567bb3a964b6dbec8d72157dc6dc, type: 3}
@@ -3231,3 +3287,4 @@ SceneRoots:
   - {fileID: 1792114091}
   - {fileID: 2000110105}
   - {fileID: 1742524}
+  - {fileID: 1656299420}
