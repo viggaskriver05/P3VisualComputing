@@ -2198,7 +2198,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832397527}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c33d047db3d9342da9357096cac2c8ea, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: bbdfb2fa8b83d42c59c7639bbeac1e21, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -3127,15 +3127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25bf7b3879a546b58bdfe2c2482afb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: "It began as fatigue: sleepless nights, quiet breakdowns, the slow dissaperance
-    of joy.\nWithin a decade, emotional instability had reached epidemic levels.\nAnxiety,
-    depression, and dissociation spread faster than any virus.\nOne in every three
-    citizens reported suicidal thoughts. Entire cities simply stopped functioning.\nGovernments
-    declared a global psychological emergency. The economy collapsed under the weight
-    of collective despair.\nIn response, the EMPATH Rehabilitation Center was founded
-    - a sanctuary for emotional recovery through adaptive AI therapy.\nPatients were
-    promised balance, clarity, and peace. \nSome people among society have been selected
-    for the try out."
+  line: 'test '
   voice: ballad
   model: gpt-4o-mini-tts
 --- !u!4 &1253811531
