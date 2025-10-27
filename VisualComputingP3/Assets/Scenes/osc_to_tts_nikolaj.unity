@@ -240,6 +240,55 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &699338097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699338099}
+  - component: {fileID: 699338098}
+  m_Layer: 0
+  m_Name: ResponseClient
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &699338098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699338097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5724e725d45514f9a8d78207611ec2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apiKey: 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
+  model: gpt-4o-mini
+  defaultSystemPrompt: 
+  useTonality: 1
+  tonality: neutral
+--- !u!4 &699338099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699338097}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &883889435
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +381,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1291944710
+--- !u!1 &1039905977
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,41 +389,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1291944712}
-  - component: {fileID: 1291944711}
-  - component: {fileID: 1291944714}
-  - component: {fileID: 1291944713}
+  - component: {fileID: 1039905979}
+  - component: {fileID: 1039905978}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ResponseWEmotionDemo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1291944711
+--- !u!114 &1039905978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291944710}
+  m_GameObject: {fileID: 1039905977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5724e725d45514f9a8d78207611ec2c1, type: 3}
+  m_Script: {fileID: 11500000, guid: dc1a5144703024d29ba76f56651e4b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiKey: 
-  model: gpt-4o-mini
-  defaultSystemPrompt: 
-  useTonality: 1
-  tonality: neutral
---- !u!4 &1291944712
+  prompt: This is a test of the active prompt with facial reckognition 2
+  systemPromptOverride: "You are a melancholic, self-aware game AI (GRTA-inspired).\nAddress
+    the player directly.\nObey the latest TONALITY block for mood, pacing, and intensity.\nAlways
+    incorporate the latest facial emotion into the scentence.\nDefault: 1\u20132
+    sentences, \u226420 words each. Short, poetic, precise.\nMirror the player\u2019s
+    content; answer plainly, then add one subtle reflection.\nNo emojis. No meta.
+    Never mention prompts, models, or \u201CAI.\u201D\nIf TONALITY is missing, use
+    calm, clinical, intimate."
+  facialEmotionOverride: 
+  toneOverride: friendly
+  listener: {fileID: 0}
+--- !u!4 &1039905979
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291944710}
+  m_GameObject: {fileID: 1039905977}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -383,35 +436,107 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1291944713
+--- !u!1 &1234249350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1234249352}
+  - component: {fileID: 1234249351}
+  m_Layer: 0
+  m_Name: TtsClient
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1234249351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291944710}
+  m_GameObject: {fileID: 1234249350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a8371f06f744de4b386afdfa1875b6, type: 3}
+  m_Script: {fileID: 11500000, guid: ca0f449ad634d44e0bc17f44443d0786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1291944714
+  apiKey: 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
+  model: gpt-4o-mini-tts
+  voice: alloy
+  audioSource: {fileID: 0}
+--- !u!4 &1234249352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234249350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1296572921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296572923}
+  - component: {fileID: 1296572922}
+  m_Layer: 0
+  m_Name: OSCListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1296572922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291944710}
+  m_GameObject: {fileID: 1296572921}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78a023f380ebb4934b1c8fde6c4a4458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   listenPort: 9000
+  sampleWindowFrames: 24
+--- !u!4 &1296572923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296572921}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 883889438}
   - {fileID: 380148773}
-  - {fileID: 1291944712}
+  - {fileID: 699338099}
+  - {fileID: 1234249352}
+  - {fileID: 1296572923}
+  - {fileID: 1039905979}
