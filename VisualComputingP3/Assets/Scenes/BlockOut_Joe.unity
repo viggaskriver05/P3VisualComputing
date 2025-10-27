@@ -1036,7 +1036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &567765580
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -2270,6 +2270,10 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5897436767814490353, guid: 32325b66d0234497b98db671aa5eb6ad, type: 3}
+      propertyPath: jumpScareObject
+      value: 
+      objectReference: {fileID: 393282360}
     - target: {fileID: 8988539325112109835, guid: 32325b66d0234497b98db671aa5eb6ad, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.31
