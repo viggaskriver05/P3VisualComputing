@@ -7,7 +7,10 @@ tf-keras==2.20.1
 navigate to root source in terminal
 
 create new virtual enviroment:
-python -m venv .venv
+python -m venv .venv 
+alternatively 
+python3 -m venv .venv 
+
 
 activate virtual enviroment through terminal or when prompted in VS/code
 source .venv/bin/activate        # macOS/Linux
