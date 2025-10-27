@@ -6,7 +6,7 @@ public class OscJackDemo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var emo = FindObjectOfType<EmotionOscListener>()?.CurrentEmotion;
+        var emo = FindFirstObjectByType<EmotionOscListener>()?.CurrentEmotion;
         Debug.Log($"Current Emotion: {emo}");
     }
 }
