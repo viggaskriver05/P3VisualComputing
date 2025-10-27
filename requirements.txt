@@ -1,0 +1,3 @@
+deepface==0.0.93
+opencv-python==4.10.0.84
+python-osc==1.8.3
