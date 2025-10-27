@@ -7,7 +7,7 @@ public class BoxPlaySfxOnEnter : MonoBehaviour
     [SerializeField] private GameObject jumpScareObject;
     
     private Camera mainCamera;
-    private Vector3 originalCameraPosition;
+    //private Vector3 originalCameraPosition;
     private bool playerInside = false;
 
     private void Awake()
@@ -15,11 +15,11 @@ public class BoxPlaySfxOnEnter : MonoBehaviour
         if (jumpScareObject == null)
             Debug.LogWarning("[BoxPlaySfxOnEnter] JumpScare object not assigned!");
             
-        mainCamera = Camera.main;
+       // mainCamera = Camera.main;
         if (mainCamera == null)
             Debug.LogWarning("[BoxPlaySfxOnEnter] Main camera not found!");
             
-        originalCameraPosition = mainCamera.transform.position;
+        //originalCameraPosition = mainCamera.transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,8 +48,8 @@ public class BoxPlaySfxOnEnter : MonoBehaviour
             if (collider != null)
             {
                 // Get the closest point on the collider bounds to the player
-                Vector3 closestPoint = collider.ClosestPoint(other.transform.position);
-                mainCamera.transform.position = closestPoint;
+               // Vector3 closestPoint = collider.ClosestPoint(other.transform.position);
+               // mainCamera.transform.position = closestPoint;
             }
         }
     }
@@ -62,7 +62,7 @@ public class BoxPlaySfxOnEnter : MonoBehaviour
         // Reset camera position
         if (mainCamera != null)
         {
-            mainCamera.transform.position = originalCameraPosition;
+          //  mainCamera.transform.position = originalCameraPosition;
         }
     }
 }
