@@ -18,6 +18,7 @@ public class OpenAiResponseWEmotionDemo : MonoBehaviour
                 {
                         listener = UnityEngine.Object.FindFirstObjectByType<EmotionOscListener>();
                 }
+                SoundManager.Instance.PlaySpeechSFX("oai_intro_sp");
         }
         async void Start()
         {

@@ -304,7 +304,7 @@ AudioSource:
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.09
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -575,6 +575,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 66acb0b81338c4559a2dcca930e6d512, type: 3}
   - name: Yabbe_sp
     clip: {fileID: 8300000, guid: 35bc9aa3830594311bca1b5f73d7ad1d, type: 3}
+  - name: oai_intro_sp
+    clip: {fileID: 8300000, guid: 797a6b04b34194fb5954dbbf9d4386c2, type: 3}
+  - name: oai_welcome_sp
+    clip: {fileID: 8300000, guid: 372c2318497544442b8f984f8b5f0f16, type: 3}
   AmbienceSource: {fileID: 3050372537057574968}
   MusicSource: {fileID: 4452085325914512582}
   OneShotSource: {fileID: 3359701646640218048}
