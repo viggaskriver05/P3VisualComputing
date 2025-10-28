@@ -20,13 +20,13 @@ namespace FSR
 
         void OnGUI()
         {
-            GUI.Box(new Rect(100, 100, 200, 25), "index: " + surfaceIndex.ToString() + ", name: " + terrainData.splatPrototypes[surfaceIndex].texture.name);
+            GUI.Box(new Rect(100, 100, 200, 25), "index: " + surfaceIndex.ToString() + ", name: " + terrainData.terrainLayers[surfaceIndex].diffuseTexture.name);
         }
 
         public string GetMainTextureName(Vector3 WorldPos)
         {
             surfaceIndex = GetMainTexture(WorldPos);
-            return terrainData.splatPrototypes[surfaceIndex].texture.name;
+            return terrainData.terrainLayers[surfaceIndex].diffuseTexture.name;
         }
 
         private float[] GetTextureMix(Vector3 WorldPos)
