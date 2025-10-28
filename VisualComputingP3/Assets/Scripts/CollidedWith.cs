@@ -67,3 +67,7 @@ public class BoxPlaySfxOnEnter : MonoBehaviour
     }
 }
 // needed: We need a script that can enable movement and mouse scripts to deactivate them in this script.
+// needed: Player lock script 
+// needed: Scannerscript (Trigger) + tranform 
+// nedded: Gamemanager 
+// 
