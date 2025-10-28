@@ -1,39 +1,96 @@
+// ...existing code...
+using System.Collections.Generic;
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
-using UnityEngine.InputSystem;
-#endif
+using UnityEngine.Playables;
 
 public class CutsceneLocker : MonoBehaviour
 {
-    [Header("Disable these while the cutscene plays")]
-    public MonoBehaviour[] movementScripts;          // e.g., your PlayerController, CameraLook, etc.
-    public CharacterController characterController;  // optional
+    [Header("Tags of timeline GameObjects to watch")]
+    [SerializeField] private string[] timelineTags = new string[] { "IntroCutscene" };
 
-    #if ENABLE_INPUT_SYSTEM
-    [Header("New Input System (optional)")]
-    public InputActionAsset inputActions;
-    public string gameplayMap = "Player";
-    #endif
+    [Header("Will find player and freeze ")]
+    [SerializeField] private PlayerMove playerMove;
 
-    public void Lock()
+    [Header("will find FootstepSystem and freeze ")]
+    [SerializeField] private FootstepSystem footStepSystem;
+
+    private readonly List<PlayableDirector> directors = new List<PlayableDirector>();
+    private bool movementLocked = false;
+
+    void Awake()
     {
-        foreach (var s in movementScripts) if (s) s.enabled = false;
-        if (characterController) characterController.enabled = false;
+        if (playerMove == null)
+        {
+            var player = GameObject.FindWithTag("Player");
+            if (player != null)
+                playerMove = player.GetComponent<PlayerMove>();
+        }
 
-        #if ENABLE_INPUT_SYSTEM
-        if (inputActions && !string.IsNullOrEmpty(gameplayMap))
-            inputActions.FindActionMap(gameplayMap, false)?.Disable();
-        #endif
+        if (footStepSystem == null)
+        {
+            var player = GameObject.FindWithTag("Player");
+            if (player != null)
+                footStepSystem = player.GetComponent<FootstepSystem>();
+        }
+
+        RefreshDirectors();
     }
 
-    public void Unlock()
+    void Update()
     {
-        foreach (var s in movementScripts) if (s) s.enabled = true;
-        if (characterController) characterController.enabled = true;
+        // if no directors were found, try to refresh (handles directors instantiated later)
+        if (directors.Count == 0)
+            RefreshDirectors();
 
-        #if ENABLE_INPUT_SYSTEM
-        if (inputActions && !string.IsNullOrEmpty(gameplayMap))
-            inputActions.FindActionMap(gameplayMap, false)?.Enable();
-        #endif
+        bool anyPlaying = false;
+        for (int i = 0; i < directors.Count; i++)
+        {
+            var d = directors[i];
+            if (d == null) continue;
+            if (d.state == PlayState.Playing)
+            {
+                anyPlaying = true;
+                break;
+            }
+        }
+
+        if (anyPlaying != movementLocked)
+            SetMovementLocked(anyPlaying);
+    }
+
+    private void RefreshDirectors()
+    {
+        directors.Clear();
+        for (int t = 0; t < timelineTags.Length; t++)
+        {
+            var tag = timelineTags[t];
+            if (string.IsNullOrEmpty(tag)) continue;
+            var gos = GameObject.FindGameObjectsWithTag(tag);
+            for (int i = 0; i < gos.Length; i++)
+            {
+                var d = gos[i].GetComponent<PlayableDirector>();
+                if (d != null && !directors.Contains(d))
+                    directors.Add(d);
+            }
+        }
+    }
+
+    private void SetMovementLocked(bool locked)
+    {
+        movementLocked = locked;
+
+        if (playerMove != null)
+            playerMove.enabled = !locked;
+        else
+            Debug.LogWarning("[CutsceneLocker] PlayerMove reference is null.");
+
+        if (footStepSystem != null)
+            footStepSystem.enabled = !locked;
+        else
+            Debug.LogWarning("[CutsceneLocker] FootStepSystem reference is null.");
+
+        Cursor.lockState = locked ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = locked;
     }
 }
+// ...existing code...

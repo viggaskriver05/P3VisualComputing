@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VisualComputingP3/Assets/Scalable Grid Prototype Materials/Demo Scene.meta
 guid: f96b48dd45cbd804ab3b88d6d060fa33
+========
+guid: ee9c33f110ba69b42a649c3c0ed1a3db
+>>>>>>>> origin/Johan1:VisualComputingP3/Assets/Scalable Grid Prototype Materials/Materials/Ground.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

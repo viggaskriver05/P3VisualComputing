@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VisualComputingP3/Assets/GeneratedText.meta
 guid: ccfec039d512a4601bb1bee5f4ca4d39
+========
+guid: bea343b9900271546b0205334acdc3bb
+>>>>>>>> origin/Johan1:VisualComputingP3/Assets/Scalable Grid Prototype Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
