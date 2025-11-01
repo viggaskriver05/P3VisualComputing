@@ -4,13 +4,14 @@ using System.Collections.Generic;
 
 public class EmotionOscListener : MonoBehaviour
 {
-    [SerializeField] int listenPort = 9000; 
+    [SerializeField] int listenPort = 9000;
     [Tooltip("How many frames/messages to consider when computing the dominant emotion.")]
-    [SerializeField] int sampleWindowFrames = 10;
+    [SerializeField] int sampleWindowFrames = 24;
     OscServer _server;
 
     public string CurrentEmotion { get; private set; } = "unknown";
     public string DominantEmotion { get; private set; } = "unknown";
+    public string SentimentEmotion { get; private set; } = "unknown";
 
     // Circular buffer for recent emotions
     string[] _buffer;
@@ -42,7 +43,7 @@ public class EmotionOscListener : MonoBehaviour
             Push(label);
             DominantEmotion = ComputeDominant();
 
-            Debug.Log($"/emotion → {label} | Dominant: {DominantEmotion}");
+            Debug.Log($"/emotion → {label} | Dominant: {DominantEmotion} | Sentiment: {SentimentEmotion}");
         });
     }
 
@@ -93,5 +94,45 @@ public class EmotionOscListener : MonoBehaviour
             }
         }
         return dominant;
+    }
+
+    string ComputeSentiment()
+    {
+        if (_count == 0) return "unknown";
+
+        int positive = 0;
+        int negative = 0;
+        int neutral = 0;
+
+        int length = _buffer.Length;
+        int start = _count == length ? _index : 0;
+
+        for (int i = 0; i < _count; i++)
+        {
+            string e = _buffer[(start + i) % length];
+            if (string.IsNullOrEmpty(e)) continue;
+
+            // Simple sentiment mapping
+            switch (e.ToLower())
+            {
+                case "happy":
+                case "surprise":
+                    positive++;
+                    break;
+                case "sad":
+                case "angry":
+                case "fear":
+                case "disgust":
+                    negative++;
+                    break;
+                default:
+                    neutral++;
+                    break;
+            }
+        }
+
+        if (positive >= negative && positive >= neutral) return "positive";
+        if (negative >= positive && negative >= neutral) return "negative";
+        return "neutral";
     }
 }
