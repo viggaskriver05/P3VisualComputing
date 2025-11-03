@@ -11,7 +11,7 @@ public class FacialScanColliderManager2000 : MonoBehaviour
     [SerializeField] private string requiredEmotion = "happy";
     [SerializeField] private float cooldownSeconds = 2.0f;
     [TextArea]
-    [SerializeField] private string promptOnScan = "The user is looking into a facial scanner while doing their daily emotional scan";
+    [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan";
 
     [SerializeField] private bool triggerOnEnterFacialScan = true;
     [SerializeField] private bool triggerOnStayFacialScan = true;
@@ -33,10 +33,6 @@ public class FacialScanColliderManager2000 : MonoBehaviour
         if (demoInstance == null) demoInstance = FindObjectOfType<OpenAiResponseToTtsWEmotionDemo>();
         if (oscClientInstance == null) oscClientInstance = FindObjectOfType<EmotionOscListener>();
 #endif
-        if (SoundManager.Instance != null)
-            SoundManager.Instance.PlaySpeechSFX("oai_facial_scan_sp");
-        else
-            Debug.LogWarning("FacialScanColliderManager2000: SoundManager.Instance not found in Awake().");
     }
 
     void OnTriggerEnter(Collider other)
@@ -73,7 +69,7 @@ public class FacialScanColliderManager2000 : MonoBehaviour
         {
             Debug.Log($"Facial scan matched (tag={requiredTag}, emotion={dominant}). Triggering response.");
             demoInstance.facialEmotionOverride = dominant;
-            demoInstance.prompt = promptOnScan;
+            demoInstance.prompt = promptOnEmotionalScan;
             _ = demoInstance.RunOnce();
 
             // deactivate facial scan triggers after successful scan

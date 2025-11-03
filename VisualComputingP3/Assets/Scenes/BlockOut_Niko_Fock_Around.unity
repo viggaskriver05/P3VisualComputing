@@ -1049,7 +1049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &567765580
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -35470,8 +35470,8 @@ MonoBehaviour:
   requiredTag: FacialScanner
   requiredEmotion: happy
   cooldownSeconds: 2
-  promptOnScan: The user is looking into a facial scanner while doing their daily
-    emotional scan
+  promptOnEmotionalScan: The user is looking into a facial scanner while doing their
+    daily emotional scan
   triggerOnEnterFacialScan: 1
   triggerOnStayFacialScan: 1
   scannerObj: {fileID: 899611264}
