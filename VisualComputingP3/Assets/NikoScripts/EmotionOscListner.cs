@@ -42,8 +42,9 @@ public class EmotionOscListener : MonoBehaviour
             // Push into buffer and update dominant
             Push(label);
             DominantEmotion = ComputeDominant();
+            SentimentEmotion = ComputeSentiment();
 
-            Debug.Log($"/emotion → {label} | Dominant: {DominantEmotion} | Sentiment: {SentimentEmotion}");
+    //        Debug.Log($"/emotion → {label} | Dominant: {DominantEmotion} | Sentiment: {SentimentEmotion}");
         });
     }
 

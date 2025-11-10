@@ -1,5 +1,5 @@
+using System.Threading.Tasks;
 using UnityEngine;
-
 public class FacialScanColliderManager2000 : MonoBehaviour
 {
 
@@ -7,6 +7,9 @@ public class FacialScanColliderManager2000 : MonoBehaviour
     private EmotionOscListener oscClientInstance;
 
     [Header("Trigger Settings")]
+    [SerializeField] private bool introVidIsDone = false;
+    [SerializeField] private bool scanPromptDone = false;
+    private bool introVidStarted = false;
     [SerializeField] private string requiredTag = "FacialScanner";
     [SerializeField] private string requiredEmotion = "happy";
     [SerializeField] private float cooldownSeconds = 2.0f;
@@ -21,8 +24,9 @@ public class FacialScanColliderManager2000 : MonoBehaviour
 
     [SerializeField] private GameObject DoorObj;
 
-
     private bool cooldown;
+
+    
 
     void Awake()
     {
@@ -33,6 +37,29 @@ public class FacialScanColliderManager2000 : MonoBehaviour
         if (demoInstance == null) demoInstance = FindObjectOfType<OpenAiResponseToTtsWEmotionDemo>();
         if (oscClientInstance == null) oscClientInstance = FindObjectOfType<EmotionOscListener>();
 #endif
+
+        // minimal: no extra diagnostics
+    }
+
+    void Update()
+    {
+        if (!introVidIsDone)
+        {
+            CheckIfIntroDone();
+            if (introVidIsDone)
+            {
+            // ready to scan
+            _ = PlayScanPrompt();
+            }
+        }
+        
+        
+    }
+    async Task PlayScanPrompt()
+    {
+        await Task.Delay(10000);
+        SoundManager.Instance.PlaySpeechSFX("oai_facial_scan_sp");
+        scanPromptDone = true;
     }
 
     void OnTriggerEnter(Collider other)
@@ -50,6 +77,7 @@ public class FacialScanColliderManager2000 : MonoBehaviour
     private void TryTrigger(Collider other)
     {
         if (cooldown) return;
+        //if (!scanPromptDone) return;
 
         if (demoInstance == null)
         {
@@ -88,6 +116,43 @@ public class FacialScanColliderManager2000 : MonoBehaviour
             // cooldown only when we actually fired
             cooldown = true;
             Invoke(nameof(ResetCooldown), cooldownSeconds);
+        }
+        
+    }
+
+    void CheckIfIntroDone()
+    {
+        // the intro video is expected on an object named "introvid" with a VideoPlayer
+        var introVideoObj = GameObject.Find("introvid");
+        if (introVideoObj == null)
+        {
+            Debug.LogWarning("FacialScanColliderManager2000: No intro video object found in scene.");
+            return;
+        }
+
+        var videoPlayer = introVideoObj.GetComponent<UnityEngine.Video.VideoPlayer>();
+        if (videoPlayer == null)
+        {
+            Debug.LogWarning("FacialScanColliderManager2000: 'introvid' has no VideoPlayer component.");
+            return;
+        }
+
+        // Transition logging: only log on state change
+        if (videoPlayer.isPlaying)
+        {
+            if (!introVidStarted)
+            {
+                Debug.Log("FacialScanColliderManager2000: Vid playing.");
+                introVidStarted = true;
+            }
+            return; // still playing
+        }
+
+        // Not playing: only mark done if we previously observed it start
+        if (introVidStarted && !introVidIsDone)
+        {
+            Debug.Log("FacialScanColliderManager2000: Vid is done.");
+            introVidIsDone = true;
         }
     }
 

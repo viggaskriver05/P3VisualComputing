@@ -19,7 +19,7 @@ public class OscJackDemo : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-        {
+    {
         current = listener != null ? listener.CurrentEmotion : "unknown";
         dominant = listener != null ? listener.DominantEmotion : "unknown";
 
