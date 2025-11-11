@@ -18,14 +18,18 @@ public class ColliderManager : MonoBehaviour
 
     // FacialScanner-specific (active when GameObject.tag == "FacialScanner")
     [Header("FacialScanner Settings (active when GameObject.tag == 'FacialScanner')")]
-    [Tooltip("Tag required on the entering collider (e.g. Player)")]
     [SerializeField] private string requiredEmotionHappy = "happy";
     [SerializeField] private bool facialScanTriggered = false;
     [TextArea]
     [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan";
-    [SerializeField] private GameObject scannerObj;
+    [SerializeField] private GameObject faceScannerObj;
     [SerializeField] private Material greenMaterial;
-    [SerializeField] private GameObject DoorObj;
+    [SerializeField] private GameObject doorObj;
+
+    // ExerciseScanner-specific (sctivate when GameObject.tag == "ExerciseScanner")
+    [Header("FacialScanner Settings (active when GameObject.tag == 'ExerciseScanner')")]
+    
+    [SerializeField] 
 
     [Header("Intro Video Gate (FacialScanner)")]
     [SerializeField] private bool useIntroVideoGate = true;
@@ -48,8 +52,8 @@ public class ColliderManager : MonoBehaviour
 
     void Update()
     {
-        // Only run the intro gating logic while it's enabled and only on FacialScanner-tagged triggers.
-        if (useIntroVideoGate && CompareTag("FacialScanner"))
+        // Only run the intro gating logic while attached to a FacialScanner-tagged trigger.
+        if (this.CompareTag("FacialScanner"))
         {
             FacialScanner_UpdateGate();
         }
@@ -72,12 +76,29 @@ public class ColliderManager : MonoBehaviour
     void HandleTrigger(Collider other)
     {
         if (cooldown) return;
+         if (demoInstance == null)
+        {
+            Debug.LogWarning("[ColliderManager] Missing OpenAiResponseToTtsWEmotionDemo in scene.");
+            return;
+        }
+        if (oscClientInstance == null)
+        {
+            Debug.LogWarning("[ColliderManager] Missing EmotionOscListener in scene.");
+            return;
+        }
+        var dominant = oscClientInstance.DominantEmotion ?? "unknown";
+        Debug.Log("[ColliderManager] FacialScanner candidate. Dominant emotion = " + dominant);
+        if (!string.Equals(dominant, requiredEmotionHappy, System.StringComparison.OrdinalIgnoreCase)) return;
+        demoInstance.facialEmotionOverride = dominant;
 
         // Use this.CompareTag to branch by the trigger object's own tag
         if (this.CompareTag("FacialScanner") && !facialScanTriggered)
         {
             TryTrigger_FacialScanner(other);
-        } else {
+        } else if (this.CompareTag("ExerciseScanner")) {
+            TryTrigger_ExerciseScanner(other);
+        } else
+        {
             Debug.LogWarning("ColliderManager: Unhandled trigger for tag: " + this.tag);
         }
         // Extend with more tag-specific behaviors here (else if CompareTag("Door") ... )
@@ -134,28 +155,13 @@ public class ColliderManager : MonoBehaviour
             Debug.Log("[ColliderManager] Gated: waiting for scan prompt to complete.");
             return;
         }
-        if (demoInstance == null)
-        {
-            Debug.LogWarning("[ColliderManager] Missing OpenAiResponseToTtsWEmotionDemo in scene.");
-            return;
-        }
-        if (oscClientInstance == null)
-        {
-            Debug.LogWarning("[ColliderManager] Missing EmotionOscListener in scene.");
-            return;
-        }
-
-        var dominant = oscClientInstance.DominantEmotion ?? "unknown";
-        Debug.Log("[ColliderManager] FacialScanner candidate. Dominant emotion = " + dominant);
-        if (!string.Equals(dominant, requiredEmotionHappy, System.StringComparison.OrdinalIgnoreCase)) return;
-
-        demoInstance.facialEmotionOverride = dominant;
+        // update prompt to fit FacialScanner and infrence
         demoInstance.prompt = promptOnEmotionalScan;
         _ = demoInstance.RunOnce();
 
-        if (scannerObj != null)
+        if (faceScannerObj != null)
         {
-            var renderer = scannerObj.GetComponent<Renderer>();
+            var renderer = faceScannerObj.GetComponent<Renderer>();
             if (renderer != null && greenMaterial != null)
             {
                 // instance material change
@@ -163,12 +169,16 @@ public class ColliderManager : MonoBehaviour
                 facialScanTriggered = true;
             }
         }
-        if (DoorObj != null) DoorObj.SetActive(false);
+        if (doorObj != null) doorObj.SetActive(false);
 
         cooldown = true;
         Invoke(nameof(ResetCooldown), cooldownSeconds);
     }
 
+    void TryTrigger_ExerciseScanner(Collider other)
+    {
+        // Placeholder for future ExerciseScanner logic
+    }
     void ResetCooldown() => cooldown = false;
 
     void OnValidate()
