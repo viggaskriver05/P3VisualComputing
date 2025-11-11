@@ -7,6 +7,7 @@ TagManager:
   - BoxTest
   - IntroCutscene
   - JumpscareCutscene
+  - FacialScanner
   layers:
   - Default
   - TransparentFX

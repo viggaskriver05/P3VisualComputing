@@ -1,8 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VisualComputingP3/Assets/Material/floor1.mat.meta
 guid: 04e536b3b4161d24594141b08d1951e6
+========
+guid: 2e7e8e26548874c51aec06287988e1a4
+>>>>>>>> origin/Nikolaj_oct_27:VisualComputingP3/Assets/JumpScareCutscene.playable.meta
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 2100000
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

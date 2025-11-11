@@ -1,8 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VisualComputingP3/Assets/Material/Shader Graphs_loft01.mat.meta
 guid: b9ce19ea012a9fa4ca99e1d29fdff8e0
+========
+guid: fa974849a1f324a50b0532925b0e7c9d
+>>>>>>>> origin/Nikolaj_oct_27:VisualComputingP3/Assets/CutScene_01_timeline 1.playable.meta
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 2100000
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

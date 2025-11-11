@@ -1,8 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VisualComputingP3/Assets/Material/wall1.mat.meta
 guid: c68a67c074d7eeb4cb098f120d057a41
+========
+guid: 8ca5fb70346df42f3969a85a263d8fc5
+>>>>>>>> origin/Nikolaj_oct_27:VisualComputingP3/Assets/introVid.playable.meta
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 2100000
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
