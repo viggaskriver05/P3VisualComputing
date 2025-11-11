@@ -321,10 +321,7 @@ PrefabInstance:
     - {fileID: 6132722151402802059, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 535493925376750102, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2100563950}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
 --- !u!1001 &172401185
 PrefabInstance:
@@ -4629,7 +4626,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 519392400618476591, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
   m_PrefabInstance: {fileID: 158001957}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100563936}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8be405043663643feb017c07413a8c26, type: 3}
@@ -4640,7 +4637,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1958288422486000838, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
   m_PrefabInstance: {fileID: 158001957}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100563936}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42a2f71311779084a9d66d08f33880b7, type: 3}
@@ -5327,6 +5324,7 @@ GameObject:
   - component: {fileID: 1861361003}
   - component: {fileID: 1861361002}
   - component: {fileID: 1861361001}
+  - component: {fileID: 1861361005}
   m_Layer: 0
   m_Name: Trigger cube
   m_TagString: FacialScanner
@@ -5423,6 +5421,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1861361005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861361000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9583a0b943e420ea30239b5c4d6ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownSeconds: 2
+  triggerOnEnter: 1
+  triggerOnStay: 1
+  requiredEmotionHappy: happy
+  facialScanTriggered: 0
+  promptOnEmotionalScan: The user is looking into a facial scanner while doing their
+    daily emotional scan
+  scannerObj: {fileID: 899611264}
+  greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
+  DoorObj: {fileID: 1177937281}
+  useIntroVideoGate: 0
+  introVidIsDone: 1
+  scanPromptDone: 1
+  introVidStarted: 1
+  introVideoObjectName: introvid
 --- !u!1 &1919541909
 GameObject:
   m_ObjectHideFlags: 0
@@ -35454,36 +35479,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!1 &2100563936 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 535493925376750102, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
-  m_PrefabInstance: {fileID: 158001957}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2100563950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100563936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9583a0b943e420ea30239b5c4d6ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  introVidIsDone: 0
-  scanPromptDone: 0
-  introVidStarted: 0
-  requiredTagFacialScanner: FacialScanner
-  requiredEmotionHappy: happy
-  cooldownSeconds: 2
-  promptOnEmotionalScan: The user is looking into a facial scanner while doing their
-    daily emotional scan
-  triggerOnEnterFacialScan: 1
-  triggerOnStayFacialScan: 1
-  scannerObj: {fileID: 899611264}
-  greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
-  DoorObj: {fileID: 1177937281}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
