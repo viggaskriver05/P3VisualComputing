@@ -2237,6 +2237,7 @@ MonoBehaviour:
   LDoor: {fileID: 116626178}
   RDoor: {fileID: 598517078}
   openWidth: 2.5
+  openSpeed: 6
 --- !u!65 &525600067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8930,7 +8931,8 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1300041982}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6132722151402802059, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
