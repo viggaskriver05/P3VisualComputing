@@ -1,31 +1,26 @@
 using UnityEngine;
+using static UnityEngine.Object;
 
 public class Door : InteractionScript
 {
     public bool isOpen = false;
-    public Transform doorHinge;
-    private float openAngle = 90f;
-    private float openSpeed = 3f;
-
-    private Quaternion closedRotation;
-    private Quaternion openRotation;
+    public bool needsKey = true;
+    public Transform LDoor;
+    public Transform RDoor;
+    public float openWidth = 1f;
+    //private float openSpeed = 3f;
 
     void Start()
     {
-        if (doorHinge == null)
-        {
-            doorHinge = this.transform;
-        }
 
-        closedRotation = doorHinge.rotation;
-        openRotation = closedRotation * Quaternion.Euler(0f, openAngle, 0f);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Quaternion targetRotation = isOpen ? openRotation : closedRotation;
-        doorHinge.rotation = Quaternion.Lerp(doorHinge.rotation, targetRotation, Time.deltaTime * openSpeed);
+
+
     }
 
     public override void Interact()
@@ -33,8 +28,11 @@ public class Door : InteractionScript
         PlayerInteraction player = FindAnyObjectByType<PlayerInteraction>();
         
 
-        if (player.isHoldingKey)
+        if (player.isHoldingKey || !needsKey)
         {
+            LDoor.position = new Vector3(LDoor.position.x, LDoor.position.y, LDoor.position.z - openWidth);
+            RDoor.position = new Vector3(RDoor.position.x, RDoor.position.y, RDoor.position.z + openWidth);
+
             isOpen = !isOpen;
             Debug.Log("Door " + (isOpen ? "opened." : "closed."));
         }
