@@ -1050,7 +1050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &567765580
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -5443,10 +5443,10 @@ MonoBehaviour:
   scannerObj: {fileID: 899611264}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   DoorObj: {fileID: 1177937281}
-  useIntroVideoGate: 0
-  introVidIsDone: 1
-  scanPromptDone: 1
-  introVidStarted: 1
+  useIntroVideoGate: 1
+  introVidIsDone: 0
+  scanPromptDone: 0
+  introVidStarted: 0
   introVideoObjectName: introvid
 --- !u!1 &1919541909
 GameObject:
