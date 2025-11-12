@@ -8,6 +8,16 @@ public class PickupItem : InteractionScript
 
         Debug.Log("Item picked up!");
 
+        if (CompareTag("ToDoList")) {
+            if (!player.hasReadToDoList)
+            {
+                player.hasReadToDoList = true;
+                Debug.Log("You have read the To Do list!");
+            }
+            return;
+        }
+        
+
         if (player != null)
         {
             Transform rightHandPos = player.rightHandPosition;
@@ -20,6 +30,11 @@ public class PickupItem : InteractionScript
         {
             player.isHoldingKey = true;
             Debug.Log("You have picked up a key!");
+        }
+        if (CompareTag("Pill"))
+        {
+            player.hasSwallowedPill = true;
+            Debug.Log("You have swallowed a pill!");
         }
     }
 }
