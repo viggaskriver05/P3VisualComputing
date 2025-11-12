@@ -6,18 +6,35 @@ public class PickupItem : InteractionScript
     {
         PlayerInteraction player = FindAnyObjectByType<PlayerInteraction>();
 
+        // Gate: Pills only interactable after ToDo has been read
+        if (CompareTag("Pill") && player != null && !player.hasReadToDoList)
+        {
+            Debug.Log("You need to read the To Do list first.");    
+            SoundManager.Instance.PlaySpeechSFX("oai_read_todo_first_sp");
+            return;
+        }
+
         Debug.Log("Item picked up!");
 
-        if (CompareTag("ToDoList")) {
+        if (CompareTag("ToDoList"))
+        {
             if (!player.hasReadToDoList)
             {
+                SoundManager.Instance.PlaySpeechSFX("oai_take_pills_prompt_sp");
                 player.hasReadToDoList = true;
                 Debug.Log("You have read the To Do list!");
             }
             return;
         }
+        if (CompareTag("Pill")) {
+            if (!player.hasSwallowedPill)
+            {
+                SoundManager.Instance.PlaySpeechSFX("oai_facial_scan_sp");
+                player.hasSwallowedPill = true;
+                Debug.Log("You have swallowed a pill.");
+            }
+        }
         
-
         if (player != null)
         {
             Transform rightHandPos = player.rightHandPosition;

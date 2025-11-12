@@ -9,6 +9,8 @@ public class ColliderManager : MonoBehaviour
     // Shared dependencies
     private OpenAiResponseToTtsWEmotionDemo demoInstance;
     private EmotionOscListener oscClientInstance;
+    private PlayerInteraction player;
+
 
     [Header("Universal Trigger Base Settings")]
     [SerializeField] private float cooldownSeconds = 2.0f;
@@ -43,9 +45,11 @@ public class ColliderManager : MonoBehaviour
 #if UNITY_2023_1_OR_NEWER
         if (demoInstance == null) demoInstance = FindFirstObjectByType<OpenAiResponseToTtsWEmotionDemo>();
         if (oscClientInstance == null) oscClientInstance = FindFirstObjectByType<EmotionOscListener>();
+        if (player == null) player = FindFirstObjectByType<PlayerInteraction>();
 #else
         if (demoInstance == null) demoInstance = FindObjectOfType<OpenAiResponseToTtsWEmotionDemo>();
         if (oscClientInstance == null) oscClientInstance = FindObjectOfType<EmotionOscListener>();
+        if (player == null) player = FindObjectOfType<PlayerInteraction>();
 #endif
     }
 
@@ -93,11 +97,9 @@ public class ColliderManager : MonoBehaviour
         // Use this.CompareTag to branch by the trigger object's own tag
         if (this.CompareTag("FacialScanner") && !facialScanTriggered)
         {
+            if (!player.hasSwallowedPill) return; // skip if pill is not yet swallowed
             TryTrigger_FacialScanner(other);
-        } else if (this.CompareTag("ExerciseScanner")) {
-            TryTrigger_ExerciseScanner(other);
-        } else
-        {
+        } else {
             Debug.LogWarning("ColliderManager: Unhandled trigger for tag: " + this.tag);
         }
         // Extend with more tag-specific behaviors here (else if CompareTag("Door") ... )
@@ -118,7 +120,7 @@ public class ColliderManager : MonoBehaviour
         {
             // Fallback: proceed if video missing
             introVidIsDone = true;
-            PlayScanPrompt();
+            PlayWelcomePrompt();
             useIntroVideoGate = false;
             return;
         }
@@ -132,19 +134,14 @@ public class ColliderManager : MonoBehaviour
         if (introVidStarted && !introVidIsDone)
         {
             introVidIsDone = true;
-            PlayScanPrompt();
+            PlayWelcomePrompt();
             useIntroVideoGate = false;
         }
     }
 
-    async void PlayScanPrompt()
+    void PlayWelcomePrompt()
     {
-        await Task.Delay(10000);
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlaySpeechSFX("oai_facial_scan_sp");
-        }
-        scanPromptDone = true;
+        SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
     }
 
     void TryTrigger_FacialScanner(Collider other)
@@ -174,10 +171,6 @@ public class ColliderManager : MonoBehaviour
         Invoke(nameof(ResetCooldown), cooldownSeconds);
     }
 
-    void TryTrigger_ExerciseScanner(Collider other)
-    {
-        // Placeholder for future ExerciseScanner logic
-    }
     void ResetCooldown() => cooldown = false;
 
     void OnValidate()

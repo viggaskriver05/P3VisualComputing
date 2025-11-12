@@ -12,7 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     public bool hasSwallowedPill = false;
 
     [Header("UI")]
-    [SerializeField] TMPro.TextMeshProUGUI interactionPromptText;
+    public TMPro.TextMeshProUGUI interactionPromptText;
 
     void Start()
     {
@@ -22,7 +22,15 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(interactionKey))
+        
+        TryInteract();
+
+        // Always update the on-screen prompt based on what the player is looking at 
+        DisplayInteractionPrompt();
+    }
+    
+    void TryInteract() {
+         if (Input.GetKeyDown(interactionKey))
         {
             Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
@@ -37,12 +45,9 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
         }
-
-        // Always update the on-screen prompt based on what the player is looking at 
-       DisplayInteractionPrompt();
     }
 
-    void DisplayInteractionPrompt()
+    public void DisplayInteractionPrompt()
     {
         // Super-simple: raycast from center, if a PickupItem is hit, show "Press E to pick up <tag>"
         if (interactionPromptText == null || playerCamera == null)
@@ -62,6 +67,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 // Show prompt
                 string itemTag = hit.collider.tag;
+                //specific for the facialscanner
                 interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}";
                 if (!interactionPromptText.gameObject.activeSelf)
                     interactionPromptText.gameObject.SetActive(true);
