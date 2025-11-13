@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listenPort: 9000
-  sampleWindowFrames: 24
+  sampleWindowFrames: 10
 --- !u!4 &304896908
 Transform:
   m_ObjectHideFlags: 0
@@ -4156,6 +4156,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
+      propertyPath: m_TagString
+      value: FacialScanner
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_Name
       value: DoorP3
@@ -4182,6 +4186,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 968026268}
+    - targetCorrespondingSourceObject: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 968026272}
     - targetCorrespondingSourceObject: {fileID: 1410617749314707748, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 598517079}
@@ -4733,6 +4740,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8223730656274421730, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
+--- !u!114 &968026272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968026266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae4ef2730f58ee44b57bb7799c6e3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &968190470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8513859187771203891, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
@@ -6524,7 +6543,7 @@ MonoBehaviour:
   apiKey: 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
   model: gpt-4o-mini-tts
   voice: alloy
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1430634293}
 --- !u!4 &1250150354
 Transform:
   m_ObjectHideFlags: 0
@@ -7494,6 +7513,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4747037918399408081, guid: 666945568080b5f46b5062b09d33244d, type: 3}
+--- !u!82 &1430634293 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7960662366915613651, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+  m_PrefabInstance: {fileID: 1347527403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1430948955
 GameObject:
   m_ObjectHideFlags: 0
@@ -40376,6 +40400,7 @@ MonoBehaviour:
   hasReadToDoList: 0
   isHoldingKey: 0
   hasSwallowedPill: 0
+  facialScanTriggered: 0
   interactionPromptText: {fileID: 150432052}
 --- !u!1 &2028081871 stripped
 GameObject:

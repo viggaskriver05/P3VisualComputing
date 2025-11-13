@@ -66,18 +66,19 @@ public class ColliderManager : MonoBehaviour
     {
         if (!triggerOnEnter) return;
         Debug.Log($"[ColliderManager] OnTriggerEnter by '{other.name}' (tag='{other.tag}') on trigger '{name}' (tag='{tag}')");
-        HandleTrigger(other);
+        HandleTriggerFacialScanner(other);
     }
 
     void OnTriggerStay(Collider other)
     {
         if (!triggerOnStay) return;
         Debug.Log($"[ColliderManager] OnTriggerStay by '{other.name}' (tag='{other.tag}') on trigger '{name}' (tag='{tag}')");
-        HandleTrigger(other);
+        HandleTriggerFacialScanner(other);
     }
 
-    void HandleTrigger(Collider other)
+    void HandleTriggerFacialScanner(Collider other)
     {
+        player.DisplayInteractionPrompt();
         if (cooldown) return;
          if (demoInstance == null)
         {

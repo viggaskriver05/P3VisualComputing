@@ -10,6 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     public bool hasReadToDoList = false;
     public bool isHoldingKey = false;
     public bool hasSwallowedPill = false;
+    public bool facialScanTriggered = false;
 
     [Header("UI")]
     public TMPro.TextMeshProUGUI interactionPromptText;
@@ -60,15 +61,20 @@ public class PlayerInteraction : MonoBehaviour
             if (pickup != null)
             {
                 // Don't show prompt for ToDoList if already read
-                if (hasReadToDoList && pickup.CompareTag("ToDoList"))
+                if (pickup.CompareTag("ToDoList") && hasReadToDoList || pickup.CompareTag("Pill") && hasSwallowedPill || pickup.CompareTag("FacialScanner") && facialScanTriggered)
                 {
                     interactionPromptText.gameObject.SetActive(false);
                     return;
                 }
+                
                 // Show prompt
                 string itemTag = hit.collider.tag;
                 //specific for the facialscanner
-                interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}";
+                if (pickup.CompareTag("FacialScanner") && hasSwallowedPill) {
+                    interactionPromptText.text = $"Give a big smile and look into the scanner to start your emotional scan!";
+                } else {
+                    interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}";
+                }
                 if (!interactionPromptText.gameObject.activeSelf)
                     interactionPromptText.gameObject.SetActive(true);
                 return;
