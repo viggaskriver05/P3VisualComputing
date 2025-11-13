@@ -7021,7 +7021,7 @@ PrefabInstance:
     - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: SpeechSFX.Array.data[19].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 60286fc598dc4462c95d82a74f82ee56, type: 3}
+      objectReference: {fileID: 8300000, guid: 3184e2e0a38f54306b33cb272495d60f, type: 3}
     - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: SpeechSFX.Array.data[19].name
       value: oai_take_pills_prompt_sp
@@ -8940,6 +8940,54 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6478528999636546127, guid: 666945568080b5f46b5062b09d33244d, type: 3}
+--- !u!1 &1648742793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1648742795}
+  - component: {fileID: 1648742794}
+  m_Layer: 0
+  m_Name: soundcreate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1648742794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648742793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25bf7b3879a546b58bdfe2c2482afb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  line: Great. I see that you found your todo-list. How about getting your day started
+    by taking your medication?
+  voice: alloy
+  model: gpt-4o-mini-tts
+--- !u!4 &1648742795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648742793}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.147421, y: 4.1821413, z: 11.03385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1678239851 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1346437154415464734, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -40724,3 +40772,4 @@ SceneRoots:
   - {fileID: 1377548154}
   - {fileID: 1430948959}
   - {fileID: 1023876561}
+  - {fileID: 1648742795}
