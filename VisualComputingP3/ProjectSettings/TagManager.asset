@@ -8,6 +8,8 @@ TagManager:
   - IntroCutscene
   - JumpscareCutscene
   - FacialScanner
+  - Pill
+  - ToDoList
   layers:
   - Default
   - TransparentFX
