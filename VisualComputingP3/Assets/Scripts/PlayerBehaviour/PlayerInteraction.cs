@@ -70,13 +70,23 @@ public class PlayerInteraction : MonoBehaviour
                 // Show prompt
                 string itemTag = hit.collider.tag;
                 //specific for the facialscanner
+                if (pickup.CompareTag("ToDoList")) {
+                    interactionPromptText.text = $"Press {interactionKey} to read {itemTag}";
+                    if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
+                    return;
+                } 
+                if (pickup.CompareTag("Pill") && hasReadToDoList) {
+                    interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}";
+                    if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
+                    return;
+                }
                 if (pickup.CompareTag("FacialScanner") && hasSwallowedPill) {
                     interactionPromptText.text = $"Give a big smile and look into the scanner to start your emotional scan!";
-                } else {
-                    interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}";
-                }
-                if (!interactionPromptText.gameObject.activeSelf)
-                    interactionPromptText.gameObject.SetActive(true);
+                    if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
+                    return;
+                } 
+                if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(false);
+
                 return;
             }
         }
