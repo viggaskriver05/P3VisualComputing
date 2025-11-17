@@ -10,6 +10,7 @@ TagManager:
   - FacialScanner
   - Pill
   - ToDoList
+  - Key
   layers:
   - Default
   - TransparentFX

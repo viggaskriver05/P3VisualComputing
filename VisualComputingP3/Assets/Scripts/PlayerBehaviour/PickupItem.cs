@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PickupItem : InteractionScript
 {
+    public bool pickable = true;
+    public GameObject pill;
     public override void Interact()
     {
         PlayerInteraction player = FindAnyObjectByType<PlayerInteraction>();
@@ -26,11 +28,12 @@ public class PickupItem : InteractionScript
                 SoundManager.Instance.PlaySpeechSFX("oai_facial_scan_sp");
                 player.hasSwallowedPill = true;
                 Debug.Log("You have swallowed a pill.");
+                pill.SetActive(false);
             }
         }
         if (CompareTag("FacialScanner")) return;
-        
-        if (player != null)
+
+        if (player != null && pickable)
         {
             Transform rightHandPos = player.rightHandPosition;
             transform.SetParent(rightHandPos);

@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Video;
+using Unity.Events;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Collider))]
@@ -22,6 +23,7 @@ public class ColliderManager : MonoBehaviour
     [Header("FacialScanner Settings (active when GameObject.tag == 'FacialScanner')")]
     [SerializeField] private string requiredEmotionHappy = "happy";
     [SerializeField] private bool facialScanTriggered = false;
+    [SerializeField] public UnityEvent oneFacialScanSuccess;
     [TextArea]
     [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan";
     [SerializeField] private GameObject faceScannerObj;
@@ -121,7 +123,7 @@ public class ColliderManager : MonoBehaviour
         {
             // Fallback: proceed if video missing
             introVidIsDone = true;
-            PlayWelcomePrompt();
+            //PlayWelcomePrompt();
             useIntroVideoGate = false;
             return;
         }
@@ -135,41 +137,48 @@ public class ColliderManager : MonoBehaviour
         if (introVidStarted && !introVidIsDone)
         {
             introVidIsDone = true;
-            PlayWelcomePrompt();
+            //PlayWelcomePrompt();
             useIntroVideoGate = false;
         }
     }
 
     void PlayWelcomePrompt()
     {
-        SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
+        //SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
     }
 
     void TryTrigger_FacialScanner(Collider other)
     {
-        if (useIntroVideoGate && !scanPromptDone)
-        {
-            Debug.Log("[ColliderManager] Gated: waiting for scan prompt to complete.");
-            return;
-        }
-        // update prompt to fit FacialScanner and infrence
-        demoInstance.prompt = promptOnEmotionalScan;
-        _ = demoInstance.RunOnce();
-
         if (faceScannerObj != null)
-        {
-            var renderer = faceScannerObj.GetComponent<Renderer>();
-            if (renderer != null && greenMaterial != null)
+        { 
+            if (useIntroVideoGate && !scanPromptDone)
             {
-                // instance material change
-                renderer.material = greenMaterial;
-                facialScanTriggered = true;
+                Debug.Log("[ColliderManager] Gated: waiting for scan prompt to complete.");
+                return;
             }
-        }
-        if (doorObj != null) doorObj.SetActive(false);
+            // update prompt to fit FacialScanner and infrence
+            demoInstance.prompt = promptOnEmotionalScan;
+            _ = demoInstance.RunOnce();
 
+            if (faceScannerObj != null)
+            {
+                var renderer = faceScannerObj.GetComponent<Renderer>();
+                if (renderer != null && greenMaterial != null)
+                {
+                    // instance material change
+                    renderer.material = greenMaterial;
+                    facialScanTriggered = true;
+                }
+            }
+            if (doorObj != null) doorObj.SetActive(false);
+
+            cooldown = true;
+            Invoke(nameof(ResetCooldown), cooldownSeconds);
+        }
+
+        oneFacialScanSuccess?.Invoke();
         cooldown = true;
-        Invoke(nameof(ResetCooldown), cooldownSeconds);
+        invoke(nameof(ResetCooldown), cooldownSeconds);
     }
 
     void ResetCooldown() => cooldown = false;
