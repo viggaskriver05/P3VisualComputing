@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Video;
-using Unity.Events;
+//using Unity.Events;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Collider))]
@@ -23,7 +23,7 @@ public class ColliderManager : MonoBehaviour
     [Header("FacialScanner Settings (active when GameObject.tag == 'FacialScanner')")]
     [SerializeField] private string requiredEmotionHappy = "happy";
     [SerializeField] private bool facialScanTriggered = false;
-    [SerializeField] public UnityEvent oneFacialScanSuccess;
+    //[SerializeField] public UnityEvent oneFacialScanSuccess;
     [TextArea]
     [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan";
     [SerializeField] private GameObject faceScannerObj;
@@ -176,9 +176,9 @@ public class ColliderManager : MonoBehaviour
             Invoke(nameof(ResetCooldown), cooldownSeconds);
         }
 
-        oneFacialScanSuccess?.Invoke();
+        //oneFacialScanSuccess?.Invoke();
         cooldown = true;
-        invoke(nameof(ResetCooldown), cooldownSeconds);
+        //invoke(nameof(ResetCooldown), cooldownSeconds);
     }
 
     void ResetCooldown() => cooldown = false;
