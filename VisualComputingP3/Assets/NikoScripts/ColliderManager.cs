@@ -181,6 +181,11 @@ public class ColliderManager : MonoBehaviour
         //invoke(nameof(ResetCooldown), cooldownSeconds);
     }
 
+    public bool IsFacialScanComplete()
+    {
+        return facialScanTriggered;
+    }
+
     void ResetCooldown() => cooldown = false;
 
     void OnValidate()

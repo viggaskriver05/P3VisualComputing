@@ -18,9 +18,11 @@ public class Door : InteractionScript
     private float lerpProgress = 1f; // 1 = at target, 0 = just started
     private bool isMoving = false;
     private bool isOpen;
+    [SerializeField] private ColliderManager colliderManager;
 
     void Start()
     {
+        colliderManager = new ColliderManager();
         lDoorClosedPos = LDoor.position;
         rDoorClosedPos = RDoor.position;
         lDoorOpenPos = lDoorClosedPos + new Vector3(0, 0, -openWidth);
@@ -87,7 +89,7 @@ public class Door : InteractionScript
 
     public void OpenNow()
     {
-        if (!isOpen)
+        if (!isOpen && colliderManager.IsFacialScanComplete())
         {
             isOpen = true;
             lerpProgress = 0f;

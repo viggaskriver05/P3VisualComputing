@@ -2859,6 +2859,7 @@ MonoBehaviour:
   openSpeed: 3
   scannerUnlocked: 0
   keyAndScanNeeded: 0
+  colliderManager: {fileID: 0}
 --- !u!65 &525600067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4455,7 +4456,6 @@ Transform:
   - {fileID: 1771032531}
   - {fileID: 1069794786}
   - {fileID: 1606044343}
-  - {fileID: 858749522}
   - {fileID: 268015183}
   - {fileID: 1990881368}
   - {fileID: 2044439146}
@@ -4702,7 +4702,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 764043965}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalScale.x
@@ -4718,15 +4718,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.08046
+      value: 8.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.47271
+      value: 2.2000003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.374499
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4768,12 +4768,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorP3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
+      propertyPath: m_TagString
+      value: FacialScanner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1584340677}
+      addedObject: {fileID: 1329738862}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
@@ -4781,6 +4785,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 525600067}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 858749523}
     - targetCorrespondingSourceObject: {fileID: -2818631016347784500, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1715738614}
@@ -4790,9 +4797,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 968026268}
-    - targetCorrespondingSourceObject: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 968026272}
     - targetCorrespondingSourceObject: {fileID: 1410617749314707748, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 598517079}
@@ -4805,6 +4809,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
   m_PrefabInstance: {fileID: 858749521}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &858749523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525600064}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9583a0b943e420ea30239b5c4d6ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownSeconds: 2
+  triggerOnEnter: 1
+  triggerOnStay: 1
+  requiredEmotionHappy: happy
+  facialScanTriggered: 0
+  promptOnEmotionalScan: The user is looking into a facial scanner while doing their
+    daily emotional scan
+  faceScannerObj: {fileID: 0}
+  greenMaterial: {fileID: 0}
+  doorObj: {fileID: 0}
+  useIntroVideoGate: 1
+  introVidIsDone: 0
+  scanPromptDone: 0
+  introVidStarted: 0
+  introVideoObjectName: introvid
 --- !u!1 &866816241 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7590391469077631570, guid: 11a09d651e2619d4c8acd32ca0990bf6, type: 3}
@@ -5344,20 +5375,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8223730656274421730, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
---- !u!114 &968026272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968026266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae4ef2730f58ee44b57bb7799c6e3dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickable: 1
-  pill: {fileID: 0}
 --- !u!1 &968190470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8513859187771203891, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
@@ -7622,6 +7639,87 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5253259285021141057, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
+--- !u!1 &1329738861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329738862}
+  - component: {fileID: 1329738864}
+  - component: {fileID: 1329738863}
+  m_Layer: 0
+  m_Name: FacialScanner
+  m_TagString: FacialScanner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1329738862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329738861}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 858749522}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1329738863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329738861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9583a0b943e420ea30239b5c4d6ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownSeconds: 2
+  triggerOnEnter: 1
+  triggerOnStay: 1
+  requiredEmotionHappy: happy
+  facialScanTriggered: 0
+  promptOnEmotionalScan: The user is looking into a facial scanner while doing their
+    daily emotional scan
+  faceScannerObj: {fileID: 968026266}
+  greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
+  doorObj: {fileID: 525600064}
+  useIntroVideoGate: 1
+  introVidIsDone: 0
+  scanPromptDone: 0
+  introVidStarted: 0
+  introVideoObjectName: introvid
+--- !u!65 &1329738864
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329738861}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.19, y: 2.12, z: 2.12}
+  m_Center: {x: -1.62, y: 0.69, z: 0}
 --- !u!1 &1329943877 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9013638940889411661, guid: a3bdd3bb02ce48745bc08e300d6e709e, type: 3}
@@ -9537,96 +9635,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577145901}
   m_CullTransparentMesh: 1
---- !u!1 &1584340676
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1584340677}
-  - component: {fileID: 1584340680}
-  - component: {fileID: 1584340679}
-  - component: {fileID: 1584340678}
-  m_Layer: 0
-  m_Name: FacialScanner
-  m_TagString: FacialScanner
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1584340677
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584340676}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.887, y: 0, z: -1.39}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 858749522}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1584340678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584340676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9583a0b943e420ea30239b5c4d6ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownSeconds: 2
-  triggerOnEnter: 1
-  triggerOnStay: 1
-  requiredEmotionHappy: happy
-  facialScanTriggered: 0
-  promptOnEmotionalScan: The user is looking into a facial scanner while doing their
-    daily emotional scan
-  faceScannerObj: {fileID: 968026266}
-  greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
-  doorObj: {fileID: 598517077}
-  useIntroVideoGate: 1
-  introVidIsDone: 0
-  scanPromptDone: 0
-  introVidStarted: 0
-  introVideoObjectName: introvid
---- !u!65 &1584340679
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584340676}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1584340680
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584340676}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1586855313
 GameObject:
   m_ObjectHideFlags: 0
@@ -42120,6 +42128,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 764043965}
+  - {fileID: 858749521}
   - {fileID: 1904504817}
   - {fileID: 1135104681}
   - {fileID: 1347527403}
