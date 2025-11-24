@@ -15,14 +15,14 @@ public class PickupItem : InteractionScript
         // Trashcan: play speech SFX and stop further interaction
         if (CompareTag("StaffCard"))
         {
-            SoundManager.Instance.PlaySpeechSFX("go_sp");
+            SoundManager.Instance.PlaySpeechSFX("Eat_OS");
             Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
 
             // Find and destroy all GameObjects with tag "Lights" after 5 seconds
-            GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights");
+            GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights"); 
             foreach (var lightObj in lights)
             {
-                Destroy(lightObj, 5f);
+                Destroy(lightObj);
             }
             Destroy(gameObject);
             return;
@@ -30,9 +30,18 @@ public class PickupItem : InteractionScript
         
          if (CompareTag("Food"))
         {
-            SoundManager.Instance.PlaySpeechSFX("go_sp");
+            SoundManager.Instance.PlayOneShotSFX("Eat_OS");
+            Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
+
+            // Find and destroy all GameObjects with tag "Lights" after 5 seconds
+            GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights"); 
+            foreach (var lightObj in lights)
+            {
+                Destroy(lightObj,5f);
+            }
             Destroy(gameObject);
             return;
+
         }
 
         if (CompareTag("ToDoList"))
