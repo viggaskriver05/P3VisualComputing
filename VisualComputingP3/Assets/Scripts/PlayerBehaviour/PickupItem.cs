@@ -12,6 +12,29 @@ public class PickupItem : InteractionScript
         if (CompareTag("Pill") && !player.hasReadToDoList) return;
         if (CompareTag("FacialScanner") && !player.hasSwallowedPill) return;
 
+        // Trashcan: play speech SFX and stop further interaction
+        if (CompareTag("StaffCard"))
+        {
+            SoundManager.Instance.PlaySpeechSFX("go_sp");
+            Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
+
+            // Find and destroy all GameObjects with tag "Lights" after 5 seconds
+            GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights");
+            foreach (var lightObj in lights)
+            {
+                Destroy(lightObj, 5f);
+            }
+            Destroy(gameObject);
+            return;
+        }
+        
+         if (CompareTag("Food"))
+        {
+            SoundManager.Instance.PlaySpeechSFX("go_sp");
+            Destroy(gameObject);
+            return;
+        }
+
         if (CompareTag("ToDoList"))
         {
             if (!player.hasReadToDoList)
@@ -32,7 +55,7 @@ public class PickupItem : InteractionScript
             }
         }
         if (CompareTag("FacialScanner")) return;
-
+        
         if (player != null && pickable)
         {
             Transform rightHandPos = player.rightHandPosition;
