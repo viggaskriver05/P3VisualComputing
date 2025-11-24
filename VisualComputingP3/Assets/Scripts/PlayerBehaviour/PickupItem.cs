@@ -24,6 +24,7 @@ public class PickupItem : InteractionScript
             {
                 Destroy(lightObj, 5f);
             }
+            Destroy(gameObject);
             return;
         }
         

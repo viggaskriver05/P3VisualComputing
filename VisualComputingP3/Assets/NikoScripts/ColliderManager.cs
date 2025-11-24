@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
 //using Unity.Events;
@@ -22,10 +23,13 @@ public class ColliderManager : MonoBehaviour
     // FacialScanner-specific (active when GameObject.tag == "FacialScanner")
     [Header("FacialScanner Settings (active when GameObject.tag == 'FacialScanner')")]
     [SerializeField] private string requiredEmotionHappy = "happy";
+    [SerializeField] private string requiredEmotionNegativeHallway = "negative";
     [SerializeField] private bool facialScanTriggered = false;
+    [SerializeField] private bool hallwayScanTriggered = false;
     //[SerializeField] public UnityEvent oneFacialScanSuccess;
     [TextArea]
     [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan";
+    [SerializeField] private string promptOnHallwayScan = "The user has opened a door which is not supposed to be opened. The output form this prompt should 'glitch' between calm instructions and angry outbursts from the AI.";
     [SerializeField] private GameObject faceScannerObj;
     [SerializeField] private Material greenMaterial;
     [SerializeField] private GameObject doorObj;
@@ -62,6 +66,10 @@ public class ColliderManager : MonoBehaviour
         {
             FacialScanner_UpdateGate();
         }
+        if (this.CompareTag("HallwayScanner"))
+        {
+            FacialScanner_UpdateGate();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -93,9 +101,14 @@ public class ColliderManager : MonoBehaviour
             return;
         }
         var dominant = oscClientInstance.DominantEmotion ?? "unknown";
+        var sentiment = oscClientInstance.SentimentEmotion ?? "unknown";
         Debug.Log("[ColliderManager] FacialScanner candidate. Dominant emotion = " + dominant);
-        if (!string.Equals(dominant, requiredEmotionHappy, System.StringComparison.OrdinalIgnoreCase)) return;
+        if (CompareTag("FacialScanner") && !string.Equals(dominant, requiredEmotionHappy, System.StringComparison.OrdinalIgnoreCase)) return;
+        if (CompareTag("HallwayScanner") && !string.Equals(sentiment, requiredEmotionNegativeHallway, System.StringComparison.OrdinalIgnoreCase)) return;
         demoInstance.facialEmotionOverride = dominant;
+        demoInstance.toneOverride = "happy";
+        if (CompareTag("HallwayScanner")) { demoInstance.facialEmotionOverride = sentiment; demoInstance.toneOverride = "angry";SoundManager.Instance.SpeechSource.pitch = 1.02f; }
+
 
         // Use this.CompareTag to branch by the trigger object's own tag
         if (this.CompareTag("FacialScanner") && !facialScanTriggered)
@@ -106,6 +119,12 @@ public class ColliderManager : MonoBehaviour
             Debug.LogWarning("ColliderManager: Unhandled trigger for tag: " + this.tag);
         }
         // Extend with more tag-specific behaviors here (else if CompareTag("Door") ... )
+        if (this.CompareTag("HallwayScanner") && !hallwayScanTriggered)
+        {
+            TryTrigger_FacialScanner(other);
+        } else {
+            Debug.LogWarning("ColliderManager: Unhandled trigger for tag: " + this.tag);
+        }
     }
 
     // ===================== FacialScanner =====================
@@ -157,7 +176,14 @@ public class ColliderManager : MonoBehaviour
                 return;
             }
             // update prompt to fit FacialScanner and infrence
-            demoInstance.prompt = promptOnEmotionalScan;
+            if (CompareTag("FacialScanner"))
+            {
+                demoInstance.prompt = promptOnEmotionalScan;
+            }
+            if (CompareTag("HallwayScanner"))
+            {
+                demoInstance.prompt = promptOnHallwayScan;
+            }
             _ = demoInstance.RunOnce();
 
             if (faceScannerObj != null)
@@ -168,6 +194,7 @@ public class ColliderManager : MonoBehaviour
                     // instance material change
                     renderer.material = greenMaterial;
                     facialScanTriggered = true;
+                    if (CompareTag("HallwayScanner")) { hallwayScanTriggered = true; }
                 }
             }
             if (doorObj != null) doorObj.SetActive(false);
