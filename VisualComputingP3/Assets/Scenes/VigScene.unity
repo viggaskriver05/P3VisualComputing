@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 60406606}
   - component: {fileID: 60406608}
   - component: {fileID: 60406607}
+  - component: {fileID: 60406609}
   m_Layer: 0
   m_Name: Point Light (8)
   m_TagString: Untagged
@@ -402,6 +403,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &60406609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60406605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &65915054 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5117700066308340382, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
@@ -863,6 +889,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150432050}
   m_CullTransparentMesh: 1
+--- !u!1001 &159465009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9092956
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3304194
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.38619
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
+      propertyPath: m_Name
+      value: IDCardNew
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
 --- !u!1 &167203296 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7354970017365974556, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
@@ -1327,6 +1410,7 @@ GameObject:
   - component: {fileID: 288899523}
   - component: {fileID: 288899525}
   - component: {fileID: 288899524}
+  - component: {fileID: 288899526}
   m_Layer: 0
   m_Name: Point Light (5)
   m_TagString: Untagged
@@ -1343,7 +1427,7 @@ Transform:
   m_GameObject: {fileID: 288899522}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1140566, y: -25.301289, z: -18.299393}
+  m_LocalPosition: {x: -2.814057, y: -25.10129, z: -18.299393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1437,6 +1521,24 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &288899526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288899522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917fae3fb2a0c2d4bbe5462105d07839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 2
+  minIntensity: 0
+  maxIntensity: 5
+  alarmColor: {r: 1, g: 0, b: 0, a: 1}
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
 --- !u!1 &297787526 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -45107839175074204, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -1475,6 +1577,7 @@ GameObject:
   - component: {fileID: 300954255}
   - component: {fileID: 300954257}
   - component: {fileID: 300954256}
+  - component: {fileID: 300954258}
   m_Layer: 0
   m_Name: Point Light (9)
   m_TagString: Untagged
@@ -1585,6 +1688,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &300954258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300954254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &304896906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,6 +1759,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1135104681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &322507039
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.101554
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.8740296
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.621449
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000058114523
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_Name
+      value: alarm.ul (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
 --- !u!1 &330203790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2599370196175958444, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
@@ -1793,6 +1978,63 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5105227498937760343, guid: 666945568080b5f46b5062b09d33244d, type: 3}
+--- !u!1001 &358849820
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.477023
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.7046769
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8331176
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000020861623
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_Name
+      value: alarm.ul (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
 --- !u!1 &377387280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6528489707589371472, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -2347,6 +2589,7 @@ GameObject:
   - component: {fileID: 416957387}
   - component: {fileID: 416957389}
   - component: {fileID: 416957388}
+  - component: {fileID: 416957390}
   m_Layer: 0
   m_Name: Point Light (3)
   m_TagString: Untagged
@@ -2457,6 +2700,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &416957390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416957386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &459634328 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2738364249887624723, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -2697,6 +2965,7 @@ GameObject:
   - component: {fileID: 497330647}
   - component: {fileID: 497330649}
   - component: {fileID: 497330648}
+  - component: {fileID: 497330650}
   m_Layer: 0
   m_Name: Point Light (2)
   m_TagString: Untagged
@@ -2713,7 +2982,7 @@ Transform:
   m_GameObject: {fileID: 497330646}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1140566, y: -25.301289, z: -1.2993917}
+  m_LocalPosition: {x: -7.1140566, y: -25.301289, z: -1.2993917}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2807,6 +3076,24 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &497330650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497330646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917fae3fb2a0c2d4bbe5462105d07839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 2
+  minIntensity: 0
+  maxIntensity: 5
+  alarmColor: {r: 1, g: 0, b: 0, a: 1}
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
 --- !u!1 &514947660 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6824746026288583490, guid: 2ea4161ba856f9e45836c250d4d9273d, type: 3}
@@ -3027,6 +3314,7 @@ GameObject:
   - component: {fileID: 580334383}
   - component: {fileID: 580334385}
   - component: {fileID: 580334384}
+  - component: {fileID: 580334386}
   m_Layer: 0
   m_Name: Point Light (3)
   m_TagString: Untagged
@@ -3043,7 +3331,7 @@ Transform:
   m_GameObject: {fileID: 580334382}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1140566, y: -25.301289, z: -13.299392}
+  m_LocalPosition: {x: -6.314057, y: -25.301289, z: -13.299392}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3137,6 +3425,24 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &580334386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580334382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917fae3fb2a0c2d4bbe5462105d07839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 2
+  minIntensity: 0
+  maxIntensity: 5
+  alarmColor: {r: 1, g: 0, b: 0, a: 1}
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
 --- !u!1 &597563919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1308243712064860688, guid: 4aadfd7c05cb81f41a4611a3ec7d232d, type: 3}
@@ -3382,6 +3688,7 @@ GameObject:
   - component: {fileID: 614166753}
   - component: {fileID: 614166755}
   - component: {fileID: 614166754}
+  - component: {fileID: 614166756}
   m_Layer: 0
   m_Name: Point Light (5)
   m_TagString: Untagged
@@ -3492,6 +3799,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &614166756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614166752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &621439434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -140099620760161499, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -3770,12 +4102,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 764043965}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8261611
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.028495
+      value: 8.128495
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3809,6 +4153,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 823334100980793467, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a35f4e305ff0bc43a0cbcc81c76c5e7, type: 2}
     - target: {fileID: 919132149155446097, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
       propertyPath: m_Name
       value: Bamboo_Plant.ul (1)
@@ -4045,6 +4397,7 @@ GameObject:
   - component: {fileID: 698160360}
   - component: {fileID: 698160362}
   - component: {fileID: 698160361}
+  - component: {fileID: 698160363}
   m_Layer: 0
   m_Name: Point Light (1)
   m_TagString: Untagged
@@ -4155,6 +4508,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &698160363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698160359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &702166510 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8628665689840024274, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
@@ -4586,6 +4964,7 @@ GameObject:
   - component: {fileID: 847714173}
   - component: {fileID: 847714175}
   - component: {fileID: 847714174}
+  - component: {fileID: 847714176}
   m_Layer: 0
   m_Name: Point Light (10)
   m_TagString: Untagged
@@ -4696,6 +5075,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &847714176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847714172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &858749521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4982,6 +5386,7 @@ GameObject:
   - component: {fileID: 888094898}
   - component: {fileID: 888094900}
   - component: {fileID: 888094899}
+  - component: {fileID: 888094901}
   m_Layer: 0
   m_Name: Point Light (6)
   m_TagString: Untagged
@@ -5092,6 +5497,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &888094901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888094897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &912790676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8593791448060032817, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
@@ -5895,6 +6325,7 @@ GameObject:
   - component: {fileID: 1054448866}
   - component: {fileID: 1054448868}
   - component: {fileID: 1054448867}
+  - component: {fileID: 1054448869}
   m_Layer: 0
   m_Name: Point Light (7)
   m_TagString: Untagged
@@ -6005,6 +6436,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1054448869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054448865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1064395674 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7279063905100247503, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
@@ -6042,7 +6498,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 73fba9a509510a84bb73262daea699b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.278346
+      value: -3.278346
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 73fba9a509510a84bb73262daea699b0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6471,16 +6927,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 764043965}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7579193
+      value: 5.642078
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.1446705
+      value: 12.1446705
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.482956
+      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6509,6 +6977,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 04a96c7b1bcf98d49bccb73ea550a70c, type: 3}
       propertyPath: m_Name
@@ -6945,6 +7417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5648767689465423854, guid: 666945568080b5f46b5062b09d33244d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a35f4e305ff0bc43a0cbcc81c76c5e7, type: 2}
     - target: {fileID: 919132149155446097, guid: 666945568080b5f46b5062b09d33244d, type: 3}
       propertyPath: m_Name
       value: Cafeteria_Station.ul
@@ -7502,6 +7978,7 @@ GameObject:
   - component: {fileID: 1312939506}
   - component: {fileID: 1312939508}
   - component: {fileID: 1312939507}
+  - component: {fileID: 1312939509}
   m_Layer: 0
   m_Name: Point Light (1)
   m_TagString: Untagged
@@ -7518,7 +7995,7 @@ Transform:
   m_GameObject: {fileID: 1312939505}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8859434, y: -25.301289, z: 0.70060825}
+  m_LocalPosition: {x: 2.285943, y: -24.6129, z: 0.70060825}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7612,6 +8089,24 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1312939509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312939505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917fae3fb2a0c2d4bbe5462105d07839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 2
+  minIntensity: 0
+  maxIntensity: 5
+  alarmColor: {r: 1, g: 0, b: 0, a: 1}
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
 --- !u!1 &1321391700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5435689343035284420, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
@@ -7901,6 +8396,7 @@ GameObject:
   - component: {fileID: 1361993558}
   - component: {fileID: 1361993560}
   - component: {fileID: 1361993559}
+  - component: {fileID: 1361993561}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -8011,6 +8507,24 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1361993561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361993557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917fae3fb2a0c2d4bbe5462105d07839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 2
+  minIntensity: 0
+  maxIntensity: 5
+  alarmColor: {r: 1, g: 0, b: 0, a: 1}
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
 --- !u!1001 &1371648485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8221,6 +8735,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1382771850
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.6604886
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3758175
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.305141
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_Name
+      value: alarm.ul
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
 --- !u!1 &1387156650 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7418212240193191077, guid: a3bdd3bb02ce48745bc08e300d6e709e, type: 3}
@@ -8605,6 +9176,7 @@ GameObject:
   - component: {fileID: 1459516073}
   - component: {fileID: 1459516075}
   - component: {fileID: 1459516074}
+  - component: {fileID: 1459516076}
   m_Layer: 0
   m_Name: Point Light (2)
   m_TagString: Untagged
@@ -8715,6 +9287,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1459516076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459516072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1463063270 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: a3bdd3bb02ce48745bc08e300d6e709e, type: 3}
@@ -9063,6 +9660,7 @@ GameObject:
   - component: {fileID: 1508426520}
   - component: {fileID: 1508426522}
   - component: {fileID: 1508426521}
+  - component: {fileID: 1508426523}
   m_Layer: 0
   m_Name: Point Light (4)
   m_TagString: Untagged
@@ -9173,6 +9771,24 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1508426523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508426519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917fae3fb2a0c2d4bbe5462105d07839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 2
+  minIntensity: 0
+  maxIntensity: 5
+  alarmColor: {r: 1, g: 0, b: 0, a: 1}
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
 --- !u!1 &1509602898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7954987016318405908, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -9423,6 +10039,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 2ea4161ba856f9e45836c250d4d9273d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 99f55d37c9d37444fb43bc584be1fe8e, type: 2}
     - target: {fileID: 919132149155446097, guid: 2ea4161ba856f9e45836c250d4d9273d, type: 3}
       propertyPath: m_Name
       value: DailyTaskNew
@@ -9711,6 +10331,63 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4875666268829522158, guid: 666945568080b5f46b5062b09d33244d, type: 3}
+--- !u!1001 &1601200361
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.27669
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.6828077
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.2237
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000058114523
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
+      propertyPath: m_Name
+      value: alarm.ul (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e1971620a804764ab8fe559937890f8, type: 3}
 --- !u!1001 &1606044342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9737,7 +10414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4aadfd7c05cb81f41a4611a3ec7d232d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.7464185
+      value: 7.946418
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4aadfd7c05cb81f41a4611a3ec7d232d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9771,10 +10448,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 177604731992421207, guid: 4aadfd7c05cb81f41a4611a3ec7d232d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a35f4e305ff0bc43a0cbcc81c76c5e7, type: 2}
     - target: {fileID: 919132149155446097, guid: 4aadfd7c05cb81f41a4611a3ec7d232d, type: 3}
       propertyPath: m_Name
       value: sofa.ul
       objectReference: {fileID: 0}
+    - target: {fileID: 7439002737948722077, guid: 4aadfd7c05cb81f41a4611a3ec7d232d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 824df5326d7fab5409425e53d86a9f2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10370,7 +11055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.17
+      value: 8.99
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10584,6 +11269,7 @@ GameObject:
   - component: {fileID: 1788277998}
   - component: {fileID: 1788278000}
   - component: {fileID: 1788277999}
+  - component: {fileID: 1788278001}
   m_Layer: 0
   m_Name: Point Light (4)
   m_TagString: Untagged
@@ -10694,6 +11380,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1788278001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788277997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1789602940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: bf6d4476a87266742830aef65fcbe321, type: 3}
@@ -10811,12 +11522,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 764043965}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.1366
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.928495
+      value: 8.11115
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10850,6 +11573,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 823334100980793467, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a35f4e305ff0bc43a0cbcc81c76c5e7, type: 2}
     - target: {fileID: 919132149155446097, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
       propertyPath: m_Name
       value: Bamboo_Plant.ul
@@ -11182,6 +11913,7 @@ GameObject:
   - component: {fileID: 1919541910}
   - component: {fileID: 1919541912}
   - component: {fileID: 1919541911}
+  - component: {fileID: 1919541913}
   m_Layer: 0
   m_Name: Point Light (11)
   m_TagString: Untagged
@@ -11292,6 +12024,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1919541913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919541909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1930180813 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 22b5efc85191d1a4c90c655c74ea6f54, type: 3}
@@ -11391,6 +12148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bed.ul
       objectReference: {fileID: 0}
+    - target: {fileID: 2570261238806470138, guid: 11a09d651e2619d4c8acd32ca0990bf6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a35f4e305ff0bc43a0cbcc81c76c5e7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11576,6 +12337,7 @@ GameObject:
   - component: {fileID: 1961999526}
   - component: {fileID: 1961999528}
   - component: {fileID: 1961999527}
+  - component: {fileID: 1961999529}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -11686,6 +12448,31 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1961999529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961999525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989945f3210c4479e03b2d3c85e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseIntensity: 1.5
+  flickerIntensityMultiplier: 0.2
+  minTimeBetweenBursts: 2
+  maxTimeBetweenBursts: 6
+  minFlashesInBurst: 2
+  maxFlashesInBurst: 6
+  minOffTime: 0.03
+  maxOffTime: 0.12
+  minOnTime: 0.03
+  maxOnTime: 0.1
+  emissiveRenderer: {fileID: 0}
+  emissionProperty: _EmissionColor
+  emissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1965437020
 GameObject:
   m_ObjectHideFlags: 0
@@ -42139,3 +42926,8 @@ SceneRoots:
   - {fileID: 1965437022}
   - {fileID: 73004449}
   - {fileID: 411459924}
+  - {fileID: 159465009}
+  - {fileID: 1382771850}
+  - {fileID: 1601200361}
+  - {fileID: 358849820}
+  - {fileID: 322507039}
