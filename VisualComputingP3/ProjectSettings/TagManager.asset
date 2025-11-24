@@ -11,6 +11,8 @@ TagManager:
   - Pill
   - ToDoList
   - Key
+  - Food
+  - StaffCard
   layers:
   - Default
   - TransparentFX
