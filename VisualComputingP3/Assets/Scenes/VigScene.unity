@@ -1006,7 +1006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.38619
+      value: 13.366
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c224eddb527924442bffdb1b38535cf0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1076,7 +1076,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15, y: 0.03, z: 0.13}
+  m_Size: {x: 0.2, y: 0.05, z: 0.16}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &167203296 stripped
 GameObject:
@@ -12781,8 +12781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae4ef2730f58ee44b57bb7799c6e3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickable: 1
-  pill: {fileID: 0}
+  pickable: 0
+  pill: {fileID: 1930180813}
 --- !u!136 &1930180815
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -43752,7 +43752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae4ef2730f58ee44b57bb7799c6e3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickable: 1
+  pickable: 0
   pill: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
