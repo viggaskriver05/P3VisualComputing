@@ -49,6 +49,7 @@ public class PickupItem : InteractionScript
             {
                 SoundManager.Instance.PlaySpeechSFX("oai_facial_scan_sp");
                 player.hasSwallowedPill = true;
+                Destroy(gameObject);
                 Debug.Log("You have swallowed a pill.");
             }
         }
