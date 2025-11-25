@@ -8,6 +8,13 @@ TagManager:
   - IntroCutscene
   - JumpscareCutscene
   - FacialScanner
+  - Pill
+  - ToDoList
+  - Key
+  - Food
+  - StaffCard
+  - Lights
+  - HallwayScanner
   layers:
   - Default
   - TransparentFX

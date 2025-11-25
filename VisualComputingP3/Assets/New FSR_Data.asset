@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New FSR_Data
   m_EditorClassIdentifier: 
   surfaces:
-  - name: DEFAULTGROUND
+  - name: DGROUND
     soundEffects:
     - {fileID: 8300000, guid: 57117369f3a5144cab51f7034c7ec4d3, type: 3}
   - name: GRASS
