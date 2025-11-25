@@ -103,5 +103,35 @@ public class SoundManager : MonoBehaviour
 
    //Toggle Scripts inbound here when i get time
    
+    public void Stop(string name)
+    {
+        Audio s = Array.Find(SpeechSFX, x => x.name == name);
+        if (s != null)
+        {
+            SpeechSource.Stop();
+            return;
+        }
 
+        Audio o = Array.Find(OneShotSFX, x => x.name == name);
+        if (o != null)
+        {
+            OneShotSource.Stop();
+            return;
+        }
+
+        Audio m = Array.Find(MusicSFX, x => x.name == name);
+        if (m != null)
+        {
+            MusicSource.Stop();
+            return;
+        }
+
+        Audio a = Array.Find(AmbienceSFX, x => x.name == name);
+        if (a != null)
+        {
+            AmbienceSource.Stop();
+            return;
+        }
+
+    }
 }
