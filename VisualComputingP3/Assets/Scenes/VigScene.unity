@@ -1132,37 +1132,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2106724032993506035, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
---- !u!1 &215221112
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 215221113}
-  m_Layer: 0
-  m_Name: RHand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &215221113
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215221112}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.3851697, y: 0.59299606, z: -0.59299606, w: 0.3851697}
-  m_LocalPosition: {x: 0.6499996, y: 0.8599999, z: 0.94000053}
-  m_LocalScale: {x: 1.3333323, y: 2, z: 1.3333335}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2004907850}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &216883735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2863358102781381881, guid: bf6d4476a87266742830aef65fcbe321, type: 3}
@@ -12581,10 +12550,7 @@ PrefabInstance:
       objectReference: {fileID: 1300041982}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1540435691480857418, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 215221113}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 535493925376750102, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
       insertIndex: -1
@@ -43317,7 +43283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 101
   playerCamera: {fileID: 1300041978}
-  rightHandPosition: {fileID: 215221113}
+  rightHandPosition: {fileID: 0}
   hasReadToDoList: 0
   isHoldingKey: 0
   hasSwallowedPill: 0
