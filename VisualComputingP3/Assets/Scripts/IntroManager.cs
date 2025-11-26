@@ -16,6 +16,7 @@ public class IntroManager : MonoBehaviour
     public float sitUpSpeed = 1.0f;
     public Vector3 sitUpPosition = new Vector3(0, 1, 0);
     private Vector3 startingPosition;
+    private bool skipIntro = false;
 
     void Start()
     {
@@ -23,6 +24,21 @@ public class IntroManager : MonoBehaviour
         fadeCanvas.alpha = 0f;
         startingPosition = playerTransform.position;
         StartCoroutine(PlayIntroVideo());
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S) && !skipIntro)
+        {
+            skipIntro = true;
+
+            //SoundManager.SpeechSource.Stop();
+            SoundManager.Instance.Stop("oai_pre_video_sp");
+            StartCoroutine(EyesFlutter());
+            StartCoroutine(SitUp());
+            SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
+            PointerCanvas.SetActive(true);
+        }
     }
 
 
@@ -35,7 +51,7 @@ public class IntroManager : MonoBehaviour
         SoundManager.Instance.PlaySpeechSFX("oai_pre_video_sp");
 
         yield return new WaitUntil(() => !introVid.isPlaying);
-
+        if (skipIntro) yield break;
         yield return StartCoroutine(EyesFlutter());
         yield return StartCoroutine(SitUp());
         SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
