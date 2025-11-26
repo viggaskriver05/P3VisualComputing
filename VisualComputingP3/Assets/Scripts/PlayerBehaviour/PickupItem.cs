@@ -39,6 +39,7 @@ public class PickupItem : InteractionScript
         {
             if (!player.hasReadToDoList)
             {
+                SoundManager.Instance.Stop("oai_take_pills_prompt_sp");
                 SoundManager.Instance.PlaySpeechSFX("oai_take_pills_prompt_sp");
                 player.hasReadToDoList = true;
                 Debug.Log("You have read the To Do list!");
@@ -48,6 +49,7 @@ public class PickupItem : InteractionScript
         if (CompareTag("Pill")) {
             if (!player.hasSwallowedPill)
             {
+                SoundManager.Instance.Stop("oai_facial_scan_sp");
                 SoundManager.Instance.PlaySpeechSFX("oai_facial_scan_sp");
                 player.hasSwallowedPill = true;
                 Debug.Log("You have swallowed a pill.");

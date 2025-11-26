@@ -103,7 +103,7 @@ public class ColliderManager : MonoBehaviour
         }
         var dominant = oscClientInstance.DominantEmotion ?? "unknown";
         var sentiment = oscClientInstance.SentimentEmotion ?? "unknown";
-        Debug.Log("[ColliderManager] FacialScanner candidate. Dominant emotion = " + dominant);
+        //Debug.Log("[ColliderManager] FacialScanner candidate. Dominant emotion = " + dominant);
         if (CompareTag("FacialScanner") && !string.Equals(dominant, requiredEmotionHappy, System.StringComparison.OrdinalIgnoreCase)) return;
         if (CompareTag("HallwayScanner") && !string.Equals(sentiment, requiredEmotionNegativeHallway, System.StringComparison.OrdinalIgnoreCase)) return;
         demoInstance.facialEmotionOverride = dominant;
@@ -193,7 +193,9 @@ public class ColliderManager : MonoBehaviour
                 if (renderer != null && greenMaterial != null)
                 {
                     // instance material change
-                    renderer.material = greenMaterial;
+                    var mats = renderer.materials;
+                    mats[2] = greenMaterial;
+                    renderer.materials = mats;
                     facialScanTriggered = true;
                     if (CompareTag("HallwayScanner")) { hallwayScanTriggered = true; }
                 }
