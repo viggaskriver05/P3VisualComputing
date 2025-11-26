@@ -12,6 +12,7 @@ public class ColliderManager : MonoBehaviour
     private OpenAiResponseToTtsWEmotionDemo demoInstance;
     private EmotionOscListener oscClientInstance;
     private PlayerInteraction player;
+    private Door door;
 
 
     [Header("Universal Trigger Base Settings")]
@@ -32,7 +33,7 @@ public class ColliderManager : MonoBehaviour
     [SerializeField] private string promptOnHallwayScan = "The user has opened a door which is not supposed to be opened. The output form this prompt should 'glitch' between calm instructions and angry outbursts from the AI.";
     [SerializeField] private GameObject faceScannerObj;
     [SerializeField] private Material greenMaterial;
-    [SerializeField] private GameObject doorObj;
+    [SerializeField] public GameObject doorObj;
 
     // ExerciseScanner-specific (sctivate when GameObject.tag == "ExerciseScanner")
     [Header("FacialScanner Settings (active when GameObject.tag == 'ExerciseScanner')")]
@@ -197,7 +198,14 @@ public class ColliderManager : MonoBehaviour
                     if (CompareTag("HallwayScanner")) { hallwayScanTriggered = true; }
                 }
             }
-            if (doorObj != null) doorObj.SetActive(false);
+            if (doorObj != null)
+            {
+                Debug.Log("Starting door animation");
+                Door door = doorObj.GetComponent<Door>();
+                StartCoroutine(door.OpenNow());
+                //door.OpenNow(); 
+            }
+                //doorObj.SetActive(false);
 
             cooldown = true;
             Invoke(nameof(ResetCooldown), cooldownSeconds);
