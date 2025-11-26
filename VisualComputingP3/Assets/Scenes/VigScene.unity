@@ -3190,10 +3190,9 @@ MonoBehaviour:
   LDoor: {fileID: 116626178}
   RDoor: {fileID: 598517078}
   openWidth: 2.5
-  openSpeed: 3
+  openSpeed: 0.5
   scannerUnlocked: 0
   keyAndScanNeeded: 0
-  colliderManager: {fileID: 0}
 --- !u!65 &525600067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5303,7 +5302,7 @@ PrefabInstance:
       addedObject: {fileID: 116626179}
     - targetCorrespondingSourceObject: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 968026268}
+      addedObject: {fileID: 968026272}
     - targetCorrespondingSourceObject: {fileID: 1410617749314707748, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 598517079}
@@ -5916,8 +5915,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
   m_PrefabInstance: {fileID: 858749521}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &968026268
-MeshCollider:
+--- !u!65 &968026272
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5934,10 +5933,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8223730656274421730, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.00095994945, y: 0.0028021166, z: 0.0042738803}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &968190470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8513859187771203891, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
@@ -7618,7 +7616,6 @@ MonoBehaviour:
   openSpeed: 3
   scannerUnlocked: 0
   keyAndScanNeeded: 0
-  colliderManager: {fileID: 0}
 --- !u!4 &1208905066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
@@ -8525,8 +8522,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.19, y: 2.12, z: 2.12}
-  m_Center: {x: -1.62, y: 0.69, z: 0}
+  m_Size: {x: 2.14, y: 2.15, z: 1.14}
+  m_Center: {x: -1.66, y: 0.4, z: -1.23}
 --- !u!1 &1329943877 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9013638940889411661, guid: a3bdd3bb02ce48745bc08e300d6e709e, type: 3}

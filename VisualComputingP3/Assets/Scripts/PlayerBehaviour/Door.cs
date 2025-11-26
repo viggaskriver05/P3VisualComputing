@@ -82,10 +82,6 @@ public class Door : InteractionScript
             while (lerpProgress < 1f)
             {
                 lerpProgress += Time.deltaTime * openSpeed;
-                while (lerpProgress >= 1f)
-                {
-                    lerpProgress = 1f;
-                }
 
                 if (isOpen)
                 {
@@ -97,9 +93,8 @@ public class Door : InteractionScript
                     LDoor.position = Vector3.Lerp(lDoorOpenPos, lDoorClosedPos, lerpProgress);
                     RDoor.position = Vector3.Lerp(rDoorOpenPos, rDoorClosedPos, lerpProgress);
                 }
+                yield return null;
             }
-
-            yield return null;
         }
     }
 }
