@@ -11,6 +11,9 @@ public class PlayerInteraction : MonoBehaviour
     public bool isHoldingKey = false;
     public bool hasSwallowedPill = false;
     public bool facialScanTriggered = false;
+    public bool hasEatenFood = false;
+    public bool hasPickedUpStaffCard = false;
+    public bool hallwayScanTriggered = false;
 
     [Header("UI")]
     public TMPro.TextMeshProUGUI interactionPromptText;
@@ -89,7 +92,7 @@ public class PlayerInteraction : MonoBehaviour
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 } 
-                if (pickup.CompareTag("StaffCard")) {
+                if (pickup.CompareTag("StaffCard") && hasEatenFood) {
                     interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}!";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
