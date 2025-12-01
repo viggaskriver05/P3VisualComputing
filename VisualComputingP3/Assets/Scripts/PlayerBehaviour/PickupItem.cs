@@ -74,6 +74,16 @@ public class PickupItem : InteractionScript
             }
         }
 
+        if (CompareTag("Jumpscare") && !player.hasBeenScared)
+        {
+            DoorJumpscare jumpscare = GetComponent<DoorJumpscare>();
+            if (jumpscare != null)
+            {
+                StartCoroutine(jumpscare.Jumpscare());
+            }
+            player.hasBeenScared = true;
+        }
+
         if (player != null && pickable)
         {
             Transform rightHandPos = player.rightHandPosition;

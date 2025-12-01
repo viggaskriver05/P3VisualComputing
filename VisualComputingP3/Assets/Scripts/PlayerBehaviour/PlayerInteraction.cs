@@ -14,6 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     public bool hasEatenFood = false;
     public bool hasPickedUpStaffCard = false;
     public bool hallwayScanTriggered = false;
+    public bool hasBeenScared = false;
 
     [Header("UI")]
     public TMPro.TextMeshProUGUI interactionPromptText;
@@ -63,7 +64,7 @@ public class PlayerInteraction : MonoBehaviour
             if (pickup != null)
             {
                 // Don't show prompt for ToDoList if already read
-                if (pickup.CompareTag("ToDoList") && hasReadToDoList || pickup.CompareTag("Pill") && hasSwallowedPill || pickup.CompareTag("FacialScanner") && facialScanTriggered || pickup.CompareTag("Food") && hasEatenFood || pickup.CompareTag("StaffCard") && hasPickedUpStaffCard)
+                if (pickup.CompareTag("ToDoList") && hasReadToDoList || pickup.CompareTag("Pill") && hasSwallowedPill || pickup.CompareTag("FacialScanner") && facialScanTriggered || pickup.CompareTag("Food") && hasEatenFood || pickup.CompareTag("StaffCard") && hasPickedUpStaffCard || pickup.CompareTag("Jumpscare") && hasBeenScared)
                 {
                     interactionPromptText.gameObject.SetActive(false);
                     return;
@@ -92,11 +93,17 @@ public class PlayerInteraction : MonoBehaviour
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 } 
-                if (pickup.CompareTag("StaffCard") && hasEatenFood) {
+                if (pickup.CompareTag("StaffCard")) {
                     interactionPromptText.text = $"Press {interactionKey} to pick up staff card!";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
-                } 
+                }
+                if (pickup.CompareTag("Jumpscare"))
+                {
+                    interactionPromptText.text = $"Press {interactionKey} to peek into room";
+                    if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
+                    return;
+                }
 
                 if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(false);
 
