@@ -5,6 +5,11 @@ public class PickupItem : InteractionScript
 {
     public bool pickable = true;
     public GameObject pill;
+
+    public void Start()
+    {
+    }
+
     public override void Interact()
     {
         PlayerInteraction player = FindAnyObjectByType<PlayerInteraction>();
@@ -37,10 +42,18 @@ public class PickupItem : InteractionScript
         
         if (CompareTag("Food"))
         {
+            EatFood eatFood = GetComponent<EatFood>();
             SoundManager.Instance.PlaySpeechSFX("oai_food_prompt_sp");
             player.hasEatenFood = true;
             Debug.Log("You have eaten the food!");
-            gameObject.SetActive(false);
+            if (eatFood != null)
+            {
+                StartCoroutine(eatFood.EatFoodAnimation());
+            }
+            else
+            {
+                Debug.LogWarning("EatFood component not found on the food item.");
+            }
         }
 
         if (CompareTag("StaffCard"))

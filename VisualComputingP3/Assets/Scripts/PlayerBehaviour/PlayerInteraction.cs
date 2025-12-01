@@ -73,12 +73,12 @@ public class PlayerInteraction : MonoBehaviour
                 string itemTag = hit.collider.tag;
                 //specific for the facialscanner
                 if (pickup.CompareTag("ToDoList")) {
-                    interactionPromptText.text = $"Press {interactionKey} to read {itemTag}";
+                    interactionPromptText.text = $"Press {interactionKey} to read to-do list";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 } 
                 if (pickup.CompareTag("Pill") && hasReadToDoList) {
-                    interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}";
+                    interactionPromptText.text = $"Press {interactionKey} to take your pills";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 }
@@ -88,12 +88,12 @@ public class PlayerInteraction : MonoBehaviour
                     return;
                 } 
                 if (pickup.CompareTag("Food")) {
-                    interactionPromptText.text = $"Press {interactionKey} to eat {itemTag}!";
+                    interactionPromptText.text = $"Press {interactionKey} to eat your food!";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 } 
                 if (pickup.CompareTag("StaffCard") && hasEatenFood) {
-                    interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}!";
+                    interactionPromptText.text = $"Press {interactionKey} to pick up staff card!";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 } 
