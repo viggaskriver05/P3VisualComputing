@@ -2872,8 +2872,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
   m_PrefabInstance: {fileID: 1890200357}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &433497137
-MeshCollider:
+--- !u!114 &433497141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433497136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae4ef2730f58ee44b57bb7799c6e3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickable: 0
+  pill: {fileID: 0}
+--- !u!65 &433497142
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2890,10 +2904,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8223730656274421730, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.00095994945, y: 0.0028021166, z: 0.0042738803}
+  m_Center: {x: 4.656613e-10, y: 0.0000000037252903, z: 0}
 --- !u!1 &459634328 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2738364249887624723, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -3212,6 +3225,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 433497136}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   doorObj: {fileID: 1208905062}
+  rightHand: {fileID: 0}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -3236,8 +3250,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.19, y: 2.12, z: 2.12}
-  m_Center: {x: -1.62, y: 0.69, z: 0}
+  m_Size: {x: 1.75, y: 1.59, z: 1.04}
+  m_Center: {x: -1.62, y: 0.69, z: -1.19}
 --- !u!1 &497330646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3422,14 +3436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d59dd47258134440b9876f84c1b93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  needsKey: 1
+  needsKey: 0
   LDoor: {fileID: 116626178}
   RDoor: {fileID: 598517078}
   openWidth: 2.5
   openSpeed: 0.5
-  scannerUnlocked: 0
-  keyAndScanNeeded: 0
+  facialScanNeeded: 1
 --- !u!65 &525600067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5140,6 +5152,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8314042953094884435, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
+--- !u!1 &727189658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3189400314741011628, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
+  m_PrefabInstance: {fileID: 1904504817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731501283 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6824746026288583490, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -5801,6 +5818,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 1329738861}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   doorObj: {fileID: 525600064}
+  rightHand: {fileID: 727189658}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -8178,6 +8196,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 0}
   greenMaterial: {fileID: 0}
   doorObj: {fileID: 0}
+  rightHand: {fileID: 0}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -8216,14 +8235,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d59dd47258134440b9876f84c1b93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
   needsKey: 1
   LDoor: {fileID: 641283096}
   RDoor: {fileID: 132895949}
   openWidth: 2.5
   openSpeed: 3
-  scannerUnlocked: 0
-  keyAndScanNeeded: 0
+  facialScanNeeded: 1
 --- !u!4 &1208905066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
@@ -9102,6 +9119,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 968026266}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   doorObj: {fileID: 525600064}
+  rightHand: {fileID: 0}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -13158,7 +13176,10 @@ PrefabInstance:
       addedObject: {fileID: 641283097}
     - targetCorrespondingSourceObject: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 433497137}
+      addedObject: {fileID: 433497142}
+    - targetCorrespondingSourceObject: {fileID: -4225611199393075386, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 433497141}
     - targetCorrespondingSourceObject: {fileID: 1410617749314707748, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 132895950}
