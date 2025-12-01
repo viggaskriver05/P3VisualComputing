@@ -63,7 +63,7 @@ public class PlayerInteraction : MonoBehaviour
             if (pickup != null)
             {
                 // Don't show prompt for ToDoList if already read
-                if (pickup.CompareTag("ToDoList") && hasReadToDoList || pickup.CompareTag("Pill") && hasSwallowedPill || pickup.CompareTag("FacialScanner") && facialScanTriggered)
+                if (pickup.CompareTag("ToDoList") && hasReadToDoList || pickup.CompareTag("Pill") && hasSwallowedPill || pickup.CompareTag("FacialScanner") && facialScanTriggered || pickup.CompareTag("Food") && hasEatenFood || pickup.CompareTag("StaffCard") && hasPickedUpStaffCard)
                 {
                     interactionPromptText.gameObject.SetActive(false);
                     return;

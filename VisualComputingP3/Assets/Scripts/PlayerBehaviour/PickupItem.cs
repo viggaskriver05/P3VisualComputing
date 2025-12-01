@@ -34,7 +34,6 @@ public class PickupItem : InteractionScript
             {
                 Destroy(lightObj);
             }
-            return;
         }
 
         if (CompareTag("ToDoList"))
@@ -59,7 +58,7 @@ public class PickupItem : InteractionScript
             }
         }
         
-        if (CompareTag("Food"))
+        if (CompareTag("Food") && !player.hasEatenFood)
         {
             EatFood eatFood = GetComponent<EatFood>();
             SoundManager.Instance.PlaySpeechSFX("oai_food_prompt_sp");
