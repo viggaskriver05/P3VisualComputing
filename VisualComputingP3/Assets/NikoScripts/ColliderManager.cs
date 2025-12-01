@@ -122,6 +122,7 @@ public class ColliderManager : MonoBehaviour
         // Extend with more tag-specific behaviors here (else if CompareTag("Door") ... )
         if (this.CompareTag("HallwayScanner") && !hallwayScanTriggered)
         {
+            if (!player.hasPickedUpStaffCard) return; // skip if staff card not yet picked up
             TryTrigger_FacialScanner(other);
         } else {
             Debug.LogWarning("ColliderManager: Unhandled trigger for tag: " + this.tag);
