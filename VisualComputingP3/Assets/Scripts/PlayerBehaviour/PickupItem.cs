@@ -23,7 +23,7 @@ public class PickupItem : InteractionScript
                 Debug.Log("You have read the To Do list!");
             }
         }
-        
+
         if (CompareTag("Pill")) {
             if (!player.hasSwallowedPill)
             {
@@ -37,7 +37,7 @@ public class PickupItem : InteractionScript
         
         if (CompareTag("Food"))
         {
-            SoundManager.Instance.PlaySpeechSFX("go_sp");
+            SoundManager.Instance.PlaySpeechSFX("oai_food_prompt_sp");
             player.hasEatenFood = true;
             Debug.Log("You have eaten the food!");
             gameObject.SetActive(false);
