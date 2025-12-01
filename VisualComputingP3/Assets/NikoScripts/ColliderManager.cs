@@ -34,6 +34,7 @@ public class ColliderManager : MonoBehaviour
     [SerializeField] private GameObject faceScannerObj;
     [SerializeField] private Material greenMaterial;
     [SerializeField] public GameObject doorObj;
+    [SerializeField] public GameObject rightHand;
 
     // ExerciseScanner-specific (sctivate when GameObject.tag == "ExerciseScanner")
     [Header("FacialScanner Settings (active when GameObject.tag == 'ExerciseScanner')")]
@@ -207,13 +208,26 @@ public class ColliderManager : MonoBehaviour
             }
             if (doorObj != null)
             {
-                Debug.Log("Starting door animation");
                 Door door = doorObj.GetComponent<Door>();
-                StartCoroutine(door.OpenNow());
-                //door.OpenNow(); 
-            }
-                //doorObj.SetActive(false);
+                if (door.needsKey && !player.isHoldingKey)
+                {
+                    Debug.Log("Door needs a key and player is not holding one. Cannot open door.");
+                    return;
+                }
+                else if (!door.needsKey)
+                {
+                    Debug.Log("Door does not need a key. Opening door.");
+                    StartCoroutine(door.OpenNow());
+                }
+                else
+                {
+                    Debug.Log("Starting door animation");
+                    StartCoroutine(door.OpenNow());
+                    GameObject keyObj = rightHand.transform.Find("IDCardNew").gameObject;
+                    keyObj.SetActive(false);
 
+                }
+            }
             cooldown = true;
             Invoke(nameof(ResetCooldown), cooldownSeconds);
         }

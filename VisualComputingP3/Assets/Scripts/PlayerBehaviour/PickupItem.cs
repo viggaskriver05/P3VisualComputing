@@ -26,6 +26,7 @@ public class PickupItem : InteractionScript
         {
             SoundManager.Instance.PlaySpeechSFX("Eat_OS");
             player.hasPickedUpStaffCard = true;
+            player.isHoldingKey = true;
             Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
 
             // Find and destroy all GameObjects with tag "Lights" after 5 seconds
@@ -92,10 +93,5 @@ public class PickupItem : InteractionScript
             transform.localRotation = Quaternion.identity;
         }
 
-        if (CompareTag("Key"))
-        {
-            player.isHoldingKey = true;
-            Debug.Log("You have picked up a key!");
-        }
     }
 }
