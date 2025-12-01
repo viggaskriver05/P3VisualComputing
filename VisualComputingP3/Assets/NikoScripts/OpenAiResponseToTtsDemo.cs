@@ -7,7 +7,7 @@ public class OpenAiResponseToTtsDemo : MonoBehaviour
     [TextArea]
     public string prompt = "Describe the scene in two sentences.";
     [TextArea]
-    public string systemPromptOverride = "You are a friendly AI in a game. Please keep conversation with the player engaging. You address the player directly and talk in a modern tone. The response should never exceed 20 words."; // Leave empty to use client's defaultSystemPrompt
+    public string systemPromptOverride = "You are a friendly AI in a game. Please keep conversation with the player engaging. You address the player directly and talk in a modern tone. The response should never exceed 15 words."; // Leave empty to use client's defaultSystemPrompt
     public string facialEmotionOverride = "happy"; // e.g., happy, sad, angry
     public string toneOverride = "friendly"; // e.g., neutral, scary, friendly
 
