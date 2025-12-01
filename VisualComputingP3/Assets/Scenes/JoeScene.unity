@@ -8580,7 +8580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &994140072
 Transform:
   m_ObjectHideFlags: 0
@@ -17851,7 +17851,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956624049}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9f79f9abc62d5454aa5b30a766e1a4ef, type: 3}
@@ -48285,6 +48285,9 @@ MonoBehaviour:
   isHoldingKey: 0
   hasSwallowedPill: 0
   facialScanTriggered: 0
+  hasEatenFood: 0
+  hasPickedUpStaffCard: 0
+  hallwayScanTriggered: 0
   interactionPromptText: {fileID: 150432052}
 --- !u!114 &2004907846 stripped
 MonoBehaviour:
