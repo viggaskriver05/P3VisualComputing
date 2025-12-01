@@ -23,7 +23,6 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        
         TryInteract();
 
         // Always update the on-screen prompt based on what the player is looking at 
@@ -85,6 +84,17 @@ public class PlayerInteraction : MonoBehaviour
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 } 
+                if (pickup.CompareTag("Food")) {
+                    interactionPromptText.text = $"Press {interactionKey} to eat {itemTag}!";
+                    if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
+                    return;
+                } 
+                if (pickup.CompareTag("StaffCard")) {
+                    interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}!";
+                    if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
+                    return;
+                } 
+
                 if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(false);
 
                 return;
