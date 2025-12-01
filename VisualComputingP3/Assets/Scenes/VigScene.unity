@@ -8167,6 +8167,7 @@ MonoBehaviour:
   apiKey: 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
   model: gpt-4o-mini-tts
   voice: alloy
+  useCache: 1
   audioSource: {fileID: 1430634293}
 --- !u!4 &1250150354
 Transform:
@@ -12431,7 +12432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.62
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalPosition.y

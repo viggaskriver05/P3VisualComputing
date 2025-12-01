@@ -29,8 +29,8 @@ public class ColliderManager : MonoBehaviour
     [SerializeField] private bool hallwayScanTriggered = false;
     //[SerializeField] public UnityEvent oneFacialScanSuccess;
     [TextArea]
-    [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan";
-    [SerializeField] private string promptOnHallwayScan = "The user has opened a door which is not supposed to be opened. The output form this prompt should 'glitch' between calm instructions and angry outbursts from the AI.";
+    [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan. Tell the player to eat their food.";
+    [SerializeField] private string promptOnHallwayScan = "The user has opened a door which is not supposed to be opened. The output form this prompt should be angry outbursts from the AI.";
     [SerializeField] private GameObject faceScannerObj;
     [SerializeField] private Material greenMaterial;
     [SerializeField] public GameObject doorObj;

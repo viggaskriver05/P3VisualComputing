@@ -10,7 +10,7 @@ public class Door : InteractionScript
     public Transform LDoor;
     public Transform RDoor;
     public float openWidth;
-    public float openSpeed = 3f;
+    public float openSpeed = 0.5f;
     public bool scannerUnlocked = false;
     public bool keyAndScanNeeded = true;
 
@@ -78,6 +78,8 @@ public class Door : InteractionScript
             Debug.Log("Starting door opening animation.");
             isOpen = true;
             lerpProgress = 0f;
+
+yield return new WaitForSeconds(1f);
 
             while (lerpProgress < 1f)
             {
