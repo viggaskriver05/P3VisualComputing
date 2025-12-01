@@ -28,7 +28,7 @@ public class PickupItem : InteractionScript
             return;
         }
         
-         if (CompareTag("Food"))
+        if (CompareTag("Food"))
         {
             SoundManager.Instance.PlaySpeechSFX("go_sp");
             Destroy(gameObject);
@@ -71,6 +71,7 @@ public class PickupItem : InteractionScript
             player.isHoldingKey = true;
             Debug.Log("You have picked up a key!");
         }
+
         if (CompareTag("Pill"))
         {
             player.hasSwallowedPill = true;

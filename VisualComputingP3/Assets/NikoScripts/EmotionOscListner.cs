@@ -6,7 +6,7 @@ public class EmotionOscListener : MonoBehaviour
 {
     [SerializeField] int listenPort = 9000;
     [Tooltip("How many frames/messages to consider when computing the dominant emotion.")]
-    [SerializeField] int sampleWindowFrames = 24;
+    [SerializeField] int sampleWindowFrames = 10;
     OscServer _server;
 
     public string CurrentEmotion { get; private set; } = "unknown";
