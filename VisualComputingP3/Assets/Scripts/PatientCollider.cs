@@ -4,7 +4,8 @@ public class PatientCollider : MonoBehaviour
 {
     private bool hasTriggered = false;
     public GameObject targetGameObject;
-    public AudioSource targetAudioSource;
+    public AudioSource targetAudioSource1;
+    public GameObject targetAudioAlarm;
 
     void OnTriggerEnter(Collider collision)
     {
@@ -18,10 +19,15 @@ public class PatientCollider : MonoBehaviour
                 targetGameObject.SetActive(true);
             }
             
-            if (targetAudioSource != null)
+            if (targetAudioSource1 != null)
             {
-                targetAudioSource.enabled = true;
-                targetAudioSource.Play();
+                targetAudioSource1.enabled = true;
+                targetAudioSource1.Play();
+            }
+             if (targetAudioAlarm != null)
+            {
+                targetAudioAlarm.SetActive(true);
+                Debug.Log("Alarm activated");
             }
             
             //SoundManager.Instance.PlayOneShotSFX("P0");
