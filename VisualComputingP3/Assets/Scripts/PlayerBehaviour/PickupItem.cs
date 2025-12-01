@@ -28,7 +28,7 @@ public class PickupItem : InteractionScript
             return;
         }
         
-         if (CompareTag("Food"))
+        if (CompareTag("Food"))
         {
             SoundManager.Instance.PlayOneShotSFX("Eat_OS");
             Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
@@ -48,6 +48,7 @@ public class PickupItem : InteractionScript
         {
             if (!player.hasReadToDoList)
             {
+                SoundManager.Instance.Stop("oai_take_pills_prompt_sp");
                 SoundManager.Instance.PlaySpeechSFX("oai_take_pills_prompt_sp");
                 player.hasReadToDoList = true;
                 Debug.Log("You have read the To Do list!");
@@ -57,6 +58,7 @@ public class PickupItem : InteractionScript
         if (CompareTag("Pill")) {
             if (!player.hasSwallowedPill)
             {
+                SoundManager.Instance.Stop("oai_facial_scan_sp");
                 SoundManager.Instance.PlaySpeechSFX("oai_facial_scan_sp");
                 player.hasSwallowedPill = true;
                 Debug.Log("You have swallowed a pill.");
@@ -78,6 +80,7 @@ public class PickupItem : InteractionScript
             player.isHoldingKey = true;
             Debug.Log("You have picked up a key!");
         }
+
         if (CompareTag("Pill"))
         {
             player.hasSwallowedPill = true;

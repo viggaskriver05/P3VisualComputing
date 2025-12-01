@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using static UnityEngine.Object;
 
 public class Door : InteractionScript
@@ -8,7 +9,7 @@ public class Door : InteractionScript
     public bool needsKey = true;
     public Transform LDoor;
     public Transform RDoor;
-    public float openWidth = 1f;
+    public float openWidth;
     public float openSpeed = 3f;
     public bool scannerUnlocked = false;
     public bool keyAndScanNeeded = true;
@@ -16,13 +17,13 @@ public class Door : InteractionScript
     private Vector3 lDoorClosedPos, lDoorOpenPos;
     private Vector3 rDoorClosedPos, rDoorOpenPos;
     private float lerpProgress = 1f; // 1 = at target, 0 = just started
-    private bool isMoving = false;
+    //public bool isMoving = false;
     private bool isOpen;
-    [SerializeField] private ColliderManager colliderManager;
+    //[SerializeField] private ColliderManager colliderManager;
 
     void Start()
     {
-        colliderManager = new ColliderManager();
+        //colliderManager = new ColliderManager();
         lDoorClosedPos = LDoor.position;
         rDoorClosedPos = RDoor.position;
         lDoorOpenPos = lDoorClosedPos + new Vector3(0, 0, -openWidth);
@@ -39,36 +40,17 @@ public class Door : InteractionScript
     {
         if (!keyAndScanNeeded && scannerUnlocked)
         {
-            OpenNow();
+            StartCoroutine(OpenNow());
         }
         else if (keyAndScanNeeded && scannerUnlocked && isUnlocked)
         {
-            OpenNow();
+            StartCoroutine(OpenNow());
         }
     }
 
     void Update()
     {
-        if (isMoving)
-        {
-            lerpProgress += Time.deltaTime * openSpeed;
-            if (lerpProgress >= 1f)
-            {
-                lerpProgress = 1f;
-                isMoving = false;
-            }
 
-            if (isOpen)
-            {
-                LDoor.position = Vector3.Lerp(lDoorClosedPos, lDoorOpenPos, lerpProgress);
-                RDoor.position = Vector3.Lerp(rDoorClosedPos, rDoorOpenPos, lerpProgress);
-            }
-            else
-            {
-                LDoor.position = Vector3.Lerp(lDoorOpenPos, lDoorClosedPos, lerpProgress);
-                RDoor.position = Vector3.Lerp(rDoorOpenPos, rDoorClosedPos, lerpProgress);
-            }
-        }
     }
 
     public override void Interact()
@@ -87,13 +69,32 @@ public class Door : InteractionScript
         }
     }
 
-    public void OpenNow()
+    public IEnumerator OpenNow()
     {
-        if (!isOpen && colliderManager.IsFacialScanComplete())
+        Debug.Log("Door OpenNow called.");
+        if (!isOpen)
+        //if (!isOpen && colliderManager.IsFacialScanComplete())
         {
+            Debug.Log("Starting door opening animation.");
             isOpen = true;
             lerpProgress = 0f;
-            isMoving = true;
+
+            while (lerpProgress < 1f)
+            {
+                lerpProgress += Time.deltaTime * openSpeed;
+
+                if (isOpen)
+                {
+                    LDoor.position = Vector3.Lerp(lDoorClosedPos, lDoorOpenPos, lerpProgress);
+                    RDoor.position = Vector3.Lerp(rDoorClosedPos, rDoorOpenPos, lerpProgress);
+                }
+                else
+                {
+                    LDoor.position = Vector3.Lerp(lDoorOpenPos, lDoorClosedPos, lerpProgress);
+                    RDoor.position = Vector3.Lerp(rDoorOpenPos, rDoorClosedPos, lerpProgress);
+                }
+                yield return null;
+            }
         }
     }
 }

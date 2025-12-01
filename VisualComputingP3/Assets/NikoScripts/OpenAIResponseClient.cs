@@ -24,7 +24,7 @@ public class OpenAIResponseClient : MonoBehaviour
     [Serializable] private class ChatRequest { public string model; public string messages; }
 
     /// <summary>
-    /// Generates a text response from a prompt using OpenAI's GPT-5-nano model, with basic caching.
+    /// Generates a text response from a prompt using OpenAI's GPT-4o-mini model, with basic caching.
     /// </summary>
     /// <param name="prompt">The prompt to send to the model</param>
     /// <param name="systemPromptOverride">Optional: system prompt to set assistant behavior; falls back to defaultSystemPrompt</param>
@@ -103,9 +103,9 @@ public class OpenAIResponseClient : MonoBehaviour
         http.DefaultRequestHeaders.Clear();
         http.DefaultRequestHeaders.Add("Authorization", $"Bearer {key}");
 
-    // Build messages array with system prompt first, then user prompt
-    var sys = string.IsNullOrWhiteSpace(systemPrompt) ? "" : $"{{\"role\":\"system\",\"content\":\"{EscapeJson(systemPrompt)}\"}},";
-    var json = $"{{\"model\":\"{modelToUse}\",\"messages\":[" + sys + $"{{\"role\":\"user\",\"content\":\"{EscapeJson(prompt)}\"}}]}}";
+        // Build messages array with system prompt first, then user prompt
+        var sys = string.IsNullOrWhiteSpace(systemPrompt) ? "" : $"{{\"role\":\"system\",\"content\":\"{EscapeJson(systemPrompt)}\"}},";
+        var json = $"{{\"model\":\"{modelToUse}\",\"messages\":[" + sys + $"{{\"role\":\"user\",\"content\":\"{EscapeJson(prompt)}\"}}]}}";
         var content = new StringContent(json, Encoding.UTF8, "application/json");
         var resp = await http.PostAsync("https://api.openai.com/v1/chat/completions", content);
 
@@ -116,7 +116,6 @@ public class OpenAIResponseClient : MonoBehaviour
         }
 
         var result = await resp.Content.ReadAsStringAsync();
-        // TODO: Parse the response JSON to extract the reply text
         return result;
     }
 
