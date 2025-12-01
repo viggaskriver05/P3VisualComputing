@@ -4959,34 +4959,6 @@ Transform:
   - {fileID: 356534221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!83 &766044358
-AudioClip:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_LoadType: 0
-  m_Channels: 0
-  m_Frequency: 0
-  m_BitsPerSample: 0
-  m_Length: 0
-  m_IsTrackerFormat: 0
-  m_Ambisonic: 0
-  m_SubsoundIndex: 0
-  m_PreloadAudioData: 1
-  m_LoadInBackground: 0
-  m_Legacy3D: 0
-  m_Resource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_CompressionFormat: 0
-  m_EditorResource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_EditorCompressionFormat: 0
 --- !u!1 &777673348 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6481460777493441219, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
@@ -6412,53 +6384,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4364764324764595311, guid: 4aadfd7c05cb81f41a4611a3ec7d232d, type: 3}
---- !u!1 &1039540782
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1039540784}
-  - component: {fileID: 1039540783}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1039540783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039540782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25bf7b3879a546b58bdfe2c2482afb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  line: 
-  voice: alloy
-  model: gpt-4o-mini-tts
---- !u!4 &1039540784
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039540782}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.8069, y: -14.106448, z: 14.466875}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041183382 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5749682144942410108, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -8167,7 +8092,6 @@ MonoBehaviour:
   apiKey: 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
   model: gpt-4o-mini-tts
   voice: alloy
-  useCache: 1
   audioSource: {fileID: 1430634293}
 --- !u!4 &1250150354
 Transform:
@@ -8224,6 +8148,7 @@ MonoBehaviour:
   toneOverride: friendly
   ttsVoice: alloy
   ttsModel: gpt-4o-mini-tts
+  ttsClient: {fileID: 0}
   listener: {fileID: 0}
 --- !u!4 &1252201991
 Transform:
@@ -8738,22 +8663,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: SpeechSFX.Array.data[20].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: f576087fbd9f84c2695e7e02e538b194, type: 3}
     - target: {fileID: 7036425401884175630, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: m_Name
       value: Sound Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 7960662366915613651, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 766044358}
-    - target: {fileID: 7960662366915613651, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 766044358}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10927,6 +10840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   apiKey: 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
   model: gpt-4o-mini
+  useCachedPrompts: 1
   defaultSystemPrompt: 
   useTonality: 1
   tonality: neutral
@@ -43846,4 +43760,3 @@ SceneRoots:
   - {fileID: 1601200361}
   - {fileID: 358849820}
   - {fileID: 322507039}
-  - {fileID: 1039540784}

@@ -168,7 +168,7 @@ public class ColliderManager : MonoBehaviour
         //SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
     }
 
-    void TryTrigger_FacialScanner(Collider other)
+    async Task TryTrigger_FacialScanner(Collider other)
     {
         if (faceScannerObj != null)
         { 
@@ -199,6 +199,10 @@ public class ColliderManager : MonoBehaviour
                     renderer.materials = mats;
                     facialScanTriggered = true;
                     if (CompareTag("HallwayScanner")) { hallwayScanTriggered = true; }
+                    if (CompareTag("FacialScanner")) {
+                        await Task.Delay(4000);
+                        SoundManager.Instance.PlaySpeechSFX("oai_eat_food_prompt_sp");
+                    }
                 }
             }
             if (doorObj != null)

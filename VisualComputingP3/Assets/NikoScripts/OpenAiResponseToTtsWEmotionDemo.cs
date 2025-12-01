@@ -18,7 +18,7 @@ public class OpenAiResponseToTtsWEmotionDemo : MonoBehaviour
     public string ttsModel = "gpt-4o-mini-tts"; // or gpt-audio-mini
 
     private OpenAIResponseClient responseClient;
-    private OpenAITtsClient ttsClient;
+    public OpenAITtsClient ttsClient;
     [SerializeField] EmotionOscListener listener;
     private bool isRunning; // guard against overlapping calls
 
