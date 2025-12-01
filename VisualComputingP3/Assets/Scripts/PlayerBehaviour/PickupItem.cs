@@ -16,7 +16,26 @@ public class PickupItem : InteractionScript
 
         // Gates for certain items
         if (CompareTag("Pill") && !player.hasReadToDoList) return;
-        if (CompareTag("StaffCard") && !player.hasEatenFood) return; 
+
+        if (CompareTag("StaffCard") && !player.hasEatenFood) return;
+
+        if (CompareTag("FacialScanner") && !player.hasSwallowedPill) return;
+
+        // Trashcan: play speech SFX and stop further interaction
+        if (CompareTag("StaffCard"))
+        {
+            SoundManager.Instance.PlaySpeechSFX("Eat_OS");
+            player.hasPickedUpStaffCard = true;
+            Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
+
+            // Find and destroy all GameObjects with tag "Lights" after 5 seconds
+            GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights"); 
+            foreach (var lightObj in lights)
+            {
+                Destroy(lightObj);
+            }
+            return;
+        }
 
         if (CompareTag("ToDoList"))
         {
@@ -54,19 +73,6 @@ public class PickupItem : InteractionScript
             {
                 Debug.LogWarning("EatFood component not found on the food item.");
             }
-        }
-
-        if (CompareTag("StaffCard"))
-        {
-            SoundManager.Instance.PlaySpeechSFX("go_sp");
-            player.hasPickedUpStaffCard = true;
-            Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
-            GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights");
-            foreach (var lightObj in lights)
-            {
-                Destroy(lightObj, 2f);
-            }
-            Debug.Log("You have picked up the Staff Card!");
         }
 
         if (player != null && pickable)

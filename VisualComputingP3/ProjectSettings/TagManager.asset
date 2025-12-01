@@ -15,6 +15,13 @@ TagManager:
   - StaffCard
   - Lights
   - HallwayScanner
+  - DoorBlocker
+  - P0
+  - RestartGame
+  - P1
+  - P2
+  - P3
+  - P4
   layers:
   - Default
   - TransparentFX
