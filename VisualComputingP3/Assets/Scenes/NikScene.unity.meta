@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VisualComputingP3/Assets/Scenes/NikScene.unity.meta
 guid: b1881d4cadde345fe94b7a2999689612
+========
+guid: 74071e3bb59c941b59bd4e2ff0def265
+>>>>>>>> main:VisualComputingP3/Assets/Scenes/JoeScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

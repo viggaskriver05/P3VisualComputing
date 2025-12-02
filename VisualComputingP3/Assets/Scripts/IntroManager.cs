@@ -73,13 +73,24 @@ public class IntroManager : MonoBehaviour
         fadeCanvas.alpha = to;
     }
 
-    IEnumerator EyesFlutter()
+    public IEnumerator EyesFlutter()
     {
         VideoCanvas.SetActive(false);
+        yield return StartCoroutine(FadeToBlack(1f, 0.5f, flutterSpeed));
+        yield return StartCoroutine(FadeToBlack(0.5f, 1f, flutterSpeed));
         yield return StartCoroutine(FadeToBlack(1f, 0.2f, flutterSpeed));
-        yield return StartCoroutine(FadeToBlack(0.2f, 0.6f, flutterSpeed));
-        yield return StartCoroutine(FadeToBlack(0.6f, 0f, flutterSpeed));
+        yield return StartCoroutine(FadeToBlack(0.2f, 1f, flutterSpeed));
+        yield return StartCoroutine(FadeToBlack(1f, 0.2f, flutterSpeed));
+
     }
+
+    public IEnumerator EyesBlink()
+    {
+        yield return StartCoroutine(FadeToBlack(0.1f, 1f, 1f));
+        yield return new WaitForSeconds(1);
+        yield return StartCoroutine(FadeToBlack(1f, 0f, 1f));
+    }
+
     IEnumerator SitUp()
     {
         float t = 0f;
