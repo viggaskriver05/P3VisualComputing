@@ -26,7 +26,7 @@ public class ColliderManager : MonoBehaviour
     [SerializeField] private string requiredEmotionHappy = "happy";
     [SerializeField] private string requiredEmotionNegativeHallway = "negative";
     [SerializeField] private bool facialScanTriggered = false;
-    [SerializeField] private bool hallwayScanTriggered = false;
+    [SerializeField] public bool hallwayScanTriggered = false;
     //[SerializeField] public UnityEvent oneFacialScanSuccess;
     [TextArea]
     [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan. Tell the player to eat their food.";
@@ -117,17 +117,13 @@ public class ColliderManager : MonoBehaviour
         {
             if (!player.hasSwallowedPill) return; // skip if pill is not yet swallowed
             TryTrigger_FacialScanner(other);
-        } else {
-            Debug.LogWarning("ColliderManager: Unhandled trigger for tag: " + this.tag);
-        }
+        } 
         // Extend with more tag-specific behaviors here (else if CompareTag("Door") ... )
         if (this.CompareTag("HallwayScanner") && !hallwayScanTriggered)
         {
             if (!player.hasPickedUpStaffCard) return; // skip if staff card not yet picked up
             TryTrigger_FacialScanner(other);
-        } else {
-            Debug.LogWarning("ColliderManager: Unhandled trigger for tag: " + this.tag);
-        }
+        } 
     }
 
     // ===================== FacialScanner =====================
@@ -186,6 +182,7 @@ public class ColliderManager : MonoBehaviour
             if (CompareTag("HallwayScanner"))
             {
                 demoInstance.prompt = promptOnHallwayScan;
+                
             }
             _ = demoInstance.RunOnce();
 
@@ -199,7 +196,7 @@ public class ColliderManager : MonoBehaviour
                     mats[2] = greenMaterial;
                     renderer.materials = mats;
                     facialScanTriggered = true;
-                    if (CompareTag("HallwayScanner")) { hallwayScanTriggered = true; }
+                    if (CompareTag("HallwayScanner")) { player.hallwayScanTriggered = true; hallwayScanTriggered = true; }
                     if (CompareTag("FacialScanner")) {
                         await Task.Delay(4000);
                         SoundManager.Instance.PlaySpeechSFX("oai_eat_food_prompt_sp");
@@ -243,13 +240,4 @@ public class ColliderManager : MonoBehaviour
     }
 
     void ResetCooldown() => cooldown = false;
-
-    void OnValidate()
-    {
-        var col = GetComponent<Collider>();
-        if (col != null && !col.isTrigger)
-        {
-            Debug.LogWarning("[ColliderManager] Collider is not marked as Trigger. OnTrigger events may not fire unless the other collider has a Rigidbody and physics matrix allows it.", this);
-        }
-    }
 }

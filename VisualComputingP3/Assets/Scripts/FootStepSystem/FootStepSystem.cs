@@ -34,7 +34,7 @@ public class FootstepSystem : MonoBehaviour
         if (Sin > 0 && isTriggered == false)
         {
             isTriggered = true;
-            Debug.Log("Step");
+            //Debug.Log("Step");
             onFootStep.Invoke();
         }
         else if (isTriggered == true && Sin < -0)
