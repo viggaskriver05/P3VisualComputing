@@ -4,12 +4,15 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class OpenAIResponseClient : MonoBehaviour
 {
     public string apiKey = "";
     public string model = "gpt-4o-mini";
+
+    [SerializeField] private bool useCachedPrompts = true;
 
     [TextArea]
     public string defaultSystemPrompt = "";
@@ -24,7 +27,7 @@ public class OpenAIResponseClient : MonoBehaviour
     [Serializable] private class ChatRequest { public string model; public string messages; }
 
     /// <summary>
-    /// Generates a text response from a prompt using OpenAI's GPT-5-nano model, with basic caching.
+    /// Generates a text response from a prompt using OpenAI's GPT-4o-mini model, with basic caching.
     /// </summary>
     /// <param name="prompt">The prompt to send to the model</param>
     /// <param name="systemPromptOverride">Optional: system prompt to set assistant behavior; falls back to defaultSystemPrompt</param>
@@ -59,37 +62,37 @@ public class OpenAIResponseClient : MonoBehaviour
             if (string.IsNullOrWhiteSpace(systemPromptOverride)) systemPromptOverride = toneInstruction; else systemPromptOverride += "\n" + toneInstruction;
         }
 
-    // Create unique hash for this prompt/model for caching
-    var hash = Hash($"{model}|{systemPromptOverride}|{prompt}");
-    var path = Path.Combine(Application.persistentDataPath, "response_cache", hash + ".txt");
+        // Create unique hash for this prompt/model for caching
+        var hash = "";
+        if (useCachedPrompts){ 
+            hash = Hash($"{model}|{systemPromptOverride}|{prompt}");
+        } else {
+            hash = Hash($"{model}|{systemPromptOverride}|{prompt}|{Mathf.FloorToInt(UnityEngine.Random.value *  1000000)}");
+        }
 
-    // Return cached response if available
-    if (File.Exists(path))
-    {
-        var cached = File.ReadAllText(path);
-        // Copy to Assets/GeneratedText/ for version control and sharing
-        var assetPath = Path.Combine(Application.dataPath, "GeneratedText", hash + ".txt");
-        Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
-        File.Copy(path, assetPath, true);
+        // Cache file lives under Assets/GeneratedText so it is versioned with the project
+        var assetDir = Path.Combine(Application.dataPath, "GeneratedText");
+        Directory.CreateDirectory(assetDir);
+        var path = Path.Combine(assetDir, hash + ".txt");
+
+        // Return cached response if available (check only in Assets/GeneratedText)
+        if (File.Exists(path))
+        {
+            var cached = File.ReadAllText(path);
+#if UNITY_EDITOR
+            UnityEditor.AssetDatabase.ImportAsset("Assets/GeneratedText/" + hash + ".txt");
+#endif
+            return cached;
+        }
+
+        // Download response from OpenAI and save directly into Assets/GeneratedText
+        var response = await DownloadAsync(prompt, model, systemPromptOverride);
+        File.WriteAllText(path, response);
+
 #if UNITY_EDITOR
         UnityEditor.AssetDatabase.ImportAsset("Assets/GeneratedText/" + hash + ".txt");
 #endif
-        return cached;
-    }
-
-    // Download response from OpenAI
-    Directory.CreateDirectory(Path.GetDirectoryName(path));
-    var response = await DownloadAsync(prompt, model, systemPromptOverride);
-    File.WriteAllText(path, response);
-
-    // Copy to Assets/GeneratedText/ for version control and sharing
-    var assetPathNew = Path.Combine(Application.dataPath, "GeneratedText", hash + ".txt");
-    Directory.CreateDirectory(Path.GetDirectoryName(assetPathNew));
-    File.Copy(path, assetPathNew, true);
-#if UNITY_EDITOR
-    UnityEditor.AssetDatabase.ImportAsset("Assets/GeneratedText/" + hash + ".txt");
-#endif
-    return response;
+        return response;
     }
 
     /// <summary>
@@ -103,9 +106,9 @@ public class OpenAIResponseClient : MonoBehaviour
         http.DefaultRequestHeaders.Clear();
         http.DefaultRequestHeaders.Add("Authorization", $"Bearer {key}");
 
-    // Build messages array with system prompt first, then user prompt
-    var sys = string.IsNullOrWhiteSpace(systemPrompt) ? "" : $"{{\"role\":\"system\",\"content\":\"{EscapeJson(systemPrompt)}\"}},";
-    var json = $"{{\"model\":\"{modelToUse}\",\"messages\":[" + sys + $"{{\"role\":\"user\",\"content\":\"{EscapeJson(prompt)}\"}}]}}";
+        // Build messages array with system prompt first, then user prompt
+        var sys = string.IsNullOrWhiteSpace(systemPrompt) ? "" : $"{{\"role\":\"system\",\"content\":\"{EscapeJson(systemPrompt)}\"}},";
+        var json = $"{{\"model\":\"{modelToUse}\",\"messages\":[" + sys + $"{{\"role\":\"user\",\"content\":\"{EscapeJson(prompt)}\"}}]}}";
         var content = new StringContent(json, Encoding.UTF8, "application/json");
         var resp = await http.PostAsync("https://api.openai.com/v1/chat/completions", content);
 
@@ -116,7 +119,6 @@ public class OpenAIResponseClient : MonoBehaviour
         }
 
         var result = await resp.Content.ReadAsStringAsync();
-        // TODO: Parse the response JSON to extract the reply text
         return result;
     }
 

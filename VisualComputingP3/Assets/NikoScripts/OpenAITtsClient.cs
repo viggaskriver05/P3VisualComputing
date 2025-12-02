@@ -12,6 +12,7 @@ public class OpenAITtsClient : MonoBehaviour
     public string apiKey = "";
     public string model = "gpt-4o-mini-tts";
     public string voice = "alloy";
+    
     public AudioSource audioSource;
 
     private static readonly HttpClient http = new HttpClient();
@@ -41,22 +42,21 @@ public class OpenAITtsClient : MonoBehaviour
 
         // Create unique hash for this combination of model/voice/text for caching
         var hash = Hash($"{modelToUse}|{voiceToUse}|{text}");
-        var path = Path.Combine(Application.persistentDataPath, "tts_cache", hash + ".mp3");
 
-        // Download only if not already cached
+        // Cache file lives under Assets/GeneratedTTS so it is versioned with the project
+        var assetDir = Path.Combine(Application.dataPath, "GeneratedTTS");
+        Directory.CreateDirectory(assetDir);
+        var path = Path.Combine(assetDir, hash + ".mp3");
+
+        // Download only if not already cached (check only in Assets/GeneratedTTS)
         if (!File.Exists(path))
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(path));
             await DownloadAsync(text, path, voiceToUse, modelToUse);
         }
 
-        // Copy to Assets/GeneratedTTS/ for version control and sharing
-        var assetPath = Path.Combine(Application.dataPath, "GeneratedTTS", hash + ".mp3");
-        Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
-        File.Copy(path, assetPath, true);
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
         UnityEditor.AssetDatabase.ImportAsset("Assets/GeneratedTTS/" + hash + ".mp3");
-#endif
+    #endif
 
         // Load the audio file and play it
         var clip = await LoadAsync(path);

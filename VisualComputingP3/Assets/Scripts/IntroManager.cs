@@ -16,6 +16,7 @@ public class IntroManager : MonoBehaviour
     public float sitUpSpeed = 1.0f;
     public Vector3 sitUpPosition = new Vector3(0, 1, 0);
     private Vector3 startingPosition;
+    private bool skipIntro = false;
 
     void Start()
     {
@@ -23,6 +24,21 @@ public class IntroManager : MonoBehaviour
         fadeCanvas.alpha = 0f;
         startingPosition = playerTransform.position;
         StartCoroutine(PlayIntroVideo());
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S) && !skipIntro)
+        {
+            skipIntro = true;
+
+            //SoundManager.SpeechSource.Stop();
+            SoundManager.Instance.Stop("oai_pre_video_sp");
+            StartCoroutine(EyesFlutter());
+            StartCoroutine(SitUp());
+            SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
+            PointerCanvas.SetActive(true);
+        }
     }
 
 
@@ -35,7 +51,7 @@ public class IntroManager : MonoBehaviour
         SoundManager.Instance.PlaySpeechSFX("oai_pre_video_sp");
 
         yield return new WaitUntil(() => !introVid.isPlaying);
-
+        if (skipIntro) yield break;
         yield return StartCoroutine(EyesFlutter());
         yield return StartCoroutine(SitUp());
         SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
@@ -57,13 +73,24 @@ public class IntroManager : MonoBehaviour
         fadeCanvas.alpha = to;
     }
 
-    IEnumerator EyesFlutter()
+    public IEnumerator EyesFlutter()
     {
         VideoCanvas.SetActive(false);
+        yield return StartCoroutine(FadeToBlack(1f, 0.5f, flutterSpeed));
+        yield return StartCoroutine(FadeToBlack(0.5f, 1f, flutterSpeed));
         yield return StartCoroutine(FadeToBlack(1f, 0.2f, flutterSpeed));
-        yield return StartCoroutine(FadeToBlack(0.2f, 0.6f, flutterSpeed));
-        yield return StartCoroutine(FadeToBlack(0.6f, 0f, flutterSpeed));
+        yield return StartCoroutine(FadeToBlack(0.2f, 1f, flutterSpeed));
+        yield return StartCoroutine(FadeToBlack(1f, 0.2f, flutterSpeed));
+
     }
+
+    public IEnumerator EyesBlink()
+    {
+        yield return StartCoroutine(FadeToBlack(0.1f, 1f, 1f));
+        yield return new WaitForSeconds(1);
+        yield return StartCoroutine(FadeToBlack(1f, 0f, 1f));
+    }
+
     IEnumerator SitUp()
     {
         float t = 0f;
