@@ -1780,6 +1780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AdaptiveSound
       objectReference: {fileID: 0}
+    - target: {fileID: 6305398271772125475, guid: 42de0727f429b4a1b9a9f69a54cff2f4, type: 3}
+      propertyPath: useCacheSound
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6531936009879508327, guid: 42de0727f429b4a1b9a9f69a54cff2f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.105128
@@ -9800,7 +9804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3050372537057574968, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: m_Volume
-      value: 0.293
+      value: 0.105
       objectReference: {fileID: 0}
     - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: SpeechSFX.Array.size
@@ -14609,6 +14613,8 @@ MonoBehaviour:
   VideoCanvas: {fileID: 73004445}
   PointerCanvas: {fileID: 1430948955}
   movementScript: {fileID: 2004907846}
+  objectToDeactivate: {fileID: 411459920}
+  deactivateDelay: 35
   fadeDuration: 2
   flutterSpeed: 0.5
   sitUpSpeed: 1
