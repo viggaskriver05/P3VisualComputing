@@ -40,7 +40,7 @@ public class AdaptiveSound : MonoBehaviour
                 StartCoroutine(PlayHeartbeatSound());
             }
         }
-        if (playerInteraction.hallwayScanTriggered)
+        if (playerInteraction.hallwayScanTriggered && colliderManager.hasSpokenEndingPrompt == false)
         {
             PlayAdaptiveSound();
         } 

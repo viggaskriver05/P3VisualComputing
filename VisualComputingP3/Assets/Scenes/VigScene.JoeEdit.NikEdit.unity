@@ -1734,6 +1734,7 @@ MonoBehaviour:
   pulseSpeed: 2
   minIntensity: 0
   maxIntensity: 5
+  listener: {fileID: 0}
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
   emissiveRenderer: {fileID: 0}
   emissionProperty: _EmissionColor
@@ -3140,9 +3141,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3378344204260802929, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_TagString
+      value: EndingScanner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498224740889834217, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498224740889834217, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: facialScanTriggered
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423020577010938971, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: endingScan1Triggered
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423020577010938971, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: requiredEmotionSuprisedEnding
+      value: surprise
+      objectReference: {fileID: 0}
     - target: {fileID: 6942105324752689762, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
       propertyPath: m_Name
       value: Hallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568087355054497401, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_TagString
+      value: EndingScanner
       objectReference: {fileID: 0}
     - target: {fileID: 8074065856488691600, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3269,13 +3294,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9583a0b943e420ea30239b5c4d6ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownSeconds: 2
   triggerOnEnter: 1
   triggerOnStay: 1
   requiredEmotionHappy: negative
   requiredEmotionNegativeHallway: negative
+  requiredEmotionSurprisedEnding: surprise
+  requiredEmotionHappyEnding: happy
+  requiredEmotionSadEnding: sad
   facialScanTriggered: 0
   hallwayScanTriggered: 0
+  endingScan1Triggered: 0
+  endingScan2Triggered: 0
+  endingScan3Triggered: 0
+  hasSpokenEndingPrompt: 0
   promptOnEmotionalScan: The user is looking into a facial scanner while doing their
     daily emotional scan
   promptOnHallwayScan: The user has opened a door which is not supposed to be opened
@@ -3446,6 +3477,7 @@ MonoBehaviour:
   pulseSpeed: 2
   minIntensity: 0
   maxIntensity: 5
+  listener: {fileID: 0}
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
   emissiveRenderer: {fileID: 0}
   emissionProperty: _EmissionColor
@@ -3901,6 +3933,7 @@ MonoBehaviour:
   pulseSpeed: 2
   minIntensity: 0
   maxIntensity: 5
+  listener: {fileID: 0}
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
   emissiveRenderer: {fileID: 0}
   emissionProperty: _EmissionColor
@@ -4354,6 +4387,58 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
+--- !u!1 &618027441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 618027443}
+  - component: {fileID: 618027442}
+  m_Layer: 0
+  m_Name: AdaptiveSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &618027442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618027441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88951b713c37146d69338b566988bf2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDownDuration: 5
+  coolDownDurationVoice: 10
+  listener: {fileID: 0}
+  responseClient: {fileID: 0}
+  demoInstance: {fileID: 0}
+  playerInteraction: {fileID: 0}
+  colliderManager: {fileID: 0}
+  useCacheSound: 1
+--- !u!4 &618027443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618027441}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.105128, y: -4.8373933, z: -4.6043916}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &621439434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -140099620760161499, guid: 666945568080b5f46b5062b09d33244d, type: 3}
@@ -5924,13 +6009,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9583a0b943e420ea30239b5c4d6ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownSeconds: 2
   triggerOnEnter: 1
   triggerOnStay: 1
   requiredEmotionHappy: happy
   requiredEmotionNegativeHallway: negative
+  requiredEmotionSurprisedEnding: surprise
+  requiredEmotionHappyEnding: happy
+  requiredEmotionSadEnding: sad
   facialScanTriggered: 0
   hallwayScanTriggered: 0
+  endingScan1Triggered: 0
+  endingScan2Triggered: 0
+  endingScan3Triggered: 0
+  hasSpokenEndingPrompt: 0
   promptOnEmotionalScan: The user is looking into a facial scanner while doing their
     daily emotional scan
   promptOnHallwayScan: The user has opened a door which is not supposed to be opened
@@ -8359,13 +8450,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9583a0b943e420ea30239b5c4d6ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownSeconds: 2
   triggerOnEnter: 1
   triggerOnStay: 1
   requiredEmotionHappy: happy
   requiredEmotionNegativeHallway: negative
+  requiredEmotionSurprisedEnding: surprise
+  requiredEmotionHappyEnding: happy
+  requiredEmotionSadEnding: sad
   facialScanTriggered: 0
   hallwayScanTriggered: 0
+  endingScan1Triggered: 0
+  endingScan2Triggered: 0
+  endingScan3Triggered: 0
+  hasSpokenEndingPrompt: 0
   promptOnEmotionalScan: The user is looking into a facial scanner while doing their
     daily emotional scan
   promptOnHallwayScan: The user has opened a door which is not supposed to be opened
@@ -9207,6 +9304,7 @@ MonoBehaviour:
   pulseSpeed: 2
   minIntensity: 0
   maxIntensity: 5
+  listener: {fileID: 0}
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
   emissiveRenderer: {fileID: 0}
   emissionProperty: _EmissionColor
@@ -9282,13 +9380,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9583a0b943e420ea30239b5c4d6ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownSeconds: 2
   triggerOnEnter: 1
   triggerOnStay: 1
   requiredEmotionHappy: happy
   requiredEmotionNegativeHallway: negative
+  requiredEmotionSurprisedEnding: surprise
+  requiredEmotionHappyEnding: happy
+  requiredEmotionSadEnding: sad
   facialScanTriggered: 0
   hallwayScanTriggered: 0
+  endingScan1Triggered: 0
+  endingScan2Triggered: 0
+  endingScan3Triggered: 0
+  hasSpokenEndingPrompt: 0
   promptOnEmotionalScan: The user is looking into a facial scanner while doing their
     daily emotional scan
   promptOnHallwayScan: The user has opened a door which is not supposed to be opened
@@ -9423,6 +9527,42 @@ PrefabInstance:
     - target: {fileID: 1897270989043777022, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.size
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[22].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ef53b0eed77094d668766970275831b3, type: 3}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[22].name
+      value: oai_ending_one_sp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[23].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3882f225bd68748e19fda27ced864547, type: 3}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[23].name
+      value: oai_ending_two_sp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[24].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f3ff2ca20f8c041be8e3fbe8b7b1d0ac, type: 3}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[24].name
+      value: oai_ending_three_sp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[25].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: cc941d993b67e475eae406fa51735fa0, type: 3}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[25].name
+      value: oai_ending_prompt_sp
       objectReference: {fileID: 0}
     - target: {fileID: 7036425401884175630, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: m_Name
@@ -9613,6 +9753,7 @@ MonoBehaviour:
   pulseSpeed: 2
   minIntensity: 0
   maxIntensity: 5
+  listener: {fileID: 0}
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
   emissiveRenderer: {fileID: 0}
   emissionProperty: _EmissionColor
@@ -10948,6 +11089,7 @@ MonoBehaviour:
   pulseSpeed: 2
   minIntensity: 0
   maxIntensity: 5
+  listener: {fileID: 0}
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
   emissiveRenderer: {fileID: 0}
   emissionProperty: _EmissionColor
@@ -44635,3 +44777,4 @@ SceneRoots:
   - {fileID: 482499606}
   - {fileID: 1158003761}
   - {fileID: 97543089}
+  - {fileID: 618027443}

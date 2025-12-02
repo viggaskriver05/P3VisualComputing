@@ -16,17 +16,25 @@ public class ColliderManager : MonoBehaviour
 
 
     [Header("Universal Trigger Base Settings")]
-    [SerializeField] private float cooldownSeconds = 2.0f;
     [SerializeField] private bool triggerOnEnter = true;
     [SerializeField] private bool triggerOnStay = true;
-    private bool cooldown;
+    float coolDownDuration = 4f;
+    float nextPlayEndingScan = 0f;
+
 
     // FacialScanner-specific (active when GameObject.tag == "FacialScanner")
     [Header("FacialScanner Settings (active when GameObject.tag == 'FacialScanner')")]
     [SerializeField] private string requiredEmotionHappy = "happy";
     [SerializeField] private string requiredEmotionNegativeHallway = "negative";
-    [SerializeField] private bool facialScanTriggered = false;
+    [SerializeField] private string requiredEmotionSurprisedEnding = "surprise";
+    [SerializeField] private string requiredEmotionHappyEnding = "happy";
+    [SerializeField] private string requiredEmotionSadEnding = "sad";
+    [SerializeField] public bool facialScanTriggered = false;
     [SerializeField] public bool hallwayScanTriggered = false;
+    [SerializeField] public bool endingScan1Triggered = false;
+    [SerializeField] public bool endingScan2Triggered = false;
+    [SerializeField] public bool endingScan3Triggered = false;
+    [SerializeField] public bool hasSpokenEndingPrompt = false;
     //[SerializeField] public UnityEvent oneFacialScanSuccess;
     [TextArea]
     [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan. Tell the player to eat their food.";
@@ -72,26 +80,29 @@ public class ColliderManager : MonoBehaviour
         {
             FacialScanner_UpdateGate();
         }
+        if (this.CompareTag("EndingScanner"))
+        {
+            FacialScanner_UpdateGate();
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (!triggerOnEnter) return;
-        Debug.Log($"[ColliderManager] OnTriggerEnter by '{other.name}' (tag='{other.tag}') on trigger '{name}' (tag='{tag}')");
+        //Debug.Log($"[ColliderManager] OnTriggerEnter by '{other.name}' (tag='{other.tag}') on trigger '{name}' (tag='{tag}')");
         HandleTriggerFacialScanner(other);
     }
 
     void OnTriggerStay(Collider other)
     {
         if (!triggerOnStay) return;
-        Debug.Log($"[ColliderManager] OnTriggerStay by '{other.name}' (tag='{other.tag}') on trigger '{name}' (tag='{tag}')");
+        //Debug.Log($"[ColliderManager] OnTriggerStay by '{other.name}' (tag='{other.tag}') on trigger '{name}' (tag='{tag}')");
         HandleTriggerFacialScanner(other);
     }
 
     void HandleTriggerFacialScanner(Collider other)
     {
         player.DisplayInteractionPrompt();
-        if (cooldown) return;
          if (demoInstance == null)
         {
             Debug.LogWarning("[ColliderManager] Missing OpenAiResponseToTtsWEmotionDemo in scene.");
@@ -124,7 +135,54 @@ public class ColliderManager : MonoBehaviour
             if (!player.hasPickedUpStaffCard) return; // skip if staff card not yet picked up
             TryTrigger_FacialScanner(other);
         } 
+        if (this.CompareTag("EndingScanner"))
+        {
+            // Cooldown always checked once for any ending attempt
+            if (!CheckCoolDown()) return;
+
+            // Play the generic ending prompt once, before any specific ending
+            if (!hasSpokenEndingPrompt)
+            {
+                SoundManager.Instance.PlaySpeechSFX("oai_ending_prompt_sp");
+                hasSpokenEndingPrompt = true;
+                return; // wait for next approach / frame after the prompt
+            }
+
+            // Now pick exactly ONE ending per call
+            if (!endingScan1Triggered &&string.Equals(dominant, requiredEmotionHappyEnding, System.StringComparison.OrdinalIgnoreCase))
+            {
+                Debug.Log("[ColliderManager] EndingScanner: detected surprised emotion, triggering ending scan 1.");
+                TryTrigger_FacialScanner(other);
+                return;
+            }
+
+            if (!endingScan2Triggered && endingScan1Triggered && string.Equals(dominant, requiredEmotionSurprisedEnding, System.StringComparison.OrdinalIgnoreCase))
+            {
+                Debug.Log("[ColliderManager] EndingScanner: detected happy emotion, triggering ending scan 2.");
+                TryTrigger_FacialScanner(other);
+                return;
+            }
+
+            if (!endingScan3Triggered && endingScan2Triggered && string.Equals(dominant, requiredEmotionSadEnding, System.StringComparison.OrdinalIgnoreCase))
+            {
+                Debug.Log("[ColliderManager] EndingScanner: detected sad emotion, triggering ending scan 3.");
+                TryTrigger_FacialScanner(other);
+                return;
+            }
+        }
     }
+
+   bool CheckCoolDown()
+{
+    if (Time.time < nextPlayEndingScan)
+    {
+        // still on cooldown
+        return false;
+    }
+
+    nextPlayEndingScan = Time.time + coolDownDuration;
+    return true; // allowed to play
+}
 
     // ===================== FacialScanner =====================
     void FacialScanner_UpdateGate()
@@ -168,76 +226,93 @@ public class ColliderManager : MonoBehaviour
     async Task TryTrigger_FacialScanner(Collider other)
     {
         if (faceScannerObj != null)
-        { 
+        {
             if (useIntroVideoGate && !scanPromptDone)
             {
                 Debug.Log("[ColliderManager] Gated: waiting for scan prompt to complete.");
                 return;
             }
-            // update prompt to fit FacialScanner and infrence
+
+            // update prompt to fit FacialScanner and inference
             if (CompareTag("FacialScanner"))
             {
                 demoInstance.prompt = promptOnEmotionalScan;
+                facialScanTriggered = true;
             }
-            if (CompareTag("HallwayScanner"))
+            else if (CompareTag("HallwayScanner"))
             {
                 demoInstance.prompt = promptOnHallwayScan;
-                
+                player.hallwayScanTriggered = true;
+                hallwayScanTriggered = true;
             }
-            _ = demoInstance.RunOnce();
-
-            if (faceScannerObj != null)
+            else if (CompareTag("EndingScanner"))
             {
-                var renderer = faceScannerObj.GetComponent<Renderer>();
-                if (renderer != null && greenMaterial != null)
+                // Handle endings with fixed speech, no AI call
+                if (!endingScan1Triggered)
                 {
-                    // instance material change
-                    var mats = renderer.materials;
-                    mats[2] = greenMaterial;
-                    renderer.materials = mats;
-                    facialScanTriggered = true;
-                    if (CompareTag("HallwayScanner")) { player.hallwayScanTriggered = true; hallwayScanTriggered = true; }
-                    if (CompareTag("FacialScanner")) {
-                        await Task.Delay(4000);
-                        SoundManager.Instance.PlaySpeechSFX("oai_eat_food_prompt_sp");
-                    }
-                }
-            }
-            if (doorObj != null)
-            {
-                Door door = doorObj.GetComponent<Door>();
-                if (door.needsKey && !player.isHoldingKey)
-                {
-                    Debug.Log("Door needs a key and player is not holding one. Cannot open door.");
+                    SoundManager.Instance.PlaySpeechSFX("oai_ending_one_sp");
+                    endingScan1Triggered = true;
                     return;
                 }
-                else if (!door.needsKey)
+                else if (!endingScan2Triggered)
                 {
-                    Debug.Log("Door does not need a key. Opening door.");
-                    StartCoroutine(door.OpenNow());
+                    SoundManager.Instance.PlaySpeechSFX("oai_ending_two_sp");
+                    endingScan2Triggered = true;
+                    return;
                 }
-                else
+                else if (!endingScan3Triggered)
                 {
-                    Debug.Log("Starting door animation");
-                    StartCoroutine(door.OpenNow());
-                    GameObject keyObj = rightHand.transform.Find("IDCardNew").gameObject;
-                    keyObj.SetActive(false);
-
+                    SoundManager.Instance.PlaySpeechSFX("oai_ending_three_sp");
+                    endingScan3Triggered = true;
                 }
             }
-            cooldown = true;
-            Invoke(nameof(ResetCooldown), cooldownSeconds);
+
+            // For non-ending scanners, run the AI response
+            if (!CompareTag("EndingScanner"))
+            {
+                _ = demoInstance.RunOnce();
+            }
+
+            // Visual feedback on scanner object
+            var renderer = faceScannerObj.GetComponent<Renderer>();
+            if (renderer != null && greenMaterial != null)
+            {
+                var mats = renderer.materials;
+                if (mats.Length > 2)
+                {
+                    mats[2] = greenMaterial;
+                    renderer.materials = mats;
+                }
+
+                if (CompareTag("FacialScanner"))
+                {
+                    await Task.Delay(4000);
+                    SoundManager.Instance.PlaySpeechSFX("oai_eat_food_prompt_sp");
+                }
+            }
         }
 
-        //oneFacialScanSuccess?.Invoke();
-        cooldown = true;
-        //invoke(nameof(ResetCooldown), cooldownSeconds);
+        // Door logic (independent of faceScannerObj)
+        if (doorObj != null)
+        {
+            Door door = doorObj.GetComponent<Door>();
+            if (door.needsKey && !player.isHoldingKey)
+            {
+                Debug.Log("Door needs a key and player is not holding one. Cannot open door.");
+                return;
+            }
+            else if (!door.needsKey)
+            {
+                Debug.Log("Door does not need a key. Opening door.");
+                StartCoroutine(door.OpenNow());
+            }
+            else
+            {
+                Debug.Log("Starting door animation");
+                StartCoroutine(door.OpenNow());
+                GameObject keyObj = rightHand.transform.Find("IDCardNew").gameObject;
+                keyObj.SetActive(false);
+            }
+        }
     }
-
-    public bool IsFacialScanComplete()
-    {
-        return facialScanTriggered;
-    }
-
-    void ResetCooldown() => cooldown = false;
 }
