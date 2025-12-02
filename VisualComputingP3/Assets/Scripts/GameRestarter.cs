@@ -14,6 +14,8 @@ public class GameRestarter : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+        SoundManager.Instance.PlayAmbienceSFX("thisIsTheEnd_amb");
+       
 
         if (soundAlarm1 != null) soundAlarm1.SetActive(false);
         if (Speach0 != null) Speach0.SetActive(false);
@@ -21,6 +23,7 @@ public class GameRestarter : MonoBehaviour
         if (Speach2 != null) Speach2.SetActive(false);
         if (Speach3 != null) Speach3.SetActive(false);
         if (Speach4 != null) Speach4.SetActive(false);
+
 
         Debug.Log("Sound alarms deactivated");
     }
