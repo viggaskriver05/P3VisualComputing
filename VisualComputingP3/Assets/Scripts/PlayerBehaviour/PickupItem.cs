@@ -5,13 +5,37 @@ public class PickupItem : InteractionScript
 {
     public bool pickable = true;
     public GameObject pill;
+
+    public void Start()
+    {
+    }
+
     public override void Interact()
     {
         PlayerInteraction player = FindAnyObjectByType<PlayerInteraction>();
 
         // Gates for certain items
         if (CompareTag("Pill") && !player.hasReadToDoList) return;
-        if (CompareTag("StaffCard") && !player.hasEatenFood) return; 
+
+        if (CompareTag("StaffCard") && !player.hasEatenFood) return;
+
+        if (CompareTag("FacialScanner") && !player.hasSwallowedPill) return;
+
+        // Trashcan: play speech SFX and stop further interaction
+        if (CompareTag("StaffCard"))
+        {
+            SoundManager.Instance.PlaySpeechSFX("Eat_OS");
+            player.hasPickedUpStaffCard = true;
+            player.isHoldingKey = true;
+            Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
+
+            // Find and destroy all GameObjects with tag "Lights" after 5 seconds
+            GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights"); 
+            foreach (var lightObj in lights)
+            {
+                Destroy(lightObj);
+            }
+        }
 
         if (CompareTag("ToDoList"))
         {
@@ -35,25 +59,30 @@ public class PickupItem : InteractionScript
             }
         }
         
-        if (CompareTag("Food"))
+        if (CompareTag("Food") && !player.hasEatenFood)
         {
+            EatFood eatFood = GetComponent<EatFood>();
             SoundManager.Instance.PlaySpeechSFX("oai_food_prompt_sp");
             player.hasEatenFood = true;
             Debug.Log("You have eaten the food!");
-            gameObject.SetActive(false);
+            if (eatFood != null)
+            {
+                StartCoroutine(eatFood.EatFoodAnimation());
+            }
+            else
+            {
+                Debug.LogWarning("EatFood component not found on the food item.");
+            }
         }
 
-        if (CompareTag("StaffCard"))
+        if (CompareTag("Jumpscare") && !player.hasBeenScared)
         {
-            SoundManager.Instance.PlaySpeechSFX("go_sp");
-            player.hasPickedUpStaffCard = true;
-            Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
-            GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights");
-            foreach (var lightObj in lights)
+            DoorJumpscare jumpscare = GetComponent<DoorJumpscare>();
+            if (jumpscare != null)
             {
-                Destroy(lightObj, 2f);
+                StartCoroutine(jumpscare.Jumpscare());
             }
-            Debug.Log("You have picked up the Staff Card!");
+            player.hasBeenScared = true;
         }
 
         if (player != null && pickable)
@@ -64,10 +93,5 @@ public class PickupItem : InteractionScript
             transform.localRotation = Quaternion.identity;
         }
 
-        if (CompareTag("Key"))
-        {
-            player.isHoldingKey = true;
-            Debug.Log("You have picked up a key!");
-        }
     }
 }
