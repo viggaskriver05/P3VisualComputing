@@ -104,6 +104,12 @@ public class PlayerInteraction : MonoBehaviour
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 }
+                if (pickup.CompareTag("exitDoor"))
+                {
+                    interactionPromptText.text = $"Press {interactionKey} to exit the facility";
+                    if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
+                    return;
+                }
 
                 if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(false);
 

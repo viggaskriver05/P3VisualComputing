@@ -5,9 +5,11 @@ public class PickupItem : InteractionScript
 {
     public bool pickable = true;
     public GameObject pill;
+    private GameRestarter gameRestarter;
 
     public void Start()
     {
+        gameRestarter = FindObjectOfType<GameRestarter>();
     }
 
     public override void Interact()
@@ -83,6 +85,11 @@ public class PickupItem : InteractionScript
                 StartCoroutine(jumpscare.Jumpscare());
             }
             player.hasBeenScared = true;
+        }
+
+        if (CompareTag("exitDoor")) 
+        {
+            gameRestarter.RestartGame();
         }
 
         if (player != null && pickable)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameRestarter : MonoBehaviour
 {
@@ -22,5 +23,11 @@ public class GameRestarter : MonoBehaviour
         if (Speach4 != null) Speach4.SetActive(false);
 
         Debug.Log("Sound alarms deactivated");
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Game restarted");
     }
 }
