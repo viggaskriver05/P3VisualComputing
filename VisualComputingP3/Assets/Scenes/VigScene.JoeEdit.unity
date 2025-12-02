@@ -3140,6 +3140,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 716706628367651254, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: Priority
+      value: 155
+      objectReference: {fileID: 0}
+    - target: {fileID: 716706628367651254, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 746845b6d08e745d1b30fd8935bae3b3, type: 3}
+    - target: {fileID: 716706628367651254, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 746845b6d08e745d1b30fd8935bae3b3, type: 3}
+    - target: {fileID: 1522993089366875335, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f55df73a8bbd4d6e85f665ddebe1975, type: 3}
+    - target: {fileID: 1522993089366875335, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f55df73a8bbd4d6e85f665ddebe1975, type: 3}
+    - target: {fileID: 5780362978570222810, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: Priority
+      value: 205
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780362978570222810, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 2dea5b1c4a6c64b15b6d4735437b6dd0, type: 3}
+    - target: {fileID: 5780362978570222810, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2dea5b1c4a6c64b15b6d4735437b6dd0, type: 3}
+    - target: {fileID: 6630688395495123422, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: Priority
+      value: 169
+      objectReference: {fileID: 0}
     - target: {fileID: 6942105324752689762, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
       propertyPath: m_Name
       value: Hallway
@@ -3189,10 +3225,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7904025884239861939, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8074065856488691600, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
-      insertIndex: 8
+      insertIndex: 7
       addedObject: {fileID: 714831811}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
