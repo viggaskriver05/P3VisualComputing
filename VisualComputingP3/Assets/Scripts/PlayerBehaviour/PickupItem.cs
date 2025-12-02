@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Threading.Tasks;
 
+
 public class PickupItem : InteractionScript
 {
     public bool pickable = true;
     public GameObject pill;
     private GameRestarter gameRestarter;
+    public GameObject alarm;
 
     public void Start()
     {
@@ -26,7 +28,8 @@ public class PickupItem : InteractionScript
         // Trashcan: play speech SFX and stop further interaction
         if (CompareTag("StaffCard"))
         {
-            SoundManager.Instance.PlaySpeechSFX("Eat_OS");
+            SoundManager.Instance.PlaySpeechSFX("oai_lockdown_mode_sp");
+            
             player.hasPickedUpStaffCard = true;
             player.isHoldingKey = true;
             Debug.Log($"GameObject with tag {gameObject.tag} activated StaffCard; destroying objects tagged 'Lights'.");
@@ -37,6 +40,7 @@ public class PickupItem : InteractionScript
             {
                 Destroy(lightObj);
             }
+            alarm.SetActive(true);
         }
 
         if (CompareTag("ToDoList"))
@@ -90,6 +94,7 @@ public class PickupItem : InteractionScript
         if (CompareTag("exitDoor")) 
         {
             gameRestarter.RestartGame();
+            SoundManager.Instance.StopAll();
         }
 
         if (player != null && pickable)

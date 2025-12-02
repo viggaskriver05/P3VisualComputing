@@ -69,10 +69,10 @@ public class AdaptiveSound : MonoBehaviour
     }
     IEnumerator PlayHeartbeatSound()
     {
-        SoundManager.Instance.PlayAmbienceSFX("heartbeatFast_amb");
+        SoundManager.Instance.PlayOneShotSFX("heartbeatFast_OS");
         Debug.Log("[AdaptiveSound] Playing heartbeat sound due to fear emotion.");
         yield return new WaitForSeconds(coolDownDuration);
-        SoundManager.Instance.Stop("heartbeatFast_amb");
+        SoundManager.Instance.Stop("heartbeatFast_OS");
         Debug.Log("[AdaptiveSound] Stopping heartbeat sound.");
     }
 }

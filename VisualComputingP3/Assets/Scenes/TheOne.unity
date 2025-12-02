@@ -1202,6 +1202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickable: 1
   pill: {fileID: 0}
+  alarm: {fileID: 1225544628}
 --- !u!1 &167203296 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7354970017365974556, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
@@ -3022,6 +3023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickable: 0
   pill: {fileID: 0}
+  alarm: {fileID: 0}
 --- !u!65 &433497142
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5907,6 +5909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickable: 0
   pill: {fileID: 0}
+  alarm: {fileID: 0}
 --- !u!1 &808994312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3864075039410830778, guid: 93eec5c61e12306469921bfa501c8da2, type: 3}
@@ -6926,6 +6929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickable: 0
   pill: {fileID: 0}
+  alarm: {fileID: 0}
 --- !u!1 &968190470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8513859187771203891, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
@@ -9796,11 +9800,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3050372537057574968, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: m_Volume
-      value: 0.541
+      value: 0.293
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.size
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: OneShotSFX.Array.size
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: AmbienceSFX.Array.size
       value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[26].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: acad5f23d13c2483cac335ae2e5acd32, type: 3}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: SpeechSFX.Array.data[26].name
+      value: oai_lockdown_mode_sp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: OneShotSFX.Array.data[22].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a8dbbc166cc7b49abafc6b90080089a8, type: 3}
+    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
+      propertyPath: OneShotSFX.Array.data[22].name
+      value: heartbeatFast_OS
       objectReference: {fileID: 0}
     - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: AmbienceSFX.Array.data[25].clip
@@ -13008,6 +13036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickable: 0
   pill: {fileID: 0}
+  alarm: {fileID: 0}
 --- !u!114 &1771032533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14073,6 +14102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickable: 0
   pill: {fileID: 1930180813}
+  alarm: {fileID: 0}
 --- !u!136 &1930180815
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14364,6 +14394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickable: 0
   pill: {fileID: 0}
+  alarm: {fileID: 0}
 --- !u!4 &1953703297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2ea4161ba856f9e45836c250d4d9273d, type: 3}
