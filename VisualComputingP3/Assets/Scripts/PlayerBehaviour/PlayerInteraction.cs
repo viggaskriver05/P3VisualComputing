@@ -11,6 +11,10 @@ public class PlayerInteraction : MonoBehaviour
     public bool isHoldingKey = false;
     public bool hasSwallowedPill = false;
     public bool facialScanTriggered = false;
+    public bool hasEatenFood = false;
+    public bool hasPickedUpStaffCard = false;
+    public bool hallwayScanTriggered = false;
+    public bool hasBeenScared = false;
 
     [Header("UI")]
     public TMPro.TextMeshProUGUI interactionPromptText;
@@ -60,7 +64,7 @@ public class PlayerInteraction : MonoBehaviour
             if (pickup != null)
             {
                 // Don't show prompt for ToDoList if already read
-                if (pickup.CompareTag("ToDoList") && hasReadToDoList || pickup.CompareTag("Pill") && hasSwallowedPill || pickup.CompareTag("FacialScanner") && facialScanTriggered)
+                if (pickup.CompareTag("ToDoList") && hasReadToDoList || pickup.CompareTag("Pill") && hasSwallowedPill || pickup.CompareTag("FacialScanner") && facialScanTriggered || pickup.CompareTag("Food") && hasEatenFood || pickup.CompareTag("StaffCard") && hasPickedUpStaffCard || pickup.CompareTag("Jumpscare") && hasBeenScared)
                 {
                     interactionPromptText.gameObject.SetActive(false);
                     return;
@@ -70,12 +74,12 @@ public class PlayerInteraction : MonoBehaviour
                 string itemTag = hit.collider.tag;
                 //specific for the facialscanner
                 if (pickup.CompareTag("ToDoList")) {
-                    interactionPromptText.text = $"Press {interactionKey} to read {itemTag}";
+                    interactionPromptText.text = $"Press {interactionKey} to read to-do list";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 } 
                 if (pickup.CompareTag("Pill") && hasReadToDoList) {
-                    interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}";
+                    interactionPromptText.text = $"Press {interactionKey} to take your pills";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 }
@@ -85,15 +89,21 @@ public class PlayerInteraction : MonoBehaviour
                     return;
                 } 
                 if (pickup.CompareTag("Food")) {
-                    interactionPromptText.text = $"Press {interactionKey} to eat {itemTag}!";
+                    interactionPromptText.text = $"Press {interactionKey} to eat your food!";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 } 
                 if (pickup.CompareTag("StaffCard")) {
-                    interactionPromptText.text = $"Press {interactionKey} to pick up {itemTag}!";
+                    interactionPromptText.text = $"Press {interactionKey} to pick up staff card!";
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
-                } 
+                }
+                if (pickup.CompareTag("Jumpscare"))
+                {
+                    interactionPromptText.text = $"Press {interactionKey} to peek into room";
+                    if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
+                    return;
+                }
 
                 if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(false);
 

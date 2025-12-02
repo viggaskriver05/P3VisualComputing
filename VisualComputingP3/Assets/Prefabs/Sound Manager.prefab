@@ -300,8 +300,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d21c85983024b471eb39c9900e881f39, type: 3}
+  m_Resource: {fileID: 8300000, guid: d21c85983024b471eb39c9900e881f39, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1.09
@@ -580,11 +580,15 @@ MonoBehaviour:
   - name: oai_welcome_sp
     clip: {fileID: 8300000, guid: 372c2318497544442b8f984f8b5f0f16, type: 3}
   - name: oai_pre_video_sp
-    clip: {fileID: 8300000, guid: b5a52837f5c144079bed50d870891088, type: 3}
+    clip: {fileID: 8300000, guid: 83424e192f1008c4ba0fee12c55d2acc, type: 3}
   - name: oai_facial_scan_sp
     clip: {fileID: 8300000, guid: 033fafd0a83114f8abd0364732b11568, type: 3}
   - name: oai_take_pills_prompt_sp
-    clip: {fileID: 8300000, guid: 3184e2e0a38f54306b33cb272495d60f, type: 3}
+    clip: {fileID: 8300000, guid: 60286fc598dc4462c95d82a74f82ee56, type: 3}
+  - name: oai_food_prompt_sp
+    clip: {fileID: 8300000, guid: f576087fbd9f84c2695e7e02e538b194, type: 3}
+  - name: oai_eat_food_prompt_sp
+    clip: {fileID: 8300000, guid: d21c85983024b471eb39c9900e881f39, type: 3}
   AmbienceSource: {fileID: 3050372537057574968}
   MusicSource: {fileID: 4452085325914512582}
   OneShotSource: {fileID: 3359701646640218048}

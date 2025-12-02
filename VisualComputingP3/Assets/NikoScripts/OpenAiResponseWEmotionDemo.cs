@@ -4,7 +4,7 @@ using UnityEngine;
 public class OpenAiResponseWEmotionDemo : MonoBehaviour
 {
         [TextArea] public string prompt = "Edit this prompt to test OpenAI text generation.";
-        [TextArea] public string systemPromptOverride = "You are a friendly AI in a game. Please keep conversation with the player engaging. You address the player directly and talk in a modern tone. The response should never exceed 20 words.";
+        [TextArea] public string systemPromptOverride = "You are a friendly AI in a game. Please keep conversation with the player engaging. You address the player directly and talk in a modern tone. The response should never exceed 15 words.";
         public string facialEmotionOverride;
         public string toneOverride = "friendly";
         string dominant = "unknown";
