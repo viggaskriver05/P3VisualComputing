@@ -101,6 +101,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+
     public void Stop(string name)
     {
         Audio s = Array.Find(SpeechSFX, x => x.name == name);
@@ -131,5 +132,13 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
+    }
+
+    public void StopAll()
+    {
+        SpeechSource.Stop();
+        OneShotSource.Stop();
+        MusicSource.Stop();
+        AmbienceSource.Stop();
     }
 }

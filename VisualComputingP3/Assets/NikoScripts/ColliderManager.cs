@@ -29,11 +29,12 @@ public class ColliderManager : MonoBehaviour
     [SerializeField] private bool hallwayScanTriggered = false;
     //[SerializeField] public UnityEvent oneFacialScanSuccess;
     [TextArea]
-    [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan";
-    [SerializeField] private string promptOnHallwayScan = "The user has opened a door which is not supposed to be opened. The output form this prompt should 'glitch' between calm instructions and angry outbursts from the AI.";
+    [SerializeField] private string promptOnEmotionalScan = "The user is looking into a facial scanner while doing their daily emotional scan. Tell the player to eat their food.";
+    [SerializeField] private string promptOnHallwayScan = "The user has opened a door which is not supposed to be opened. The output form this prompt should be angry outbursts from the AI.";
     [SerializeField] private GameObject faceScannerObj;
     [SerializeField] private Material greenMaterial;
     [SerializeField] public GameObject doorObj;
+    [SerializeField] public GameObject rightHand;
 
     // ExerciseScanner-specific (sctivate when GameObject.tag == "ExerciseScanner")
     [Header("FacialScanner Settings (active when GameObject.tag == 'ExerciseScanner')")]
@@ -122,6 +123,7 @@ public class ColliderManager : MonoBehaviour
         // Extend with more tag-specific behaviors here (else if CompareTag("Door") ... )
         if (this.CompareTag("HallwayScanner") && !hallwayScanTriggered)
         {
+            if (!player.hasPickedUpStaffCard) return; // skip if staff card not yet picked up
             TryTrigger_FacialScanner(other);
         } else {
             Debug.LogWarning("ColliderManager: Unhandled trigger for tag: " + this.tag);
@@ -167,7 +169,7 @@ public class ColliderManager : MonoBehaviour
         //SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
     }
 
-    void TryTrigger_FacialScanner(Collider other)
+    async Task TryTrigger_FacialScanner(Collider other)
     {
         if (faceScannerObj != null)
         { 
@@ -198,17 +200,34 @@ public class ColliderManager : MonoBehaviour
                     renderer.materials = mats;
                     facialScanTriggered = true;
                     if (CompareTag("HallwayScanner")) { hallwayScanTriggered = true; }
+                    if (CompareTag("FacialScanner")) {
+                        await Task.Delay(4000);
+                        SoundManager.Instance.PlaySpeechSFX("oai_eat_food_prompt_sp");
+                    }
                 }
             }
             if (doorObj != null)
             {
-                Debug.Log("Starting door animation");
                 Door door = doorObj.GetComponent<Door>();
-                StartCoroutine(door.OpenNow());
-                //door.OpenNow(); 
-            }
-                //doorObj.SetActive(false);
+                if (door.needsKey && !player.isHoldingKey)
+                {
+                    Debug.Log("Door needs a key and player is not holding one. Cannot open door.");
+                    return;
+                }
+                else if (!door.needsKey)
+                {
+                    Debug.Log("Door does not need a key. Opening door.");
+                    StartCoroutine(door.OpenNow());
+                }
+                else
+                {
+                    Debug.Log("Starting door animation");
+                    StartCoroutine(door.OpenNow());
+                    GameObject keyObj = rightHand.transform.Find("IDCardNew").gameObject;
+                    keyObj.SetActive(false);
 
+                }
+            }
             cooldown = true;
             Invoke(nameof(ResetCooldown), cooldownSeconds);
         }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 519392400618476591}
   - component: {fileID: 8148683983083083081}
   - component: {fileID: 4429233542722735238}
+  - component: {fileID: 2977360480686720805}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -176,7 +177,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FSR.FSR_Player, Assembly-CSharp
-        m_MethodName: step
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -188,7 +189,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FSR.FSR_Player, Assembly-CSharp
-        m_MethodName: step
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -243,6 +244,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2977360480686720805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535493925376750102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245a407162d359e478eb1119c7743412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionKey: 101
+  playerCamera: {fileID: 6351446508169772743}
+  rightHandPosition: {fileID: 5942718100660660270}
+  hasReadToDoList: 0
+  isHoldingKey: 0
+  hasSwallowedPill: 0
+  facialScanTriggered: 0
+  hasEatenFood: 0
+  hasPickedUpStaffCard: 0
+  hallwayScanTriggered: 0
+  interactionPromptText: {fileID: 0}
 --- !u!1 &3189400314741011628
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,13 +291,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3189400314741011628}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.838623, y: -0, z: 0.5447122, w: 0}
-  m_LocalPosition: {x: 13.225, y: 0.7700002, z: 7.7}
-  m_LocalScale: {x: 1.3333323, y: 2, z: 1.3333335}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0.45451948, y: 0.54167527, z: -0.54167527, w: 0.45451948}
+  m_LocalPosition: {x: 0.5, y: 0.9, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1540435691480857418}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -190, y: -90, z: 90}
 --- !u!1 &6998263748160980189
 GameObject:
   m_ObjectHideFlags: 0
