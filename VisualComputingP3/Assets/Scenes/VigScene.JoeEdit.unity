@@ -3144,6 +3144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hallway
       objectReference: {fileID: 0}
+    - target: {fileID: 7462275672192720291, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_Name
+      value: P4 - jumpscare
+      objectReference: {fileID: 0}
     - target: {fileID: 8074065856488691600, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.865116
