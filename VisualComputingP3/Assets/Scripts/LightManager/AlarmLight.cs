@@ -38,6 +38,7 @@ public class AlarmLight : MonoBehaviour
     {
         _time += Time.deltaTime;
 
+        var dominant = listener != null ? listener.DominantEmotion : "unknown";
         var sentiment = listener != null ? listener.SentimentEmotion : "neutral";
         // Juster pulseSpeed og farve baseret på emotion
         if (listener != null)
