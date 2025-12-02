@@ -12,7 +12,7 @@ public class OpenAIResponseClient : MonoBehaviour
     public string apiKey = "";
     public string model = "gpt-4o-mini";
 
-    [SerializeField] private bool useCachedPrompts = true;
+    [SerializeField] public bool useCachedPrompts = true;
 
     [TextArea]
     public string defaultSystemPrompt = "";
