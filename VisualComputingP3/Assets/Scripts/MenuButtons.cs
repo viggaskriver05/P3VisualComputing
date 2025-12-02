@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
-    public string sceneToLoad = "VigScene"; 
+    public string sceneToLoad = "TheOne"; 
 
     public void StartGame()
     {

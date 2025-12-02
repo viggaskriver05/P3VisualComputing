@@ -110,6 +110,12 @@ public class PlayerInteraction : MonoBehaviour
                     if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
                     return;
                 }
+                if (pickup.CompareTag("Note"))
+                {
+                    interactionPromptText.text = $"Press {interactionKey} to pick up note";
+                    if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(true);
+                    return;
+                }
 
                 if (!interactionPromptText.gameObject.activeSelf) interactionPromptText.gameObject.SetActive(false);
 

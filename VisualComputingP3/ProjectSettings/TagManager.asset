@@ -24,6 +24,8 @@ TagManager:
   - P4
   - Jumpscare
   - EndingScanner
+  - exitDoor
+  - Note
   layers:
   - Default
   - TransparentFX
