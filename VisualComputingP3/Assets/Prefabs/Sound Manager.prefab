@@ -45,7 +45,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.541
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -300,8 +300,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d21c85983024b471eb39c9900e881f39, type: 3}
-  m_Resource: {fileID: 8300000, guid: d21c85983024b471eb39c9900e881f39, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1.09
@@ -486,6 +486,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c4c71bbdfd48147638409b4ab1b35859, type: 3}
   - name: wind2_amb
     clip: {fileID: 8300000, guid: afd26f06d3c1e4d4b903b1fd971d73b6, type: 3}
+  - name: thisIsTheEnd_amb
+    clip: {fileID: 8300000, guid: b191d9517b3624f149bc72e58f12754e, type: 3}
   MusicSFX:
   - name: danger_mus
     clip: {fileID: 8300000, guid: d27ee278c28cf40de8cc189978d03ff8, type: 3}
