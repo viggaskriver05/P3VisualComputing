@@ -11,12 +11,16 @@ public class IntroManager : MonoBehaviour
     public GameObject PointerCanvas;
     public PlayerMove movementScript;
 
+    public GameObject objectToDeactivate;
+    public float deactivateDelay = 35f;
+
     public float fadeDuration = 2.0f;
     public float flutterSpeed = 0.5f;
     public float sitUpSpeed = 1.0f;
     public Vector3 sitUpPosition = new Vector3(0, 1, 0);
     private Vector3 startingPosition;
     private bool skipIntro = false;
+    private Coroutine deactivateCoroutine;
 
     void Start()
     {
@@ -24,6 +28,7 @@ public class IntroManager : MonoBehaviour
         fadeCanvas.alpha = 0f;
         startingPosition = playerTransform.position;
         StartCoroutine(PlayIntroVideo());
+        deactivateCoroutine = StartCoroutine(DeactivateAfterDelay(objectToDeactivate, deactivateDelay));
     }
 
     void Update()
@@ -31,6 +36,10 @@ public class IntroManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && !skipIntro)
         {
             skipIntro = true;
+            
+            // Stop the deactivate coroutine and deactivate immediately
+            if (deactivateCoroutine != null) StopCoroutine(deactivateCoroutine);
+            if (objectToDeactivate != null) objectToDeactivate.SetActive(false);
 
             //SoundManager.SpeechSource.Stop();
             SoundManager.Instance.Stop("oai_pre_video_sp");
@@ -107,5 +116,11 @@ public class IntroManager : MonoBehaviour
 
         playerTransform.position = end;
         movementScript.enabled = true;
+    }
+
+    IEnumerator DeactivateAfterDelay(GameObject target, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (target != null) target.SetActive(false);
     }
 }

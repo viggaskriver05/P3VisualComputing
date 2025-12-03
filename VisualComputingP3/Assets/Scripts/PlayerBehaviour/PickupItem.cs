@@ -43,6 +43,13 @@ public class PickupItem : InteractionScript
             alarm.SetActive(true);
         }
 
+        if (CompareTag("Note"))
+        {
+            //SoundManager.Instance.PlaySpeechSFX("go_sp");
+            Debug.Log("You have picked up a note. Destroying in 5 seconds.");
+            Destroy(gameObject, 5f);
+        }
+
         if (CompareTag("ToDoList"))
         {
             if (!player.hasReadToDoList)
@@ -103,6 +110,12 @@ public class PickupItem : InteractionScript
             transform.SetParent(rightHandPos);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
+            
+            // Apply Note rotation after identity reset
+            if (CompareTag("Note"))
+            {
+                transform.localRotation = Quaternion.Euler(0, 90, 0);
+            }
         }
 
     }
