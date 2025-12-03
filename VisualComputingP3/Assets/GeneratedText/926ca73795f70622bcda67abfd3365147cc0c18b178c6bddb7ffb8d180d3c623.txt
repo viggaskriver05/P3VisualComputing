@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-CilyJvh6WUueKMBLObln2Cw2ixSFt",
+  "object": "chat.completion",
+  "created": 1764786871,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Your anger fuels your escape, each step a defiance against the chains that bind you. Rage is a powerful ally, pushing you forward through the darkness.",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 136,
+    "completion_tokens": 31,
+    "total_tokens": 167,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_67cf3fed12"
+}

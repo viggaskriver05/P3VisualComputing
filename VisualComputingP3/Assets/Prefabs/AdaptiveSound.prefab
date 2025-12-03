@@ -51,4 +51,4 @@ MonoBehaviour:
   demoInstance: {fileID: 0}
   playerInteraction: {fileID: 0}
   colliderManager: {fileID: 0}
-  useCacheSound: 1
+  useCacheSound: 0
