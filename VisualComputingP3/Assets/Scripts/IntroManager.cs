@@ -33,7 +33,7 @@ public class IntroManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S) && !skipIntro)
+        if (Input.GetKeyDown(KeyCode.P) && !skipIntro)
         {
             skipIntro = true;
             
