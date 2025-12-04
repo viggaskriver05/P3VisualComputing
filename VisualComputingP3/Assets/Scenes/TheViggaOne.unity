@@ -2609,15 +2609,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1251907132589623894, guid: e94fa165acc44534eb30af568cb9a75b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.15
+      value: 0.919
       objectReference: {fileID: 0}
     - target: {fileID: 1251907132589623894, guid: e94fa165acc44534eb30af568cb9a75b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1999938
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 1251907132589623894, guid: e94fa165acc44534eb30af568cb9a75b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.56
+      value: 7.63
       objectReference: {fileID: 0}
     - target: {fileID: 1251907132589623894, guid: e94fa165acc44534eb30af568cb9a75b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6553,6 +6553,10 @@ PrefabInstance:
       propertyPath: p3Object
       value: 
       objectReference: {fileID: 43144324}
+    - target: {fileID: 4498224740889834217, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: faceScannerObj
+      value: 
+      objectReference: {fileID: 645532204}
     - target: {fileID: 5419514442180720278, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
       propertyPath: p3Object
       value: 
@@ -6596,6 +6600,10 @@ PrefabInstance:
     - target: {fileID: 6942105324752689762, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
       propertyPath: m_Name
       value: Hallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057161682886963114, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7462275672192720291, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
       propertyPath: m_Name
@@ -6657,6 +6665,14 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 1483914522}
+    - target: {fileID: 8533455564608814081, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: needsKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533455564608814081, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: openSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8533455564608814081, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
       propertyPath: openRotated
       value: 1
@@ -6779,7 +6795,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 433497136}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   doorObj: {fileID: 1208905062}
-  rightHand: {fileID: 0}
+  keyCard: {fileID: 159465010}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -8730,6 +8746,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 819434976350270386, guid: 11a09d651e2619d4c8acd32ca0990bf6, type: 3}
+--- !u!1 &645532204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7568087355054497401, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+  m_PrefabInstance: {fileID: 482499606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &645842509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf6d4476a87266742830aef65fcbe321, type: 3}
@@ -10025,16 +10046,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8314042953094884435, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
---- !u!1 &727189658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3189400314741011628, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
-  m_PrefabInstance: {fileID: 1904504817}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &727189659 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5942718100660660270, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
-  m_PrefabInstance: {fileID: 1904504817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &728638381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11928,7 +11939,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 1329738861}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   doorObj: {fileID: 525600064}
-  rightHand: {fileID: 727189658}
+  keyCard: {fileID: 0}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -16878,10 +16889,10 @@ MonoBehaviour:
   promptOnEmotionalScan: The user is looking into a facial scanner while doing their
     daily emotional scan
   promptOnHallwayScan: The user has opened a door which is not supposed to be opened
-  faceScannerObj: {fileID: 0}
-  greenMaterial: {fileID: 0}
-  doorObj: {fileID: 0}
-  rightHand: {fileID: 727189659}
+  faceScannerObj: {fileID: 493295851}
+  greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
+  doorObj: {fileID: 1208905062}
+  keyCard: {fileID: 159465010}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -16924,7 +16935,7 @@ MonoBehaviour:
   LDoor: {fileID: 641283096}
   RDoor: {fileID: 132895949}
   openWidth: 2.5
-  openSpeed: 3
+  openSpeed: 1.5
   facialScanNeeded: 1
   openRotated: 0
 --- !u!4 &1208905066 stripped
@@ -17880,7 +17891,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 968026266}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   doorObj: {fileID: 525600064}
-  rightHand: {fileID: 0}
+  keyCard: {fileID: 0}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -23504,11 +23515,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 0.8724
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23516,7 +23527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.46
+      value: 6.441
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
       propertyPath: m_LocalRotation.w
