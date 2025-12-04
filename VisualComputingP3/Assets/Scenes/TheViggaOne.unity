@@ -6804,8 +6804,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.75, y: 1.59, z: 1.04}
-  m_Center: {x: -1.62, y: 0.69, z: -1.19}
+  m_Size: {x: 1.64, y: 1.59, z: 1.21}
+  m_Center: {x: -1.72, y: 0.44, z: -1.33}
 --- !u!1 &497330646
 GameObject:
   m_ObjectHideFlags: 0
@@ -17621,27 +17621,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7587711570456867947, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
   m_PrefabInstance: {fileID: 1904504817}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1300041989
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408358762}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1302902974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3315954688725367957, guid: 73fba9a509510a84bb73262daea699b0, type: 3}
@@ -23753,6 +23732,10 @@ PrefabInstance:
       propertyPath: interactionPromptText
       value: 
       objectReference: {fileID: 150432052}
+    - target: {fileID: 6351446508169772743, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
+      propertyPath: near clip plane
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7172963951713230535, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
       propertyPath: m_VideoClip
       value: 
@@ -23763,10 +23746,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1540435691480857418, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 645842509}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6998263748160980189, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1300041989}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
 --- !u!1001 &1911767824
 PrefabInstance:
