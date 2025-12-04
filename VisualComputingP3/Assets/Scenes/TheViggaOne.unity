@@ -25175,7 +25175,7 @@ MonoBehaviour:
   deactivateDelay: 35
   fadeDuration: 2
   flutterSpeed: 0.5
-  sitUpSpeed: 1
+  sitUpSpeed: 3
   sitUpPosition: {x: 13.55, y: 1.55, z: 8.3}
 --- !u!4 &1965437022
 Transform:
