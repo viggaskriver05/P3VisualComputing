@@ -12,6 +12,7 @@ public class Door : InteractionScript
     public float openWidth;
     public float openSpeed = 0.5f;
     public bool facialScanNeeded = true;
+    public bool openRotated = false;
 
     private Vector3 lDoorClosedPos, lDoorOpenPos;
     private Vector3 rDoorClosedPos, rDoorOpenPos;
@@ -25,8 +26,16 @@ public class Door : InteractionScript
         //colliderManager = new ColliderManager();
         lDoorClosedPos = LDoor.position;
         rDoorClosedPos = RDoor.position;
-        lDoorOpenPos = lDoorClosedPos + new Vector3(0, 0, -openWidth);
-        rDoorOpenPos = rDoorClosedPos + new Vector3(0, 0, openWidth);
+        if (!openRotated)
+        { 
+            lDoorOpenPos = lDoorClosedPos + new Vector3(0, 0, -openWidth);
+            rDoorOpenPos = rDoorClosedPos + new Vector3(0, 0, openWidth);
+        }
+        else
+        {
+            lDoorOpenPos = lDoorClosedPos + new Vector3(openWidth, 0, 0);
+            rDoorOpenPos = rDoorClosedPos + new Vector3(-openWidth, 0, 0);
+        }
     }
 
 
@@ -71,18 +80,34 @@ public class Door : InteractionScript
             while (lerpProgress < 1f)
             {
                 lerpProgress += Time.deltaTime * openSpeed;
-
-                if (isOpen)
+                if (!openRotated)
                 {
-                    LDoor.position = Vector3.Lerp(lDoorClosedPos, lDoorOpenPos, lerpProgress);
-                    RDoor.position = Vector3.Lerp(rDoorClosedPos, rDoorOpenPos, lerpProgress);
+                    if (isOpen)
+                    {
+                        LDoor.position = Vector3.Lerp(lDoorClosedPos, lDoorOpenPos, lerpProgress);
+                        RDoor.position = Vector3.Lerp(rDoorClosedPos, rDoorOpenPos, lerpProgress);
+                    }
+                    else
+                    {
+                        LDoor.position = Vector3.Lerp(lDoorOpenPos, lDoorClosedPos, lerpProgress);
+                        RDoor.position = Vector3.Lerp(rDoorOpenPos, rDoorClosedPos, lerpProgress);
+                    }
+                    yield return null;
                 }
                 else
                 {
-                    LDoor.position = Vector3.Lerp(lDoorOpenPos, lDoorClosedPos, lerpProgress);
-                    RDoor.position = Vector3.Lerp(rDoorOpenPos, rDoorClosedPos, lerpProgress);
+                    if (isOpen)
+                    {
+                        LDoor.position = Vector3.Lerp(lDoorClosedPos, lDoorOpenPos, lerpProgress);
+                        RDoor.position = Vector3.Lerp(rDoorClosedPos, rDoorOpenPos, lerpProgress);
+                    }
+                    else
+                    {
+                        LDoor.position = Vector3.Lerp(lDoorOpenPos, lDoorClosedPos, lerpProgress);
+                        RDoor.position = Vector3.Lerp(rDoorOpenPos, rDoorClosedPos, lerpProgress);
+                    }
+                    yield return null;
                 }
-                yield return null;
             }
         }
     }

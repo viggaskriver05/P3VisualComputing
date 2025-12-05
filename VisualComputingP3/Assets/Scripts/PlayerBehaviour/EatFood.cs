@@ -55,7 +55,7 @@ public class EatFood : MonoBehaviour
         }
         runFood.SetActive(true);
 
-        yield return new WaitForSeconds(5); //tilpas i forhold til hvor længe ai snakker
+        yield return new WaitForSeconds(2); //tilpas i forhold til hvor længe ai snakker
         playerMove.enabled = true;
         player.GetComponent<CapsuleCollider>().enabled = true;
     }
