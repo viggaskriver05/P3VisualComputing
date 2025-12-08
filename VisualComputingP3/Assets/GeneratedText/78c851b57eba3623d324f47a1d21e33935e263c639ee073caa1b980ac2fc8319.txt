@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-CkWb31JW1AJjf8oiA9ZmsZPvTAENq",
+  "object": "chat.completion",
+  "created": 1765204425,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Fear grips your heart, constricting your breath. Desperation fuels your every move, but can you truly escape?",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 136,
+    "completion_tokens": 25,
+    "total_tokens": 161,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_11f3029f6b"
+}

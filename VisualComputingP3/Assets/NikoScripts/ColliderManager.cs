@@ -18,7 +18,7 @@ public class ColliderManager : MonoBehaviour
     [Header("Universal Trigger Base Settings")]
     [SerializeField] private bool triggerOnEnter = true;
     [SerializeField] private bool triggerOnStay = true;
-    float coolDownDuration = 4f;
+    float coolDownDuration = 2f;
     float nextPlayEndingScan = 0f;
 
 

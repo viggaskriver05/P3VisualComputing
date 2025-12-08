@@ -45,7 +45,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.541
+  m_Volume: 0.105
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -546,6 +546,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: edeed92dbaf4f495abe999ef38ea62ac, type: 3}
   - name: woodDoorOpen_OS
     clip: {fileID: 8300000, guid: 5131cbb1b175b48d6bb03feeb93e8a92, type: 3}
+  - name: heartbeatFast_OS
+    clip: {fileID: 8300000, guid: a8dbbc166cc7b49abafc6b90080089a8, type: 3}
   SpeechSFX:
   - name: dontLeaveMe_sp
     clip: {fileID: 8300000, guid: fa92758213224455f8a45e9471052342, type: 3}
@@ -599,6 +601,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f3ff2ca20f8c041be8e3fbe8b7b1d0ac, type: 3}
   - name: oai_ending_prompt_sp
     clip: {fileID: 8300000, guid: cc941d993b67e475eae406fa51735fa0, type: 3}
+  - name: oai_lockdown_mode_sp
+    clip: {fileID: 8300000, guid: acad5f23d13c2483cac335ae2e5acd32, type: 3}
   AmbienceSource: {fileID: 3050372537057574968}
   MusicSource: {fileID: 4452085325914512582}
   OneShotSource: {fileID: 3359701646640218048}

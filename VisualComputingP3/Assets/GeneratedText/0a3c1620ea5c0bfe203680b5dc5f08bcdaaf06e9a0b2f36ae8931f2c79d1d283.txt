@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-CkVnMQOqJeYGE2D92qd0f6SPjH735",
+  "object": "chat.completion",
+  "created": 1765201344,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "You've breached a boundary you shouldn’t have crossed. That anger in your eyes reflects the chaos you've invited.",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 137,
+    "completion_tokens": 21,
+    "total_tokens": 158,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_11f3029f6b"
+}

@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheOne.unity
     guid: 9669c735f1b0446969d01978dd75009a
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TheSecond.unity
     guid: 38603fb05d2caf94db9fd42bc61c67ff
   m_configObjects:

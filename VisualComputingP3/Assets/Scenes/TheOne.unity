@@ -6589,6 +6589,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8533455564608814081, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: needsKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533455564608814081, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
+      propertyPath: openRotated
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7904025884239861939, guid: 71d6307c872384e4dae7b80c6a64403b, type: 3}
@@ -6694,7 +6702,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 433497136}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   doorObj: {fileID: 1208905062}
-  rightHand: {fileID: 0}
+  keyCard: {fileID: 0}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -6939,6 +6947,7 @@ MonoBehaviour:
   openWidth: 2.5
   openSpeed: 0.5
   facialScanNeeded: 1
+  openRotated: 0
 --- !u!65 &525600067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8644,6 +8653,34 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 819434976350270386, guid: 11a09d651e2619d4c8acd32ca0990bf6, type: 3}
+--- !u!83 &644153098
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_LoadType: 0
+  m_Channels: 0
+  m_Frequency: 0
+  m_BitsPerSample: 0
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!4 &645842509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf6d4476a87266742830aef65fcbe321, type: 3}
@@ -9085,34 +9122,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: f10293febe24c0448a8772d1d92b447b, type: 3}
---- !u!83 &676463266
-AudioClip:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_LoadType: 0
-  m_Channels: 0
-  m_Frequency: 0
-  m_BitsPerSample: 0
-  m_Length: 0
-  m_IsTrackerFormat: 0
-  m_Ambisonic: 0
-  m_SubsoundIndex: 0
-  m_PreloadAudioData: 1
-  m_LoadInBackground: 0
-  m_Legacy3D: 0
-  m_Resource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_CompressionFormat: 0
-  m_EditorResource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_EditorCompressionFormat: 0
 --- !u!1001 &677298115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9939,11 +9948,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8314042953094884435, guid: 4af614f9f9eb7ff44a43075a80239ea1, type: 3}
---- !u!1 &727189658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3189400314741011628, guid: 032f1ba0df88d488697633113e0f2eab, type: 3}
-  m_PrefabInstance: {fileID: 1904504817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &728638381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11833,7 +11837,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 1329738861}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   doorObj: {fileID: 525600064}
-  rightHand: {fileID: 727189658}
+  keyCard: {fileID: 0}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -16750,7 +16754,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 0}
   greenMaterial: {fileID: 0}
   doorObj: {fileID: 0}
-  rightHand: {fileID: 0}
+  keyCard: {fileID: 0}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -16789,12 +16793,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d59dd47258134440b9876f84c1b93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needsKey: 1
+  needsKey: 0
   LDoor: {fileID: 641283096}
   RDoor: {fileID: 132895949}
   openWidth: 2.5
   openSpeed: 3
   facialScanNeeded: 1
+  openRotated: 0
 --- !u!4 &1208905066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad98ea30bb7e7874b84451b77c274ba7, type: 3}
@@ -17748,7 +17753,7 @@ MonoBehaviour:
   faceScannerObj: {fileID: 968026266}
   greenMaterial: {fileID: 2100000, guid: 06d1e725b8074724b9e4fd778493aa8e, type: 2}
   doorObj: {fileID: 525600064}
-  rightHand: {fileID: 0}
+  keyCard: {fileID: 0}
   useIntroVideoGate: 1
   introVidIsDone: 0
   scanPromptDone: 0
@@ -18229,46 +18234,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3050372537057574968, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: m_Volume
-      value: 0.105
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: SpeechSFX.Array.size
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: OneShotSFX.Array.size
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: AmbienceSFX.Array.size
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: SpeechSFX.Array.data[26].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: acad5f23d13c2483cac335ae2e5acd32, type: 3}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: SpeechSFX.Array.data[26].name
-      value: oai_lockdown_mode_sp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: OneShotSFX.Array.data[22].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a8dbbc166cc7b49abafc6b90080089a8, type: 3}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: OneShotSFX.Array.data[22].name
-      value: heartbeatFast_OS
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: AmbienceSFX.Array.data[25].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b191d9517b3624f149bc72e58f12754e, type: 3}
-    - target: {fileID: 4815380364400787620, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
-      propertyPath: AmbienceSFX.Array.data[25].name
-      value: thisIsTheEnd_amb
-      objectReference: {fileID: 0}
     - target: {fileID: 7036425401884175630, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: m_Name
       value: Sound Manager
@@ -18276,11 +18241,11 @@ PrefabInstance:
     - target: {fileID: 7960662366915613651, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 676463266}
+      objectReference: {fileID: 644153098}
     - target: {fileID: 7960662366915613651, guid: df1a6bc7d21ff42a69f668b4c53ccfdf, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 676463266}
+      objectReference: {fileID: 644153098}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
