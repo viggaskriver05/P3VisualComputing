@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-599700165618758949
+--- !u!114 &-6240190098170415459
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_DirtyDecal_Shader
+  m_Name: DecalSplat
   m_Shader: {fileID: -6465566751694194690, guid: 9b4e681081e2b4c469111bb649e2f7ee, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Base_Map:
-        m_Texture: {fileID: 2800000, guid: d6fcad49af24df048951aac0a3342368, type: 3}
+        m_Texture: {fileID: 2800000, guid: b4f7cd48643ed6047b15024386a82a80, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Normal_Map:
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: d6fcad49af24df048951aac0a3342368, type: 3}
+        m_Texture: {fileID: 2800000, guid: b4f7cd48643ed6047b15024386a82a80, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -67,8 +67,8 @@ Material:
     - _DecalMeshDepthBias: 0
     - _DecalMeshViewBias: 0
     - _DrawOrder: 0
-    - _Smoothness: 0.684
+    - _Smothness: 0.4
     m_Colors:
-    - _Tint: {r: 1, g: 0.6320754, b: 0.6320754, a: 0.9333333}
+    - _Tint: {r: 0.07227205, g: 0.004772672, b: 0.004772672, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

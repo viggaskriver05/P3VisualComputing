@@ -26,16 +26,16 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        yaw += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        yaw += Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
+        pitch -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
         pitch = Mathf.Clamp(pitch, -90f, 90f);
 
         transform.rotation = Quaternion.Euler(0f, yaw, 0f);
         if (playerCamera)
             playerCamera.localRotation = Quaternion.Euler(pitch, 0f, 0f);
 
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
         Vector3 move = (transform.right * h + transform.forward * v).normalized * moveSpeed;
 
         if (characterController.isGrounded && verticalVelocity < 0f)
