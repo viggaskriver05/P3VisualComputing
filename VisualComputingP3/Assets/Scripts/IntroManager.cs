@@ -19,6 +19,7 @@ public class IntroManager : MonoBehaviour
     public float sitUpSpeed = 1.0f;
     public Vector3 sitUpPosition = new Vector3(0, 1, 0);
     private Vector3 startingPosition;
+    private Quaternion startingRotation;
     private bool skipIntro = false;
     private Coroutine deactivateCoroutine;
 
@@ -27,6 +28,7 @@ public class IntroManager : MonoBehaviour
         movementScript.enabled = false;
         fadeCanvas.alpha = 0f;
         startingPosition = playerTransform.position;
+        startingRotation = playerTransform.rotation;
         StartCoroutine(PlayIntroVideo());
         deactivateCoroutine = StartCoroutine(DeactivateAfterDelay(objectToDeactivate, deactivateDelay));
     }
@@ -62,6 +64,7 @@ public class IntroManager : MonoBehaviour
         yield return new WaitUntil(() => !introVid.isPlaying);
         if (skipIntro) yield break;
         yield return StartCoroutine(EyesFlutter());
+        yield return new WaitForSeconds(2f);
         yield return StartCoroutine(SitUp());
         SoundManager.Instance.PlaySpeechSFX("oai_welcome_sp");
         PointerCanvas.SetActive(true);
@@ -106,11 +109,14 @@ public class IntroManager : MonoBehaviour
 
         Vector3 start = startingPosition;
         Vector3 end = sitUpPosition;
+        
 
         while (t < sitUpSpeed)
         {
             t += Time.deltaTime;
             playerTransform.position = Vector3.Lerp(start, end, t / sitUpSpeed);
+            playerTransform.rotation = Quaternion.Slerp(startingRotation, Quaternion.Euler(0, 180, 0), t / sitUpSpeed);
+
             yield return null;
         }
 

@@ -42,7 +42,7 @@ public class ColliderManager : MonoBehaviour
     [SerializeField] private GameObject faceScannerObj;
     [SerializeField] private Material greenMaterial;
     [SerializeField] public GameObject doorObj;
-    [SerializeField] public GameObject rightHand;
+    [SerializeField] public GameObject keyCard;
 
     // ExerciseScanner-specific (sctivate when GameObject.tag == "ExerciseScanner")
     [Header("FacialScanner Settings (active when GameObject.tag == 'ExerciseScanner')")]
@@ -102,8 +102,8 @@ public class ColliderManager : MonoBehaviour
 
     void HandleTriggerFacialScanner(Collider other)
     {
-        player.DisplayInteractionPrompt();
-         if (demoInstance == null)
+        //player.DisplayInteractionPrompt();
+        if (demoInstance == null)
         {
             Debug.LogWarning("[ColliderManager] Missing OpenAiResponseToTtsWEmotionDemo in scene.");
             return;
@@ -309,9 +309,8 @@ public class ColliderManager : MonoBehaviour
             else
             {
                 Debug.Log("Starting door animation");
+                keyCard.SetActive(false);
                 StartCoroutine(door.OpenNow());
-                GameObject keyObj = rightHand.transform.Find("IDCardNew").gameObject;
-                keyObj.SetActive(false);
             }
         }
     }
