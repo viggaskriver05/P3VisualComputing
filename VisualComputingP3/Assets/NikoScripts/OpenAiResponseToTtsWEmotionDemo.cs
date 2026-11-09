@@ -48,8 +48,14 @@ public class OpenAiResponseToTtsWEmotionDemo : MonoBehaviour
         facialEmotionOverride = dominant;
     }
 
+    // True while the AI is generating or speaking a line
+    public bool IsBusy => isRunning;
+
     [ContextMenu("Run Once")]
-    public  async Task RunOnce()
+    public Task RunOnce() => RunWithPrompt(prompt);
+
+    // Lets other scripts (e.g. HeartRateCommenter) make the AI say something about a specific event
+    public async Task RunWithPrompt(string customPrompt)
     {
         if (isRunning) { Debug.Log("RunOnce already in progress."); return; }
         isRunning = true;
@@ -69,7 +75,7 @@ public class OpenAiResponseToTtsWEmotionDemo : MonoBehaviour
             Debug.Log($"Responding. (voice={ttsVoice}, model={ttsModel}, dominant={dominant})");
 
             // 1) Get text response
-            var raw = await responseClient.GetResponseAsync(prompt, systemPromptOverride, facialEmotionOverride, toneOverride);
+            var raw = await responseClient.GetResponseAsync(customPrompt, systemPromptOverride, facialEmotionOverride, toneOverride);
             if (string.IsNullOrWhiteSpace(raw))
             {
                 Debug.LogWarning("Response text was empty or null.");
